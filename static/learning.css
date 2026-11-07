@@ -2241,3 +2241,63 @@
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
 }
+
+/* TeX Gyre Termes Math：错题本首选字体；缺少文件时回退 Times/Cambria */
+@font-face {
+  font-family: "TeX Gyre Termes Math";
+  src: local("TeX Gyre Termes Math"),
+       local("TeXGyreTermesMath"),
+       url("/static/fonts/texgyretermes-math.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TeX Gyre Termes";
+  src: local("TeX Gyre Termes"),
+       local("TeXGyreTermes"),
+       url("/static/fonts/texgyretermes-regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Text", "Times New Roman", "Noto Serif CJK SC",
+    "Source Han Serif SC", "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Math", "Times New Roman", serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* 没有 TeX Gyre 文件时，优先用已安装的 Times New Roman，而不是 Cambria */
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Times New Roman",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Text", "Noto Serif CJK SC", "Source Han Serif SC",
+    "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Times New Roman",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Math", serif;
+}
