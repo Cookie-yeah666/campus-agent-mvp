@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="知行 · 有依据地回答，有回执地办事" />
+  <meta name="theme-color" content="#101a2b" />
+  <title>知行 · 校园智能服务助手</title>
+  <link rel="stylesheet" href="/static/style.css?v=20261107-18" />
+  <link rel="stylesheet" href="/static/learning.css?v=20261107-18" />
+</head>
+<body class="login-locked">
+  <div class="login-screen" id="login-screen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3.5 19.2 12.2 28 15 19.2 17.8 16 26.5 12.8 17.8 4 15 12.8 12.2 16 3.5Z" fill="url(#loginBrandGradient)" />
+            <circle cx="25" cy="7" r="2.2" fill="#8fd3b8" />
+            <defs>
+              <linearGradient id="loginBrandGradient" x1="4" y1="4" x2="28" y2="27" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9cc4ef" />
+                <stop offset="1" stop-color="#5fb99a" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <strong>知行</strong>
+          <span>ZHIXING COPILOT</span>
+        </div>
+      </div>
+      <span class="eyebrow">SIGN IN</span>
+      <h2>登录校园服务助手</h2>
+      <p class="login-sub">学生用名册中的学号、姓名登录；工作人员按角色进入不同视图。</p>
+      <div class="login-tabs" role="tablist" aria-label="登录类型">
+        <button type="button" class="is-active" data-login-mode="student">学生登录</button>
+        <button type="button" data-login-mode="staff">工作人员</button>
+      </div>
+      <form id="login-form" autocomplete="off">
+        <div id="student-fields">
+          <label class="login-field">
+            <span>学号</span>
+            <input id="login-student-id" type="text" inputmode="numeric" autocomplete="off" autocapitalize="none" spellcheck="false" />
+          </label>
+          <label class="login-field">
+            <span>姓名</span>
+            <input id="login-name" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" />
+          </label>
+        </div>
+        <div id="staff-fields" hidden>
+          <label class="login-field">
+            <span>账号</span>
+            <input id="login-username" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" />
+          </label>
+        </div>
+        <label class="login-field">
+          <span>密码</span>
+          <input id="login-password" type="password" autocomplete="new-password" />
+        </label>
+        <p class="login-error" id="login-error" hidden></p>
+        <button class="primary-btn login-submit" id="login-submit" type="submit">登录</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- ==================== 侧边栏 ==================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3.5 19.2 12.2 28 15 19.2 17.8 16 26.5 12.8 17.8 4 15 12.8 12.2 16 3.5Z" fill="url(#brandGradient)" />
+            <circle cx="25" cy="7" r="2.2" fill="#8fd3b8" />
+            <defs>
+              <linearGradient id="brandGradient" x1="4" y1="4" x2="28" y2="27" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9cc4ef" />
+                <stop offset="1" stop-color="#5fb99a" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>知行</h1>
+          <span>ZHIXING COPILOT</span>
+        </div>
+      </div>
+
+      <button class="new-chat-btn" id="new-chat-btn" type="button">
+        <svg class="icon"><use href="#i-plus"></use></svg>
+        <span>新建对话</span>
+        <kbd>Ctrl N</kbd>
+      </button>
+
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#/chat" class="nav-item is-active" data-route="chat">
+          <svg class="icon"><use href="#i-chat"></use></svg><span>对话工作台</span>
+        </a>
+        <a href="#/learning" class="nav-item" data-route="learning">
+          <svg class="icon"><use href="#i-clock"></use></svg><span>学习空间</span>
+        </a>
+        <a href="#/workorders" class="nav-item" data-route="workorders">
+          <svg class="icon"><use href="#i-ticket"></use></svg><span>工单中心</span>
+          <span class="nav-badge" id="nav-workorder-badge" hidden>0</span>
+        </a>
+        <a href="#/handoff" class="nav-item" data-route="handoff">
+          <svg class="icon"><use href="#i-users"></use></svg><span>人工坐席</span>
+        </a>
+        <a href="#/audit" class="nav-item" data-route="audit">
+          <svg class="icon"><use href="#i-pulse"></use></svg><span>审计回放</span>
+        </a>
+        <a href="#/knowledge" class="nav-item" data-route="knowledge">
+          <svg class="icon"><use href="#i-book"></use></svg><span>知识库</span>
+        </a>
+        <a href="#/students" class="nav-item" data-route="students">
+          <svg class="icon"><use href="#i-users"></use></svg><span>学生库</span>
+        </a>
+        <a href="#/evaluation" class="nav-item" data-route="evaluation">
+          <svg class="icon"><use href="#i-chart"></use></svg><span>评测中心</span>
+        </a>
+        <a href="#/system" class="nav-item" data-route="system">
+          <svg class="icon"><use href="#i-cpu"></use></svg><span>系统状态</span>
+        </a>
+      </nav>
+
+      <div class="session-block">
+        <div class="session-head">
+          <span>最近会话</span>
+          <span class="session-count" id="session-count">0</span>
+        </div>
+        <div class="session-list" id="session-list">
+          <div class="session-empty">还没有对话记录</div>
+        </div>
+      </div>
+
+      <div class="sidebar-user" id="sidebar-user">
+        <button class="sidebar-user-main" id="profile-trigger" type="button" aria-haspopup="menu" aria-expanded="false">
+          <span class="user-avatar" id="user-avatar">知</span>
+          <div>
+            <strong id="user-name">未登录</strong>
+            <span id="user-role">—</span>
+          </div>
+          <svg class="icon profile-chevron"><use href="#i-chevron"></use></svg>
+        </button>
+        <div class="profile-menu" id="profile-menu" role="menu" hidden>
+          <button type="button" data-profile-action="view" role="menuitem">个人资料</button>
+          <button type="button" data-profile-action="switch" role="menuitem">切换账户</button>
+          <button type="button" data-profile-action="logout" role="menuitem" class="danger">退出登录</button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="service-state">
+          <span class="pulse-dot"></span>
+          <div>
+            <strong>服务正常运行</strong>
+            <span id="footer-version">v1.0.0 · Local</span>
+          </div>
+        </div>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式">
+          <svg class="icon icon-sun"><use href="#i-sun"></use></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"></use></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==================== 主区域 ==================== -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="mobile-menu" type="button" aria-label="打开菜单">
+          <svg class="icon"><use href="#i-menu"></use></svg>
+        </button>
+        <div class="crumb">
+          <span id="crumb-section">对话工作台</span>
+          <span class="crumb-sep">/</span>
+          <strong id="crumb-title">新的对话</strong>
+        </div>
+        <div class="topbar-right">
+          <div class="notification-wrap" id="notification-wrap">
+            <button class="icon-btn notification-btn" id="notifications-btn" type="button" aria-label="通知">
+              <svg class="icon"><use href="#i-bell"></use></svg>
+              <span class="notification-badge" id="notification-badge" hidden>0</span>
+            </button>
+            <div class="notification-menu" id="notifications-menu" hidden>
+              <div class="notification-head"><strong>通知</strong><button type="button" class="text-btn" id="notifications-read-all">全部已读</button></div>
+              <div id="notifications-list"><p class="muted-text">暂无通知</p></div>
+            </div>
+          </div>
+          <span class="model-chip">
+            <span class="model-dot"></span>
+            <span id="model-name">DeepSeek-V3 · Mock</span>
+          </span>
+          <button class="ghost-btn inspector-toggle" id="inspector-toggle" type="button">
+            <svg class="icon"><use href="#i-pulse"></use></svg>
+            <span>执行轨迹</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- 对话 -->
+      <section class="view is-active" id="view-chat">
+        <div class="chat-column">
+          <div class="chat-scroll" id="chat-scroll">
+            <div class="welcome" id="welcome">
+              <div class="hero">
+                <div class="hero-aurora" aria-hidden="true"></div>
+                <span class="eyebrow">DUAL-AGENT CAMPUS SERVICE</span>
+                <h1>有依据的答案，<br /><em>能办成的事。</em></h1>
+                <p class="hero-sub">
+                  知识问答 Agent 负责查得准、引得到；办事流程 Agent 负责跑通补卡全链路。
+                  每一句结论都可追溯到校内制度原文。
+                </p>
+                <div class="hero-meta">
+                  <span><svg class="icon"><use href="#i-shield"></use></svg> 引用溯源</span>
+                  <span><svg class="icon"><use href="#i-clock"></use></svg> 7×24 在线</span>
+                  <span><svg class="icon"><use href="#i-cpu"></use></svg> 全链路留痕</span>
+                </div>
+              </div>
+
+              <div class="capability-grid">
+                <button class="cap-card" data-suggest="奖学金申请需要什么材料？">
+                  <span class="cap-icon tone-indigo"><svg class="icon"><use href="#i-search"></use></svg></span>
+                  <strong>制度问答</strong>
+                  <p>四类知识库混合检索，回答附章节与文号引用。</p>
+                  <span class="cap-arrow"><svg class="icon"><use href="#i-arrow"></use></svg></span>
+                </button>
+                <button class="cap-card" data-suggest="我要补办校园卡">
+                  <span class="cap-icon tone-teal"><svg class="icon"><use href="#i-ticket"></use></svg></span>
+                  <strong>校园卡补办</strong>
+                  <p>校验挂失与欠费，预约时段，一次对话拿到回执。</p>
+                  <span class="cap-arrow"><svg class="icon"><use href="#i-arrow"></use></svg></span>
+                </button>
+                <button class="cap-card" data-suggest="我要报修网络">
+                  <span class="cap-icon tone-amber"><svg class="icon"><use href="#i-pulse"></use></svg></span>
+                  <strong>网络报修</strong>
+                  <p>描述断网/网线问题，确认后生成报修单并派单。</p>
+                  <span class="cap-arrow"><svg class="icon"><use href="#i-arrow"></use></svg></span>
+                </button>
+                <button class="cap-card" data-suggest="转专业需要什么条件？">
+                  <span class="cap-icon tone-amber"><svg class="icon"><use href="#i-book"></use></svg></span>
+                  <strong>教务政策</strong>
+                  <p>转专业、选课、考核与成绩规则，条款级回答。</p>
+                  <span class="cap-arrow"><svg class="icon"><use href="#i-arrow"></use></svg></span>
+                </button>
+                <button class="cap-card" data-suggest="图书借阅期限是多久？">
+                  <span class="cap-icon tone-slate"><svg class="icon"><use href="#i-library"></use></svg></span>
+                  <strong>图书馆服务</strong>
+                  <p>借阅、座位预约、电子资源使用规范。</p>
+                  <span class="cap-arrow"><svg class="icon"><use href="#i-arrow"></use></svg></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="messages" id="messages" aria-live="polite"></div>
+          </div>
+
+          <div class="composer-wrap">
+            <div class="composer" id="composer">
+              <textarea
+                id="composer-input"
+                rows="1"
+                maxlength="2000"
+                placeholder="问制度、查政策，或直接说「我要补办校园卡」…"
+                aria-label="输入消息"
+              ></textarea>
+              <div class="composer-bar">
+                <div class="composer-hints">
+                  <span><kbd>Enter</kbd> 发送</span>
+                  <span><kbd>Shift</kbd> + <kbd>Enter</kbd> 换行</span>
+                </div>
+                <button class="send-btn" id="send-btn" type="button" aria-label="发送">
+                  <span>发送</span>
+                  <svg class="icon"><use href="#i-send"></use></svg>
+                </button>
+              </div>
+            </div>
+            <p class="composer-note">回答仅基于内置校内制度库；知识不足时会明确拒答并转人工。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 学习空间 -->
+      <section class="view" id="view-learning">
+        <div class="page" id="learning-page"></div>
+      </section>
+
+      <!-- 工单 -->
+      <section class="view" id="view-workorders">
+        <div class="page" id="workorders-page"></div>
+      </section>
+
+      <!-- 人工坐席 -->
+      <section class="view" id="view-handoff">
+        <div class="page" id="handoff-page"></div>
+      </section>
+
+      <!-- 审计 -->
+      <section class="view" id="view-audit">
+        <div class="page" id="audit-page"></div>
+      </section>
+
+      <!-- 知识库 -->
+      <section class="view" id="view-knowledge">
+        <div class="page" id="knowledge-page"></div>
+      </section>
+
+      <!-- 学生库 -->
+      <section class="view" id="view-students">
+        <div class="page" id="students-page"></div>
+      </section>
+
+      <!-- 评测 -->
+      <section class="view" id="view-evaluation">
+        <div class="page" id="evaluation-page"></div>
+      </section>
+
+      <!-- 系统 -->
+      <section class="view" id="view-system">
+        <div class="page" id="system-page"></div>
+      </section>
+    </main>
+
+    <!-- ==================== 右侧轨迹 ==================== -->
+    <aside class="inspector" id="inspector">
+      <div class="inspector-head">
+        <div>
+          <span class="eyebrow">TRACE</span>
+          <h2>执行轨迹</h2>
+        </div>
+        <button class="icon-btn" id="inspector-close" type="button" aria-label="收起轨迹">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+      <div class="inspector-body" id="inspector-body"></div>
+    </aside>
+  </div>
+
+  <div class="drawer-root" id="drawer-root"></div>
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+  <!-- ==================== SVG 图标 ==================== -->
+  <svg class="svg-sprite" aria-hidden="true">
+    <defs>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.8L3 21l1.9-4.6A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z"/></symbol>
+      <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h13A2.5 2.5 0 0 1 21 8.5v1a2.5 2.5 0 0 0 0 5v1a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 15.5v-1a2.5 2.5 0 0 0 0-5v-1Z"/><path d="M9 6v12" stroke-dasharray="2 3"/></symbol>
+      <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/><path d="M8 7h8M8 10.5h5"/></symbol>
+      <symbol id="i-library" viewBox="0 0 24 24"><path d="M4 21V8l4-3 4 3v13M12 21V11l4-3 4 3v10"/><path d="M2 21h20M8 11v2M8 15v2M16 13v2M16 17v2"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect x="10" y="10" width="4" height="4" rx="1"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m4 4 17 8-17 8 3.5-8L4 4Z"/><path d="M7.5 12H21"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.1 2.1-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21h-3v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2.1-2.1.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3v-3h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.1-2.1.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V3h3v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.1 2.1-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v3h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.7 7.5 9 4.3-1.3 7.5-4.5 7.5-9V6L12 3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.2 6.3L20.5 12l-6.3 2.7L12 21l-2.2-6.3L3.5 12l6.3-2.7L12 3Z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.7 2.9-6 6.5-6s6.5 2.3 6.5 6"/><path d="M16 5.5a3 3 0 0 1 0 5.8M17.5 14c2.8.5 4.5 2.6 4.5 5.5"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 3v4M9 13h.01M15 13h.01M9 16.5c.8.7 1.8 1 3 1s2.2-.3 3-1"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17.5h.01"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5Z"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    </defs>
+  </svg>
+
+  <script src="/static/app.js?v=20261107-18"></script>
+  <script src="/static/learning.js?v=20261107-18"></script>
+  <script src="/static/handoff.js?v=20261107-18"></script>
+</body>
+</html>

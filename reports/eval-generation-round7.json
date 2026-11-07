@@ -1,0 +1,1710 @@
+{
+  "generation": {
+    "suite": "generation",
+    "dataset": {
+      "name": "qa_300_silver",
+      "split": "test",
+      "sampled": 120
+    },
+    "created_at": "2026-11-06T16:51:25+00:00",
+    "run_id": "evgen-98db70d1",
+    "mode": "mock",
+    "answerable_n": 60,
+    "unanswerable_n": 60,
+    "citation_presence_rate": 0.9667,
+    "citation_gold_hit_rate": 0.9667,
+    "false_refusal_rate": 0.0333,
+    "refusal_accuracy": 0.9833,
+    "false_answer_rate": 0.0167,
+    "avg_citations": 1.07,
+    "avg_latency_ms": 2.02,
+    "details": [
+      {
+        "id": "qa-0004",
+        "query": "我想了解校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.98,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0005",
+        "query": "关于校园卡补办要多少钱，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.29,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第一条 为规范校园卡的发放、使用与管理，保障师生校园生活秩序，依据学校相关规定制定本办法。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 [1]\n- 第二条 校园卡是持卡人在"
+      },
+      {
+        "id": "qa-0006",
+        "query": "校园卡补办要多少钱有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.89,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0007",
+        "query": "麻烦查一下校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.22,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0008",
+        "query": "根据校内制度，校园卡补办要多少钱？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.04,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第二条 校园卡是持卡人在校内的身份凭证和电子钱包，具有门禁通行、图书借阅、食堂消费、费用缴纳等功能，实行一人一卡、实名使用。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 ["
+      },
+      {
+        "id": "qa-0009",
+        "query": "校园卡补办要多少钱的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.89,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0010",
+        "query": "学生手册里校园卡补办要多少钱怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 5.7,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0011",
+        "query": "如果我想知道校园卡补办要多少钱，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.49,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0012",
+        "query": "帮我确认一下：校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.07,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0016",
+        "query": "我想了解校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.21,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0017",
+        "query": "关于校园卡挂失后多久能拿到新卡，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.54,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第五条 新生入学时由学校统一制作首张校园卡，工本费包含在入学代办费中，不另行收取。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先"
+      },
+      {
+        "id": "qa-0018",
+        "query": "校园卡挂失后多久能拿到新卡有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.21,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0019",
+        "query": "麻烦查一下校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.1,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0020",
+        "query": "根据校内制度，校园卡挂失后多久能拿到新卡？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 8.35,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0021",
+        "query": "校园卡挂失后多久能拿到新卡的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 6.8,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0022",
+        "query": "学生手册里校园卡挂失后多久能拿到新卡怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.74,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0023",
+        "query": "如果我想知道校园卡挂失后多久能拿到新卡，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.32,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0024",
+        "query": "帮我确认一下：校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.0,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0028",
+        "query": "我想了解补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.74,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0029",
+        "query": "关于补办校园卡需要带什么证件，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.47,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第一条 为规范校园卡的发放、使用与管理，保障师生校园生活秩序，依据学校相关规定制定本办法。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 [1]\n- 第二条 校园卡是持"
+      },
+      {
+        "id": "qa-0030",
+        "query": "补办校园卡需要带什么证件有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.1,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要同时满足以下条件：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内"
+      },
+      {
+        "id": "qa-0031",
+        "query": "麻烦查一下补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 11.16,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0032",
+        "query": "根据校内制度，补办校园卡需要带什么证件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.05,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第二条 校园卡是持卡人在校内的身份凭证和电子钱包，具有门禁通行、图书借阅、食堂消费、费用缴纳等功能，实行一人一卡、实名使用。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准"
+      },
+      {
+        "id": "qa-0033",
+        "query": "补办校园卡需要带什么证件的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.06,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要同时满足以下条件：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内"
+      },
+      {
+        "id": "qa-0034",
+        "query": "学生手册里补办校园卡需要带什么证件怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.41,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0035",
+        "query": "如果我想知道补办校园卡需要带什么证件，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.11,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0036",
+        "query": "帮我确认一下：补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.02,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0040",
+        "query": "我想了解校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.47,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0041",
+        "query": "关于校门晚上几点关闭，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.9,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0042",
+        "query": "校门晚上几点关闭有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.97,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0043",
+        "query": "麻烦查一下校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.23,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0044",
+        "query": "根据校内制度，校门晚上几点关闭？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.04,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0045",
+        "query": "校门晚上几点关闭的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.56,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0046",
+        "query": "学生手册里校门晚上几点关闭怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.75,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0047",
+        "query": "如果我想知道校门晚上几点关闭，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.55,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0048",
+        "query": "帮我确认一下：校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.84,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0052",
+        "query": "我想了解晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 8.79,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0053",
+        "query": "关于晚归会怎么处理，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.86,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第十五条 因违反门禁规定引发安全事故的，依法依规追究责任。 [1]\n\n以上内容依据校内制度文件整理，如与最新通知不一致，以主管部门解释为准。"
+      },
+      {
+        "id": "qa-0054",
+        "query": "晚归会怎么处理有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-discipline"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.44,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，需要同时满足以下条件：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第五条 携带规定以外的物品进入考场且未按要求存放的，给予警告处分；经提醒仍不改正的，给予严重警告处分。 [2]\n- 第八条 考试作弊行为同时违反法"
+      },
+      {
+        "id": "qa-0055",
+        "query": "麻烦查一下晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.69,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0056",
+        "query": "根据校内制度，晚归会怎么处理？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 2.47,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0057",
+        "query": "晚归会怎么处理的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "affairs-scholarship"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.9,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，需要同时满足以下条件：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第二条 国家奖学金奖励标准为每人每年 8000 元；国家励志奖学金为每人每年 5000 元；校级优秀学生奖学金一等 3000 元、二等 2000 "
+      },
+      {
+        "id": "qa-0058",
+        "query": "学生手册里晚归会怎么处理怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.85,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0059",
+        "query": "如果我想知道晚归会怎么处理，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 2.57,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0060",
+        "query": "帮我确认一下：晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 8.97,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0064",
+        "query": "我想了解转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.41,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0065",
+        "query": "关于转专业需要什么条件，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.86,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0066",
+        "query": "转专业需要什么条件有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.07,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0067",
+        "query": "麻烦查一下转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.97,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0068",
+        "query": "根据校内制度，转专业需要什么条件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.37,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0069",
+        "query": "转专业需要什么条件的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.08,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0070",
+        "query": "学生手册里转专业需要什么条件怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.31,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0071",
+        "query": "如果我想知道转专业需要什么条件，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.33,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0072",
+        "query": "帮我确认一下：转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.93,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0076",
+        "query": "我想了解转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.53,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已转过一次专业的。 [1]\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专"
+      },
+      {
+        "id": "qa-0077",
+        "query": "关于转专业可以申请几个专业，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.89,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第十八条 转专业学生的修业年限按新专业培养方案执行，最长不超过学校规定的学习年限。 [1]\n- 第十五条 获准转专业的学生，自下一学年第一学期起进入新专业学习，原专业学籍同时注销。 [1]\n- 第十六条 已修课程与转入专业培养方案相同或相近的，可申请学分认定"
+      },
+      {
+        "id": "qa-0078",
+        "query": "转专业可以申请几个专业有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.69,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第十五条 获准转专业的学生，自下一学年第一学期起进入新专业学习，原专业学籍同时注销。 [1]\n- 第十六条 已修课程与转入专业培养方案相同或相近的，可申请学分认定，由转入学院审核、教务处备案。 [1]\n- 第十七条 未修读的转入专业必修课程，应当通过"
+      },
+      {
+        "id": "qa-0079",
+        "query": "麻烦查一下转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.63,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已转过一次专业的。 [1]\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专"
+      },
+      {
+        "id": "qa-0080",
+        "query": "根据校内制度，转专业可以申请几个专业？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.31,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第九条 教务处每年 4 月底公布各专业接收计划、考核科目与咨询方式。 [1]\n- 第十三条 转入学院根据考核成绩择优确定拟接收名单，在学院网站公示 5 个工作日。 [1]\n- 第十条 学生在规定时间内通过教务系统提交申请，上传成绩单和个人陈述，并打印申请表交"
+      },
+      {
+        "id": "qa-0081",
+        "query": "转专业可以申请几个专业的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.27,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已"
+      },
+      {
+        "id": "qa-0241",
+        "query": "学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.08,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0242",
+        "query": "我想了解学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.07,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0243",
+        "query": "帮我查一下学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.06,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0244",
+        "query": "学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0245",
+        "query": "我想了解学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0246",
+        "query": "帮我查一下学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.1,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0247",
+        "query": "学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.58,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0248",
+        "query": "我想了解学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 3.97,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0249",
+        "query": "帮我查一下学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.63,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0250",
+        "query": "最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.06,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0251",
+        "query": "我想了解最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0252",
+        "query": "帮我查一下最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0253",
+        "query": "今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0254",
+        "query": "我想了解今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0255",
+        "query": "帮我查一下今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0256",
+        "query": "基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0257",
+        "query": "我想了解基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0258",
+        "query": "帮我查一下基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0259",
+        "query": "彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0260",
+        "query": "我想了解彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0261",
+        "query": "帮我查一下彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0262",
+        "query": "放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0263",
+        "query": "我想了解放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0264",
+        "query": "帮我查一下放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.1,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0265",
+        "query": "学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "affairs-scholarship"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": false,
+        "latency_ms": 1.6,
+        "answer_preview": "根据校内制度文件，关键信息如下：\n\n- 第十六条 获奖学生应发挥示范作用，无故不参加学校组织的励志活动且情节严重的，下学年不予推荐评优。 [1]\n- 第十四条 奖学金由学校一次性发放至学生本人银行卡，不得以现金形式发放，不得截留、挪用。 [1]\n\n以上内容依据校内制度文件整理，如与最新通知不一致，以主管部门解释为准。"
+      },
+      {
+        "id": "qa-0266",
+        "query": "我想了解学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.34,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0267",
+        "query": "帮我查一下学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.23,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0268",
+        "query": "机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0269",
+        "query": "我想了解机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0270",
+        "query": "帮我查一下机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0271",
+        "query": "推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0272",
+        "query": "我想了解推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0273",
+        "query": "帮我查一下推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0274",
+        "query": "买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0275",
+        "query": "我想了解买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0276",
+        "query": "帮我查一下买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0277",
+        "query": "电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.54,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0278",
+        "query": "我想了解电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.64,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0279",
+        "query": "帮我查一下电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.67,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0280",
+        "query": "学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0281",
+        "query": "我想了解学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0282",
+        "query": "帮我查一下学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0283",
+        "query": "快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.55,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0284",
+        "query": "我想了解快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.63,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0285",
+        "query": "帮我查一下快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.78,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0286",
+        "query": "外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.07,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0287",
+        "query": "我想了解外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0288",
+        "query": "帮我查一下外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0289",
+        "query": "健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0290",
+        "query": "我想了解健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0291",
+        "query": "帮我查一下健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0292",
+        "query": "养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.6,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0293",
+        "query": "我想了解养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.64,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0294",
+        "query": "帮我查一下养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.94,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0295",
+        "query": "驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.9,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0296",
+        "query": "我想了解驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.9,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0297",
+        "query": "帮我查一下驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.88,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0298",
+        "query": "演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.09,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0299",
+        "query": "我想了解演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0300",
+        "query": "帮我查一下演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      }
+    ],
+    "review_status": "silver",
+    "note": "MockLLM 下只评引用存在性/拒答/引用文档命中，不代表真实生成质量。"
+  }
+}

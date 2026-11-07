@@ -1,0 +1,44 @@
+# 运行时数据
+data/
+# 学生名册含个人信息，不提交仓库；用 scripts/import_students.py 重建
+registry/*.db
+registry/*.db-*
+registry/imports/
+runtime_work/
+runtime_tests/
+pytest_tmp/
+.pytest_tmp/
+pytest-cache-files-*/
+pytest_run.log
+_smoke_data/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# 环境与编辑器
+.env
+.idea/
+.vscode/
+.DS_Store
+
+# 本地截图与调试产物
+_shots/
+*.tmp
+learning_data/
+data/learning.db
+data/learning/
+learning_data_clean/
+
+data_demo/
+.env.*
+*.pem
+*.key
+cookies.txt

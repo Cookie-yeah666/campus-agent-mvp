@@ -1,0 +1,275 @@
+{
+  "id": "card_reissue",
+  "name": "校园卡补办",
+  "description": "面向校园卡遗失或损坏的补办流程：抽取学号与校区、校验学籍、检查挂失与欠费、预约时段、人工确认、提交制卡工单并返回回执。",
+  "version": "1.2.0",
+  "start_node": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "name": "开始",
+      "node_type": "start",
+      "description": "流程入口",
+      "config": {}
+    },
+    {
+      "id": "extract_params",
+      "name": "参数抽取",
+      "node_type": "parameter_extract",
+      "description": "从自然语言中抽取学号与校区，缺失时暂停提问",
+      "config": {
+        "fields": [
+          "student_id",
+          "campus"
+        ]
+      }
+    },
+    {
+      "id": "query_profile",
+      "name": "校验学籍",
+      "node_type": "tool_call",
+      "description": "调用 student.query_profile 校验学号",
+      "config": {
+        "tool": "student.query_profile",
+        "arguments": {
+          "student_id": "$student_id"
+        },
+        "save_as": "student_profile"
+      }
+    },
+    {
+      "id": "check_profile",
+      "name": "学号有效性判断",
+      "node_type": "condition",
+      "description": "学号存在则继续，否则提示错误并结束",
+      "config": {}
+    },
+    {
+      "id": "query_loss",
+      "name": "查询挂失状态",
+      "node_type": "tool_call",
+      "description": "调用 card.query_loss_status 查询挂失状态",
+      "config": {
+        "tool": "card.query_loss_status",
+        "arguments": {
+          "student_id": "$student_id"
+        },
+        "save_as": "loss_status"
+      }
+    },
+    {
+      "id": "check_loss",
+      "name": "挂失状态判断",
+      "node_type": "condition",
+      "description": "未挂失则先自动挂失，再继续补办",
+      "config": {}
+    },
+    {
+      "id": "report_loss",
+      "name": "自动挂失",
+      "node_type": "tool_call",
+      "description": "调用 card.report_loss 自动办理挂失",
+      "config": {
+        "tool": "card.report_loss",
+        "arguments": {
+          "student_id": "$student_id"
+        },
+        "save_as": "report_result"
+      }
+    },
+    {
+      "id": "query_balance",
+      "name": "查询欠费",
+      "node_type": "tool_call",
+      "description": "调用 card.query_balance 检查是否欠费",
+      "config": {
+        "tool": "card.query_balance",
+        "arguments": {
+          "student_id": "$student_id"
+        },
+        "save_as": "balance"
+      }
+    },
+    {
+      "id": "check_arrears",
+      "name": "欠费判断",
+      "node_type": "condition",
+      "description": "有欠费则提示先缴清，无欠费则继续预约",
+      "config": {}
+    },
+    {
+      "id": "query_slots",
+      "name": "查询预约时段",
+      "node_type": "tool_call",
+      "description": "调用 card.query_available_slots 查询未来 3 天时段",
+      "config": {
+        "tool": "card.query_available_slots",
+        "arguments": {
+          "campus": "$campus"
+        },
+        "save_as": "slots"
+      }
+    },
+    {
+      "id": "confirm",
+      "name": "人工确认",
+      "node_type": "confirmation",
+      "description": "展示预约时段、材料与工本费，等待用户确认",
+      "config": {
+        "fee_source": "settings.card_reissue_fee"
+      }
+    },
+    {
+      "id": "submit_order",
+      "name": "提交制卡工单",
+      "node_type": "tool_call",
+      "description": "调用 card.submit_reissue_order，按学号+日期幂等",
+      "config": {
+        "tool": "card.submit_reissue_order",
+        "arguments": {
+          "student_id": "$student_id",
+          "campus": "$campus",
+          "slot_id": "$slot_id",
+          "idempotency_key": "$idempotency_key"
+        },
+        "save_as": "order",
+        "idempotent": true,
+        "idempotency_key_template": "{workflow_type}:{student_id}:{date}"
+      }
+    },
+    {
+      "id": "result_success",
+      "name": "返回回执",
+      "node_type": "result",
+      "description": "返回回执编号、预约时间与取卡地点",
+      "config": {
+        "result_kind": "success"
+      }
+    },
+    {
+      "id": "result_invalid_student",
+      "name": "学号错误提示",
+      "node_type": "result",
+      "description": "学号不存在时结束流程",
+      "config": {
+        "result_kind": "invalid_student"
+      }
+    },
+    {
+      "id": "result_arrears",
+      "name": "欠费提示",
+      "node_type": "result",
+      "description": "存在欠费时提示先缴费",
+      "config": {
+        "result_kind": "arrears"
+      }
+    },
+    {
+      "id": "result_cancelled",
+      "name": "取消工单",
+      "node_type": "result",
+      "description": "用户取消时结束流程，不提交工单",
+      "config": {
+        "result_kind": "cancelled"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "start",
+      "target": "extract_params",
+      "condition": null,
+      "label": "开始办理"
+    },
+    {
+      "source": "extract_params",
+      "target": "query_profile",
+      "condition": null,
+      "label": "参数齐全"
+    },
+    {
+      "source": "query_profile",
+      "target": "check_profile",
+      "condition": null,
+      "label": "查询完成"
+    },
+    {
+      "source": "check_profile",
+      "target": "query_loss",
+      "condition": "student_valid",
+      "label": "学号有效"
+    },
+    {
+      "source": "check_profile",
+      "target": "result_invalid_student",
+      "condition": "student_invalid",
+      "label": "学号无效"
+    },
+    {
+      "source": "query_loss",
+      "target": "check_loss",
+      "condition": null,
+      "label": "查询完成"
+    },
+    {
+      "source": "check_loss",
+      "target": "query_balance",
+      "condition": "card_lost",
+      "label": "已挂失"
+    },
+    {
+      "source": "check_loss",
+      "target": "report_loss",
+      "condition": "card_not_lost",
+      "label": "未挂失，自动挂失"
+    },
+    {
+      "source": "report_loss",
+      "target": "query_balance",
+      "condition": null,
+      "label": "挂失完成"
+    },
+    {
+      "source": "query_balance",
+      "target": "check_arrears",
+      "condition": null,
+      "label": "查询完成"
+    },
+    {
+      "source": "check_arrears",
+      "target": "query_slots",
+      "condition": "no_arrears",
+      "label": "无欠费"
+    },
+    {
+      "source": "check_arrears",
+      "target": "result_arrears",
+      "condition": "has_arrears",
+      "label": "有欠费"
+    },
+    {
+      "source": "query_slots",
+      "target": "confirm",
+      "condition": null,
+      "label": "时段可用"
+    },
+    {
+      "source": "confirm",
+      "target": "submit_order",
+      "condition": "confirmed",
+      "label": "用户确认"
+    },
+    {
+      "source": "confirm",
+      "target": "result_cancelled",
+      "condition": "cancelled",
+      "label": "用户取消"
+    },
+    {
+      "source": "submit_order",
+      "target": "result_success",
+      "condition": null,
+      "label": "提交成功"
+    }
+  ]
+}

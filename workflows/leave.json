@@ -1,0 +1,100 @@
+{
+  "id": "leave_request",
+  "name": "请假申请",
+  "description": "学生请假：辅导员审批；超过 3 天再走学院二级审批，审批后提交并返回回执。",
+  "version": "1.0.0",
+  "start_node": "start",
+  "nodes": [
+    {"id": "start", "name": "开始", "node_type": "start", "config": {}},
+    {
+      "id": "extract_params",
+      "name": "填写请假信息",
+      "node_type": "parameter_extract",
+      "config": {"fields": ["student_id", "campus", "leave_days", "reason"]}
+    },
+    {
+      "id": "create_request",
+      "name": "生成请假单",
+      "node_type": "tool_call",
+      "config": {
+        "tool": "leave.create_request",
+        "arguments": {
+          "student_id": "$student_id",
+          "campus": "$campus",
+          "days": "$leave_days",
+          "reason": "$reason"
+        },
+        "save_as": "leave_request"
+      }
+    },
+    {
+      "id": "approval_counselor",
+      "name": "辅导员审批",
+      "node_type": "approval",
+      "config": {
+        "approval_role": "counselor",
+        "message_template": "请假申请待辅导员审批：\n- 学号：{student_id}\n- 校区：{campus}\n- 天数：{leave_days}\n- 原因：{reason}"
+      }
+    },
+    {
+      "id": "check_long",
+      "name": "是否超过 3 天",
+      "node_type": "condition",
+      "config": {}
+    },
+    {
+      "id": "approval_college",
+      "name": "学院审批",
+      "node_type": "approval",
+      "config": {
+        "approval_role": "college",
+        "message_template": "请假超过 3 天，待学院审批：\n- 学号：{student_id}\n- 天数：{leave_days}\n- 原因：{reason}"
+      }
+    },
+    {
+      "id": "submit_request",
+      "name": "提交请假",
+      "node_type": "tool_call",
+      "config": {
+        "tool": "leave.submit_request",
+        "arguments": {
+          "leave_id": "$leave_request_id",
+          "idempotency_key": "$idempotency_key"
+        },
+        "save_as": "order",
+        "idempotent": true,
+        "idempotency_key_template": "{workflow_type}:{student_id}:{date}"
+      }
+    },
+    {
+      "id": "result_success",
+      "name": "请假已通过",
+      "node_type": "result",
+      "config": {
+        "result_kind": "success",
+        "message_template": "请假申请已通过。\n\n- 回执：{receipt}\n- 学号：{student_id}\n- 天数：{leave_days}\n\n请按请假时间离校，返校后及时销假。"
+      }
+    },
+    {
+      "id": "result_rejected",
+      "name": "请假被驳回",
+      "node_type": "result",
+      "config": {
+        "result_kind": "cancelled",
+        "message_template": "请假申请未通过审批。请联系辅导员了解原因，修改后可重新提交。"
+      }
+    }
+  ],
+  "edges": [
+    {"source": "start", "target": "extract_params", "label": "开始"},
+    {"source": "extract_params", "target": "create_request", "label": "信息齐全"},
+    {"source": "create_request", "target": "approval_counselor", "label": "生成待审批单"},
+    {"source": "approval_counselor", "target": "check_long", "condition": "confirmed", "label": "辅导员通过"},
+    {"source": "approval_counselor", "target": "result_rejected", "condition": "cancelled", "label": "辅导员驳回"},
+    {"source": "check_long", "target": "approval_college", "condition": "leave_long", "label": "超过3天"},
+    {"source": "check_long", "target": "submit_request", "label": "3天内"},
+    {"source": "approval_college", "target": "submit_request", "condition": "confirmed", "label": "学院通过"},
+    {"source": "approval_college", "target": "result_rejected", "condition": "cancelled", "label": "学院驳回"},
+    {"source": "submit_request", "target": "result_success", "label": "提交成功"}
+  ]
+}

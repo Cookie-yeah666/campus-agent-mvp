@@ -1,0 +1,94 @@
+{
+  "id": "network_repair",
+  "name": "网络报修",
+  "description": "学生提交校园网络故障，生成报修单；确认后提交并返回受理回执。",
+  "version": "1.0.0",
+  "start_node": "start",
+  "nodes": [
+    {
+      "id": "start",
+      "name": "开始",
+      "node_type": "start",
+      "description": "网络报修入口",
+      "config": {}
+    },
+    {
+      "id": "extract_params",
+      "name": "确认报修信息",
+      "node_type": "parameter_extract",
+      "description": "抽取学号、校区、故障类型和描述",
+      "config": {
+        "fields": ["student_id", "campus", "repair_category", "description"]
+      }
+    },
+    {
+      "id": "create_ticket",
+      "name": "生成报修单",
+      "node_type": "tool_call",
+      "description": "调用 repair.create_ticket 生成待确认报修单",
+      "config": {
+        "tool": "repair.create_ticket",
+        "arguments": {
+          "student_id": "$student_id",
+          "campus": "$campus",
+          "category": "$repair_category",
+          "description": "$description"
+        },
+        "save_as": "repair_ticket"
+      }
+    },
+    {
+      "id": "confirm",
+      "name": "人工确认",
+      "node_type": "confirmation",
+      "description": "展示报修信息，等待学生确认",
+      "config": {
+        "message_template": "请确认网络报修信息：\n\n- 学号：{student_id}\n- 校区：{campus}\n- 类型：{repair_category}\n- 描述：{description}\n\n确认后将提交报修单，维修人员会按校区派单。"
+      }
+    },
+    {
+      "id": "submit_ticket",
+      "name": "提交报修",
+      "node_type": "tool_call",
+      "description": "调用 repair.submit_ticket 提交并返回回执",
+      "config": {
+        "tool": "repair.submit_ticket",
+        "arguments": {
+          "ticket_id": "$repair_ticket_id",
+          "idempotency_key": "$idempotency_key"
+        },
+        "save_as": "order",
+        "idempotent": true,
+        "idempotency_key_template": "{workflow_type}:{student_id}:{date}"
+      }
+    },
+    {
+      "id": "result_success",
+      "name": "报修已受理",
+      "node_type": "result",
+      "description": "返回报修回执",
+      "config": {
+        "result_kind": "success",
+        "message_template": "网络报修已受理。\n\n- 报修单号：{receipt}\n- 校区：{campus}\n- 类型：{repair_category}\n- 状态：已派单\n\n维修人员会尽快联系你；可在工单中心查看进度。"
+      }
+    },
+    {
+      "id": "result_cancelled",
+      "name": "报修已取消",
+      "node_type": "result",
+      "description": "用户取消报修",
+      "config": {
+        "result_kind": "cancelled",
+        "message_template": "已取消本次网络报修，没有提交报修单。"
+      }
+    }
+  ],
+  "edges": [
+    {"source": "start", "target": "extract_params", "label": "开始报修"},
+    {"source": "extract_params", "target": "create_ticket", "label": "信息齐全"},
+    {"source": "create_ticket", "target": "confirm", "label": "生成待确认单"},
+    {"source": "confirm", "target": "submit_ticket", "condition": "confirmed", "label": "用户确认"},
+    {"source": "confirm", "target": "result_cancelled", "condition": "cancelled", "label": "用户取消"},
+    {"source": "submit_ticket", "target": "result_success", "label": "提交成功"}
+  ]
+}

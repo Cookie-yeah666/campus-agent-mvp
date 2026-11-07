@@ -1,0 +1,6765 @@
+{
+  "retrieval": {
+    "suite": "retrieval_300",
+    "dataset": {
+      "name": "qa_300_silver",
+      "split": "test",
+      "total": 240
+    },
+    "created_at": "2026-11-06T17:00:54+00:00",
+    "run_id": "ev300-889c6f81",
+    "n": 240,
+    "answerable_n": 180,
+    "unanswerable_n": 60,
+    "recall_at_5": 1.0,
+    "recall_at_5_ci": [
+      0.9791,
+      1.0
+    ],
+    "mrr_at_5": 0.9935,
+    "ndcg_at_5": 0.9952,
+    "hit_at_1": 0.9889,
+    "hard_negative_fpr": 0.0389,
+    "negative_answer_rate": 0.0667,
+    "avg_latency_ms": 0.53,
+    "p95_latency_ms": 1.35,
+    "by_category": {
+      "图书馆": {
+        "n": 45,
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0
+      },
+      "学工": {
+        "n": 45,
+        "recall_at_5": 1.0,
+        "mrr_at_5": 0.9741
+      },
+      "教务": {
+        "n": 45,
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0
+      },
+      "规章": {
+        "n": 45,
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0
+      }
+    },
+    "details": [
+      {
+        "id": "qa-0004",
+        "query": "我想了解校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6361,
+        "latency_ms": 0.83
+      },
+      {
+        "id": "qa-0005",
+        "query": "关于校园卡补办要多少钱，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7324,
+        "latency_ms": 0.67
+      },
+      {
+        "id": "qa-0006",
+        "query": "校园卡补办要多少钱有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6395,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0007",
+        "query": "麻烦查一下校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7236,
+        "latency_ms": 0.3
+      },
+      {
+        "id": "qa-0008",
+        "query": "根据校内制度，校园卡补办要多少钱？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5849,
+        "latency_ms": 0.47
+      },
+      {
+        "id": "qa-0009",
+        "query": "校园卡补办要多少钱的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6223,
+        "latency_ms": 0.57
+      },
+      {
+        "id": "qa-0010",
+        "query": "学生手册里校园卡补办要多少钱怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6361,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0011",
+        "query": "如果我想知道校园卡补办要多少钱，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5422,
+        "latency_ms": 0.4
+      },
+      {
+        "id": "qa-0012",
+        "query": "帮我确认一下：校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6361,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0016",
+        "query": "我想了解校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6429,
+        "latency_ms": 0.48
+      },
+      {
+        "id": "qa-0017",
+        "query": "关于校园卡挂失后多久能拿到新卡，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6809,
+        "latency_ms": 0.57
+      },
+      {
+        "id": "qa-0018",
+        "query": "校园卡挂失后多久能拿到新卡有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5116,
+        "latency_ms": 0.64
+      },
+      {
+        "id": "qa-0019",
+        "query": "麻烦查一下校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6976,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0020",
+        "query": "根据校内制度，校园卡挂失后多久能拿到新卡？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5421,
+        "latency_ms": 0.52
+      },
+      {
+        "id": "qa-0021",
+        "query": "校园卡挂失后多久能拿到新卡的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6198,
+        "latency_ms": 0.49
+      },
+      {
+        "id": "qa-0022",
+        "query": "学生手册里校园卡挂失后多久能拿到新卡怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6429,
+        "latency_ms": 0.47
+      },
+      {
+        "id": "qa-0023",
+        "query": "如果我想知道校园卡挂失后多久能拿到新卡，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5738,
+        "latency_ms": 0.53
+      },
+      {
+        "id": "qa-0024",
+        "query": "帮我确认一下：校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6429,
+        "latency_ms": 0.46
+      },
+      {
+        "id": "qa-0028",
+        "query": "我想了解补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5649,
+        "latency_ms": 0.31
+      },
+      {
+        "id": "qa-0029",
+        "query": "关于补办校园卡需要带什么证件，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card",
+          "reg-access",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.7001,
+        "latency_ms": 0.54
+      },
+      {
+        "id": "qa-0030",
+        "query": "补办校园卡需要带什么证件有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.549,
+        "latency_ms": 0.42
+      },
+      {
+        "id": "qa-0031",
+        "query": "麻烦查一下补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6592,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0032",
+        "query": "根据校内制度，补办校园卡需要带什么证件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.5217,
+        "latency_ms": 0.41
+      },
+      {
+        "id": "qa-0033",
+        "query": "补办校园卡需要带什么证件的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.527,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0034",
+        "query": "学生手册里补办校园卡需要带什么证件怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5649,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0035",
+        "query": "如果我想知道补办校园卡需要带什么证件，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4795,
+        "latency_ms": 0.4
+      },
+      {
+        "id": "qa-0036",
+        "query": "帮我确认一下：补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-card"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5649,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0040",
+        "query": "我想了解校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5909,
+        "latency_ms": 0.57
+      },
+      {
+        "id": "qa-0041",
+        "query": "关于校门晚上几点关闭，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6502,
+        "latency_ms": 0.55
+      },
+      {
+        "id": "qa-0042",
+        "query": "校门晚上几点关闭有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5907,
+        "latency_ms": 0.48
+      },
+      {
+        "id": "qa-0043",
+        "query": "麻烦查一下校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6786,
+        "latency_ms": 0.37
+      },
+      {
+        "id": "qa-0044",
+        "query": "根据校内制度，校门晚上几点关闭？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4726,
+        "latency_ms": 0.39
+      },
+      {
+        "id": "qa-0045",
+        "query": "校门晚上几点关闭的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5727,
+        "latency_ms": 0.37
+      },
+      {
+        "id": "qa-0046",
+        "query": "学生手册里校门晚上几点关闭怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5909,
+        "latency_ms": 0.38
+      },
+      {
+        "id": "qa-0047",
+        "query": "如果我想知道校门晚上几点关闭，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4969,
+        "latency_ms": 0.42
+      },
+      {
+        "id": "qa-0048",
+        "query": "帮我确认一下：校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5909,
+        "latency_ms": 0.42
+      },
+      {
+        "id": "qa-0052",
+        "query": "我想了解晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5072,
+        "latency_ms": 0.41
+      },
+      {
+        "id": "qa-0053",
+        "query": "关于晚归会怎么处理，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "lib-borrow",
+          "reg-card",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6824,
+        "latency_ms": 0.5
+      },
+      {
+        "id": "qa-0054",
+        "query": "晚归会怎么处理有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-discipline",
+          "reg-access",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.5234,
+        "latency_ms": 0.39
+      },
+      {
+        "id": "qa-0055",
+        "query": "麻烦查一下晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7301,
+        "latency_ms": 0.45
+      },
+      {
+        "id": "qa-0056",
+        "query": "根据校内制度，晚归会怎么处理？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-discipline",
+          "reg-card",
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.3388,
+        "latency_ms": 0.76
+      },
+      {
+        "id": "qa-0057",
+        "query": "晚归会怎么处理的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "affairs-scholarship",
+          "affairs-financial-aid",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4931,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0058",
+        "query": "学生手册里晚归会怎么处理怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5072,
+        "latency_ms": 0.38
+      },
+      {
+        "id": "qa-0059",
+        "query": "如果我想知道晚归会怎么处理，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3608,
+        "latency_ms": 0.43
+      },
+      {
+        "id": "qa-0060",
+        "query": "帮我确认一下：晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "gold": [
+          "reg-access"
+        ],
+        "retrieved": [
+          "reg-access",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5072,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0064",
+        "query": "我想了解转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6797,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0065",
+        "query": "关于转专业需要什么条件，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6652,
+        "latency_ms": 1.32
+      },
+      {
+        "id": "qa-0066",
+        "query": "转专业需要什么条件有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8929,
+        "latency_ms": 0.37
+      },
+      {
+        "id": "qa-0067",
+        "query": "麻烦查一下转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8892,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0068",
+        "query": "根据校内制度，转专业需要什么条件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4911,
+        "latency_ms": 0.54
+      },
+      {
+        "id": "qa-0069",
+        "query": "转专业需要什么条件的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6516,
+        "latency_ms": 0.41
+      },
+      {
+        "id": "qa-0070",
+        "query": "学生手册里转专业需要什么条件怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6797,
+        "latency_ms": 2.01
+      },
+      {
+        "id": "qa-0071",
+        "query": "如果我想知道转专业需要什么条件，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5324,
+        "latency_ms": 0.96
+      },
+      {
+        "id": "qa-0072",
+        "query": "帮我确认一下：转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6797,
+        "latency_ms": 0.43
+      },
+      {
+        "id": "qa-0076",
+        "query": "我想了解转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6564,
+        "latency_ms": 0.74
+      },
+      {
+        "id": "qa-0077",
+        "query": "关于转专业可以申请几个专业，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7939,
+        "latency_ms": 1.38
+      },
+      {
+        "id": "qa-0078",
+        "query": "转专业可以申请几个专业有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "affairs-scholarship",
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7883,
+        "latency_ms": 1.52
+      },
+      {
+        "id": "qa-0079",
+        "query": "麻烦查一下转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7486,
+        "latency_ms": 0.7
+      },
+      {
+        "id": "qa-0080",
+        "query": "根据校内制度，转专业可以申请几个专业？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5065,
+        "latency_ms": 0.82
+      },
+      {
+        "id": "qa-0081",
+        "query": "转专业可以申请几个专业的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6103,
+        "latency_ms": 1.27
+      },
+      {
+        "id": "qa-0082",
+        "query": "学生手册里转专业可以申请几个专业怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6564,
+        "latency_ms": 0.9
+      },
+      {
+        "id": "qa-0083",
+        "query": "如果我想知道转专业可以申请几个专业，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5653,
+        "latency_ms": 0.76
+      },
+      {
+        "id": "qa-0084",
+        "query": "帮我确认一下：转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-transfer"
+        ],
+        "retrieved": [
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6564,
+        "latency_ms": 0.65
+      },
+      {
+        "id": "qa-0088",
+        "query": "我想了解课程不及格可以补考吗",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8316,
+        "latency_ms": 0.56
+      },
+      {
+        "id": "qa-0089",
+        "query": "关于课程不及格可以补考吗，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.9194,
+        "latency_ms": 0.77
+      },
+      {
+        "id": "qa-0090",
+        "query": "课程不及格可以补考吗有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8495,
+        "latency_ms": 0.77
+      },
+      {
+        "id": "qa-0091",
+        "query": "麻烦查一下课程不及格可以补考吗",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 1.0,
+        "latency_ms": 1.13
+      },
+      {
+        "id": "qa-0092",
+        "query": "根据校内制度，课程不及格可以补考吗？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6497,
+        "latency_ms": 0.8
+      },
+      {
+        "id": "qa-0093",
+        "query": "课程不及格可以补考吗的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8145,
+        "latency_ms": 0.79
+      },
+      {
+        "id": "qa-0094",
+        "query": "学生手册里课程不及格可以补考吗怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8316,
+        "latency_ms": 1.36
+      },
+      {
+        "id": "qa-0095",
+        "query": "如果我想知道课程不及格可以补考吗，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6867,
+        "latency_ms": 1.75
+      },
+      {
+        "id": "qa-0096",
+        "query": "帮我确认一下：课程不及格可以补考吗",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8316,
+        "latency_ms": 1.34
+      },
+      {
+        "id": "qa-0100",
+        "query": "我想了解补考成绩怎么算",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7672,
+        "latency_ms": 0.93
+      },
+      {
+        "id": "qa-0101",
+        "query": "关于补考成绩怎么算，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship",
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8563,
+        "latency_ms": 2.74
+      },
+      {
+        "id": "qa-0102",
+        "query": "补考成绩怎么算有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "affairs-scholarship",
+          "acad-assessment",
+          "reg-discipline"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6359,
+        "latency_ms": 0.62
+      },
+      {
+        "id": "qa-0103",
+        "query": "麻烦查一下补考成绩怎么算",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.991,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0104",
+        "query": "根据校内制度，补考成绩怎么算？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "acad-transfer",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.5375,
+        "latency_ms": 1.16
+      },
+      {
+        "id": "qa-0105",
+        "query": "补考成绩怎么算的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7083,
+        "latency_ms": 0.51
+      },
+      {
+        "id": "qa-0106",
+        "query": "学生手册里补考成绩怎么算怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7672,
+        "latency_ms": 0.93
+      },
+      {
+        "id": "qa-0107",
+        "query": "如果我想知道补考成绩怎么算，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6208,
+        "latency_ms": 0.74
+      },
+      {
+        "id": "qa-0108",
+        "query": "帮我确认一下：补考成绩怎么算",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-assessment"
+        ],
+        "retrieved": [
+          "acad-assessment",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7672,
+        "latency_ms": 0.62
+      },
+      {
+        "id": "qa-0112",
+        "query": "我想了解每学期最多选多少学分",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5975,
+        "latency_ms": 0.98
+      },
+      {
+        "id": "qa-0113",
+        "query": "关于每学期最多选多少学分，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5761,
+        "latency_ms": 1.5
+      },
+      {
+        "id": "qa-0114",
+        "query": "每学期最多选多少学分有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7636,
+        "latency_ms": 1.01
+      },
+      {
+        "id": "qa-0115",
+        "query": "麻烦查一下每学期最多选多少学分",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6911,
+        "latency_ms": 0.73
+      },
+      {
+        "id": "qa-0116",
+        "query": "根据校内制度，每学期最多选多少学分？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4566,
+        "latency_ms": 1.44
+      },
+      {
+        "id": "qa-0117",
+        "query": "每学期最多选多少学分的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5597,
+        "latency_ms": 0.97
+      },
+      {
+        "id": "qa-0118",
+        "query": "学生手册里每学期最多选多少学分怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5975,
+        "latency_ms": 1.07
+      },
+      {
+        "id": "qa-0119",
+        "query": "如果我想知道每学期最多选多少学分，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5088,
+        "latency_ms": 1.35
+      },
+      {
+        "id": "qa-0120",
+        "query": "帮我确认一下：每学期最多选多少学分",
+        "category": "教务",
+        "answerability": "answerable",
+        "gold": [
+          "acad-course-selection"
+        ],
+        "retrieved": [
+          "acad-course-selection"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5975,
+        "latency_ms": 0.31
+      },
+      {
+        "id": "qa-0124",
+        "query": "我想了解奖学金申请需要什么材料",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7327,
+        "latency_ms": 0.76
+      },
+      {
+        "id": "qa-0125",
+        "query": "关于奖学金申请需要什么材料，学校是怎么规定的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8155,
+        "latency_ms": 1.48
+      },
+      {
+        "id": "qa-0126",
+        "query": "奖学金申请需要什么材料有哪些要求？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7362,
+        "latency_ms": 0.9
+      },
+      {
+        "id": "qa-0127",
+        "query": "麻烦查一下奖学金申请需要什么材料",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "acad-assessment",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.9073,
+        "latency_ms": 0.75
+      },
+      {
+        "id": "qa-0128",
+        "query": "根据校内制度，奖学金申请需要什么材料？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5482,
+        "latency_ms": 0.53
+      },
+      {
+        "id": "qa-0129",
+        "query": "奖学金申请需要什么材料的具体标准是什么？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "acad-assessment"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7056,
+        "latency_ms": 0.46
+      },
+      {
+        "id": "qa-0130",
+        "query": "学生手册里奖学金申请需要什么材料怎么写的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7327,
+        "latency_ms": 0.49
+      },
+      {
+        "id": "qa-0131",
+        "query": "如果我想知道奖学金申请需要什么材料，该看哪份文件？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5869,
+        "latency_ms": 0.55
+      },
+      {
+        "id": "qa-0132",
+        "query": "帮我确认一下：奖学金申请需要什么材料",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7327,
+        "latency_ms": 0.49
+      },
+      {
+        "id": "qa-0136",
+        "query": "我想了解国家奖学金多少钱",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "reg-card",
+          "affairs-scholarship",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3317,
+        "latency_ms": 0.27
+      },
+      {
+        "id": "qa-0137",
+        "query": "关于国家奖学金多少钱，学校是怎么规定的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "reg-card",
+          "reg-card",
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "reg-access"
+        ],
+        "rank": 3,
+        "hit": true,
+        "ndcg": 0.5,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4282,
+        "latency_ms": 0.58
+      },
+      {
+        "id": "qa-0138",
+        "query": "国家奖学金多少钱有哪些要求？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "affairs-scholarship",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4618,
+        "latency_ms": 0.3
+      },
+      {
+        "id": "qa-0139",
+        "query": "麻烦查一下国家奖学金多少钱",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "reg-card",
+          "reg-card",
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3757,
+        "latency_ms": 0.21
+      },
+      {
+        "id": "qa-0140",
+        "query": "根据校内制度，国家奖学金多少钱？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "reg-card",
+          "affairs-scholarship",
+          "reg-card",
+          "affairs-scholarship",
+          "reg-access"
+        ],
+        "rank": 2,
+        "hit": true,
+        "ndcg": 0.6309,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3207,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0141",
+        "query": "国家奖学金多少钱的具体标准是什么？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5448,
+        "latency_ms": 0.25
+      },
+      {
+        "id": "qa-0142",
+        "query": "学生手册里国家奖学金多少钱怎么写的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "reg-card",
+          "affairs-scholarship",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3317,
+        "latency_ms": 0.25
+      },
+      {
+        "id": "qa-0143",
+        "query": "如果我想知道国家奖学金多少钱，该看哪份文件？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "reg-card",
+          "affairs-scholarship",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.2885,
+        "latency_ms": 0.3
+      },
+      {
+        "id": "qa-0144",
+        "query": "帮我确认一下：国家奖学金多少钱",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-scholarship"
+        ],
+        "retrieved": [
+          "affairs-scholarship",
+          "reg-card",
+          "affairs-scholarship",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3317,
+        "latency_ms": 0.24
+      },
+      {
+        "id": "qa-0148",
+        "query": "我想了解国家助学金分几档",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7118,
+        "latency_ms": 0.2
+      },
+      {
+        "id": "qa-0149",
+        "query": "关于国家助学金分几档，学校是怎么规定的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7858,
+        "latency_ms": 0.67
+      },
+      {
+        "id": "qa-0150",
+        "query": "国家助学金分几档有哪些要求？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7165,
+        "latency_ms": 0.86
+      },
+      {
+        "id": "qa-0151",
+        "query": "麻烦查一下国家助学金分几档",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8047,
+        "latency_ms": 0.18
+      },
+      {
+        "id": "qa-0152",
+        "query": "根据校内制度，国家助学金分几档？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.577,
+        "latency_ms": 0.32
+      },
+      {
+        "id": "qa-0153",
+        "query": "国家助学金分几档的具体标准是什么？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8523,
+        "latency_ms": 0.22
+      },
+      {
+        "id": "qa-0154",
+        "query": "学生手册里国家助学金分几档怎么写的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7118,
+        "latency_ms": 0.22
+      },
+      {
+        "id": "qa-0155",
+        "query": "如果我想知道国家助学金分几档，该看哪份文件？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6218,
+        "latency_ms": 0.64
+      },
+      {
+        "id": "qa-0156",
+        "query": "帮我确认一下：国家助学金分几档",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7118,
+        "latency_ms": 0.68
+      },
+      {
+        "id": "qa-0160",
+        "query": "我想了解助学贷款最多能贷多少",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4578,
+        "latency_ms": 0.62
+      },
+      {
+        "id": "qa-0161",
+        "query": "关于助学贷款最多能贷多少，学校是怎么规定的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid",
+          "reg-access"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5488,
+        "latency_ms": 0.59
+      },
+      {
+        "id": "qa-0162",
+        "query": "助学贷款最多能贷多少有哪些要求？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid",
+          "affairs-scholarship",
+          "reg-discipline",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.4277,
+        "latency_ms": 0.27
+      },
+      {
+        "id": "qa-0163",
+        "query": "麻烦查一下助学贷款最多能贷多少",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5478,
+        "latency_ms": 0.17
+      },
+      {
+        "id": "qa-0164",
+        "query": "根据校内制度，助学贷款最多能贷多少？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "reg-access",
+          "affairs-financial-aid",
+          "acad-transfer"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.317,
+        "latency_ms": 0.31
+      },
+      {
+        "id": "qa-0165",
+        "query": "助学贷款最多能贷多少的具体标准是什么？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-scholarship",
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": true,
+        "negative_answer": false,
+        "top_score": 0.4045,
+        "latency_ms": 0.22
+      },
+      {
+        "id": "qa-0166",
+        "query": "学生手册里助学贷款最多能贷多少怎么写的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4578,
+        "latency_ms": 0.22
+      },
+      {
+        "id": "qa-0167",
+        "query": "如果我想知道助学贷款最多能贷多少，该看哪份文件？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3878,
+        "latency_ms": 0.26
+      },
+      {
+        "id": "qa-0168",
+        "query": "帮我确认一下：助学贷款最多能贷多少",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-financial-aid"
+        ],
+        "retrieved": [
+          "affairs-financial-aid",
+          "affairs-financial-aid"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4578,
+        "latency_ms": 0.21
+      },
+      {
+        "id": "qa-0172",
+        "query": "我想了解请假三天找谁审批",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6652,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0173",
+        "query": "关于请假三天找谁审批，学校是怎么规定的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave",
+          "affairs-leave",
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7191,
+        "latency_ms": 1.09
+      },
+      {
+        "id": "qa-0174",
+        "query": "请假三天找谁审批有哪些要求？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6273,
+        "latency_ms": 0.73
+      },
+      {
+        "id": "qa-0175",
+        "query": "麻烦查一下请假三天找谁审批",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7595,
+        "latency_ms": 0.5
+      },
+      {
+        "id": "qa-0176",
+        "query": "根据校内制度，请假三天找谁审批？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "reg-access",
+          "acad-transfer",
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4915,
+        "latency_ms": 2.07
+      },
+      {
+        "id": "qa-0177",
+        "query": "请假三天找谁审批的具体标准是什么？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-financial-aid",
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5991,
+        "latency_ms": 0.62
+      },
+      {
+        "id": "qa-0178",
+        "query": "学生手册里请假三天找谁审批怎么写的？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6652,
+        "latency_ms": 0.49
+      },
+      {
+        "id": "qa-0179",
+        "query": "如果我想知道请假三天找谁审批，该看哪份文件？",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5806,
+        "latency_ms": 0.53
+      },
+      {
+        "id": "qa-0180",
+        "query": "帮我确认一下：请假三天找谁审批",
+        "category": "学工",
+        "answerability": "answerable",
+        "gold": [
+          "affairs-leave"
+        ],
+        "retrieved": [
+          "affairs-leave",
+          "affairs-leave"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6652,
+        "latency_ms": 0.47
+      },
+      {
+        "id": "qa-0184",
+        "query": "我想了解图书借阅期限是多久",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7885,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0185",
+        "query": "关于图书借阅期限是多久，学校是怎么规定的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7708,
+        "latency_ms": 0.65
+      },
+      {
+        "id": "qa-0186",
+        "query": "图书借阅期限是多久有哪些要求？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7863,
+        "latency_ms": 0.43
+      },
+      {
+        "id": "qa-0187",
+        "query": "麻烦查一下图书借阅期限是多久",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.9564,
+        "latency_ms": 0.28
+      },
+      {
+        "id": "qa-0188",
+        "query": "根据校内制度，图书借阅期限是多久？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.712,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0189",
+        "query": "图书借阅期限是多久的具体标准是什么？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7543,
+        "latency_ms": 0.85
+      },
+      {
+        "id": "qa-0190",
+        "query": "学生手册里图书借阅期限是多久怎么写的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7885,
+        "latency_ms": 0.82
+      },
+      {
+        "id": "qa-0191",
+        "query": "如果我想知道图书借阅期限是多久，该看哪份文件？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6437,
+        "latency_ms": 0.75
+      },
+      {
+        "id": "qa-0192",
+        "query": "帮我确认一下：图书借阅期限是多久",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7885,
+        "latency_ms": 0.73
+      },
+      {
+        "id": "qa-0196",
+        "query": "我想了解图书逾期一天罚多少钱",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4253,
+        "latency_ms": 0.58
+      },
+      {
+        "id": "qa-0197",
+        "query": "关于图书逾期一天罚多少钱，学校是怎么规定的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "reg-card",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.5352,
+        "latency_ms": 0.92
+      },
+      {
+        "id": "qa-0198",
+        "query": "图书逾期一天罚多少钱有哪些要求？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4216,
+        "latency_ms": 0.6
+      },
+      {
+        "id": "qa-0199",
+        "query": "麻烦查一下图书逾期一天罚多少钱",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.458,
+        "latency_ms": 0.45
+      },
+      {
+        "id": "qa-0200",
+        "query": "根据校内制度，图书逾期一天罚多少钱？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "reg-card",
+          "lib-borrow",
+          "lib-borrow"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.427,
+        "latency_ms": 0.65
+      },
+      {
+        "id": "qa-0201",
+        "query": "图书逾期一天罚多少钱的具体标准是什么？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.413,
+        "latency_ms": 0.74
+      },
+      {
+        "id": "qa-0202",
+        "query": "学生手册里图书逾期一天罚多少钱怎么写的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4253,
+        "latency_ms": 0.46
+      },
+      {
+        "id": "qa-0203",
+        "query": "如果我想知道图书逾期一天罚多少钱，该看哪份文件？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3862,
+        "latency_ms": 0.43
+      },
+      {
+        "id": "qa-0204",
+        "query": "帮我确认一下：图书逾期一天罚多少钱",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-borrow"
+        ],
+        "retrieved": [
+          "lib-borrow",
+          "lib-borrow",
+          "lib-borrow",
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4253,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0208",
+        "query": "我想了解自习室座位怎么预约",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8261,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0209",
+        "query": "关于自习室座位怎么预约，学校是怎么规定的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8018,
+        "latency_ms": 0.56
+      },
+      {
+        "id": "qa-0210",
+        "query": "自习室座位怎么预约有哪些要求？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8161,
+        "latency_ms": 0.33
+      },
+      {
+        "id": "qa-0211",
+        "query": "麻烦查一下自习室座位怎么预约",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.9985,
+        "latency_ms": 0.23
+      },
+      {
+        "id": "qa-0212",
+        "query": "根据校内制度，自习室座位怎么预约？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6167,
+        "latency_ms": 0.36
+      },
+      {
+        "id": "qa-0213",
+        "query": "自习室座位怎么预约的具体标准是什么？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7812,
+        "latency_ms": 0.28
+      },
+      {
+        "id": "qa-0214",
+        "query": "学生手册里自习室座位怎么预约怎么写的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8261,
+        "latency_ms": 0.28
+      },
+      {
+        "id": "qa-0215",
+        "query": "如果我想知道自习室座位怎么预约，该看哪份文件？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6806,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0216",
+        "query": "帮我确认一下：自习室座位怎么预约",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room",
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8261,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0220",
+        "query": "我想了解自习室违约几次会被暂停",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7579,
+        "latency_ms": 0.34
+      },
+      {
+        "id": "qa-0221",
+        "query": "关于自习室违约几次会被暂停，学校是怎么规定的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.745,
+        "latency_ms": 1.0
+      },
+      {
+        "id": "qa-0222",
+        "query": "自习室违约几次会被暂停有哪些要求？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7506,
+        "latency_ms": 0.68
+      },
+      {
+        "id": "qa-0223",
+        "query": "麻烦查一下自习室违约几次会被暂停",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8448,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0224",
+        "query": "根据校内制度，自习室违约几次会被暂停？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6167,
+        "latency_ms": 0.74
+      },
+      {
+        "id": "qa-0225",
+        "query": "自习室违约几次会被暂停的具体标准是什么？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.727,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0226",
+        "query": "学生手册里自习室违约几次会被暂停怎么写的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7579,
+        "latency_ms": 0.4
+      },
+      {
+        "id": "qa-0227",
+        "query": "如果我想知道自习室违约几次会被暂停，该看哪份文件？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6638,
+        "latency_ms": 1.2
+      },
+      {
+        "id": "qa-0228",
+        "query": "帮我确认一下：自习室违约几次会被暂停",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-study-room"
+        ],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7579,
+        "latency_ms": 0.39
+      },
+      {
+        "id": "qa-0232",
+        "query": "我想了解校外怎么访问电子资源",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7845,
+        "latency_ms": 0.27
+      },
+      {
+        "id": "qa-0233",
+        "query": "关于校外怎么访问电子资源，学校是怎么规定的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.8601,
+        "latency_ms": 0.54
+      },
+      {
+        "id": "qa-0234",
+        "query": "校外怎么访问电子资源有哪些要求？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7875,
+        "latency_ms": 0.33
+      },
+      {
+        "id": "qa-0235",
+        "query": "麻烦查一下校外怎么访问电子资源",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.9416,
+        "latency_ms": 0.21
+      },
+      {
+        "id": "qa-0236",
+        "query": "根据校内制度，校外怎么访问电子资源？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6041,
+        "latency_ms": 0.35
+      },
+      {
+        "id": "qa-0237",
+        "query": "校外怎么访问电子资源的具体标准是什么？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7582,
+        "latency_ms": 0.28
+      },
+      {
+        "id": "qa-0238",
+        "query": "学生手册里校外怎么访问电子资源怎么写的？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7845,
+        "latency_ms": 0.27
+      },
+      {
+        "id": "qa-0239",
+        "query": "如果我想知道校外怎么访问电子资源，该看哪份文件？",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.6417,
+        "latency_ms": 0.31
+      },
+      {
+        "id": "qa-0240",
+        "query": "帮我确认一下：校外怎么访问电子资源",
+        "category": "图书馆",
+        "answerability": "answerable",
+        "gold": [
+          "lib-e-resource"
+        ],
+        "retrieved": [
+          "lib-e-resource",
+          "lib-e-resource",
+          "lib-e-resource"
+        ],
+        "rank": 1,
+        "hit": true,
+        "ndcg": 1.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.7845,
+        "latency_ms": 0.26
+      },
+      {
+        "id": "qa-0241",
+        "query": "学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1962,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0242",
+        "query": "我想了解学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1796,
+        "latency_ms": 0.45
+      },
+      {
+        "id": "qa-0243",
+        "query": "帮我查一下学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1796,
+        "latency_ms": 0.46
+      },
+      {
+        "id": "qa-0244",
+        "query": "学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1962,
+        "latency_ms": 0.41
+      },
+      {
+        "id": "qa-0245",
+        "query": "我想了解学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1796,
+        "latency_ms": 0.64
+      },
+      {
+        "id": "qa-0246",
+        "query": "帮我查一下学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1796,
+        "latency_ms": 0.52
+      },
+      {
+        "id": "qa-0247",
+        "query": "学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.1796,
+        "latency_ms": 0.43
+      },
+      {
+        "id": "qa-0248",
+        "query": "我想了解学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.169,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0249",
+        "query": "帮我查一下学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-e-resource",
+          "affairs-scholarship",
+          "reg-discipline",
+          "reg-access",
+          "lib-e-resource"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.169,
+        "latency_ms": 0.47
+      },
+      {
+        "id": "qa-0250",
+        "query": "最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3537,
+        "latency_ms": 0.14
+      },
+      {
+        "id": "qa-0251",
+        "query": "我想了解最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3079,
+        "latency_ms": 0.15
+      },
+      {
+        "id": "qa-0252",
+        "query": "帮我查一下最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3079,
+        "latency_ms": 0.15
+      },
+      {
+        "id": "qa-0253",
+        "query": "今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.08
+      },
+      {
+        "id": "qa-0254",
+        "query": "我想了解今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.08
+      },
+      {
+        "id": "qa-0255",
+        "query": "帮我查一下今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.08
+      },
+      {
+        "id": "qa-0256",
+        "query": "基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.04
+      },
+      {
+        "id": "qa-0257",
+        "query": "我想了解基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.06
+      },
+      {
+        "id": "qa-0258",
+        "query": "帮我查一下基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0259",
+        "query": "彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.06
+      },
+      {
+        "id": "qa-0260",
+        "query": "我想了解彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0261",
+        "query": "帮我查一下彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0262",
+        "query": "放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-leave"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.323,
+        "latency_ms": 0.13
+      },
+      {
+        "id": "qa-0263",
+        "query": "我想了解放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-leave"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.2772,
+        "latency_ms": 0.25
+      },
+      {
+        "id": "qa-0264",
+        "query": "帮我查一下放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-leave"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.2772,
+        "latency_ms": 0.17
+      },
+      {
+        "id": "qa-0265",
+        "query": "学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": true,
+        "top_score": 0.4544,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0266",
+        "query": "我想了解学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4023,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0267",
+        "query": "帮我查一下学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.4023,
+        "latency_ms": 0.44
+      },
+      {
+        "id": "qa-0268",
+        "query": "机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0269",
+        "query": "我想了解机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0270",
+        "query": "帮我查一下机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0271",
+        "query": "推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3537,
+        "latency_ms": 0.12
+      },
+      {
+        "id": "qa-0272",
+        "query": "我想了解推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3079,
+        "latency_ms": 0.14
+      },
+      {
+        "id": "qa-0273",
+        "query": "帮我查一下推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "affairs-scholarship"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3079,
+        "latency_ms": 0.15
+      },
+      {
+        "id": "qa-0274",
+        "query": "买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": true,
+        "top_score": 0.7285,
+        "latency_ms": 0.11
+      },
+      {
+        "id": "qa-0275",
+        "query": "我想了解买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": true,
+        "top_score": 0.4535,
+        "latency_ms": 0.13
+      },
+      {
+        "id": "qa-0276",
+        "query": "帮我查一下买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "lib-study-room"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": true,
+        "top_score": 0.4535,
+        "latency_ms": 0.14
+      },
+      {
+        "id": "qa-0277",
+        "query": "电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.05
+      },
+      {
+        "id": "qa-0278",
+        "query": "我想了解电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0279",
+        "query": "帮我查一下电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0280",
+        "query": "学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3516,
+        "latency_ms": 0.74
+      },
+      {
+        "id": "qa-0281",
+        "query": "我想了解学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3186,
+        "latency_ms": 2.45
+      },
+      {
+        "id": "qa-0282",
+        "query": "帮我查一下学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [
+          "reg-card",
+          "reg-card"
+        ],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.3186,
+        "latency_ms": 2.2
+      },
+      {
+        "id": "qa-0283",
+        "query": "快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.14
+      },
+      {
+        "id": "qa-0284",
+        "query": "我想了解快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.1
+      },
+      {
+        "id": "qa-0285",
+        "query": "帮我查一下快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.09
+      },
+      {
+        "id": "qa-0286",
+        "query": "外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.08
+      },
+      {
+        "id": "qa-0287",
+        "query": "我想了解外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.09
+      },
+      {
+        "id": "qa-0288",
+        "query": "帮我查一下外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.09
+      },
+      {
+        "id": "qa-0289",
+        "query": "健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.07
+      },
+      {
+        "id": "qa-0290",
+        "query": "我想了解健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.33
+      },
+      {
+        "id": "qa-0291",
+        "query": "帮我查一下健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.79
+      },
+      {
+        "id": "qa-0292",
+        "query": "养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0293",
+        "query": "我想了解养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.41
+      },
+      {
+        "id": "qa-0294",
+        "query": "帮我查一下养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.29
+      },
+      {
+        "id": "qa-0295",
+        "query": "驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 1.19
+      },
+      {
+        "id": "qa-0296",
+        "query": "我想了解驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.89
+      },
+      {
+        "id": "qa-0297",
+        "query": "帮我查一下驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.21
+      },
+      {
+        "id": "qa-0298",
+        "query": "演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.11
+      },
+      {
+        "id": "qa-0299",
+        "query": "我想了解演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.1
+      },
+      {
+        "id": "qa-0300",
+        "query": "帮我查一下演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "gold": [],
+        "retrieved": [],
+        "rank": null,
+        "hit": false,
+        "ndcg": 0.0,
+        "hard_negative_hit": false,
+        "negative_answer": false,
+        "top_score": 0.0,
+        "latency_ms": 0.09
+      }
+    ],
+    "review_status": "silver",
+    "note": "240 条同义改写 + 60 条越界；需人工抽检后再作为论文金标。"
+  },
+  "generation": {
+    "suite": "generation",
+    "dataset": {
+      "name": "qa_300_silver",
+      "split": "test",
+      "sampled": 120
+    },
+    "created_at": "2026-11-06T17:00:54+00:00",
+    "run_id": "evgen-a4560e74",
+    "mode": "mock",
+    "answerable_n": 60,
+    "unanswerable_n": 60,
+    "citation_presence_rate": 0.9667,
+    "citation_gold_hit_rate": 0.9667,
+    "false_refusal_rate": 0.0333,
+    "refusal_accuracy": 0.9833,
+    "false_answer_rate": 0.0167,
+    "avg_citations": 1.07,
+    "avg_latency_ms": 1.89,
+    "details": [
+      {
+        "id": "qa-0004",
+        "query": "我想了解校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.55,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0005",
+        "query": "关于校园卡补办要多少钱，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.42,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第一条 为规范校园卡的发放、使用与管理，保障师生校园生活秩序，依据学校相关规定制定本办法。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 [1]\n- 第二条 校园卡是持卡人在"
+      },
+      {
+        "id": "qa-0006",
+        "query": "校园卡补办要多少钱有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.26,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0007",
+        "query": "麻烦查一下校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.91,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0008",
+        "query": "根据校内制度，校园卡补办要多少钱？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.99,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第二条 校园卡是持卡人在校内的身份凭证和电子钱包，具有门禁通行、图书借阅、食堂消费、费用缴纳等功能，实行一人一卡、实名使用。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 ["
+      },
+      {
+        "id": "qa-0009",
+        "query": "校园卡补办要多少钱的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.23,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0010",
+        "query": "学生手册里校园卡补办要多少钱怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.0,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0011",
+        "query": "如果我想知道校园卡补办要多少钱，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.53,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0012",
+        "query": "帮我确认一下：校园卡补办要多少钱",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.88,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，费用标准如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容依据校"
+      },
+      {
+        "id": "qa-0016",
+        "query": "我想了解校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.17,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0017",
+        "query": "关于校园卡挂失后多久能拿到新卡，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.45,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第五条 新生入学时由学校统一制作首张校园卡，工本费包含在入学代办费中，不另行收取。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先"
+      },
+      {
+        "id": "qa-0018",
+        "query": "校园卡挂失后多久能拿到新卡有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.39,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0019",
+        "query": "麻烦查一下校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.6,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0020",
+        "query": "根据校内制度，校园卡挂失后多久能拿到新卡？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.14,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0021",
+        "query": "校园卡挂失后多久能拿到新卡的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.28,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0022",
+        "query": "学生手册里校园卡挂失后多久能拿到新卡怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 5.13,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0023",
+        "query": "如果我想知道校园卡挂失后多久能拿到新卡，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 9.16,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0024",
+        "query": "帮我确认一下：校园卡挂失后多久能拿到新卡",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.32,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，时间安排如下：\n\n- 第十条 补办期间可申请临时卡，临时卡有效期 7 天，仅具备门禁与食堂消费功能，领取新卡时须交回。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第八条 挂失可通过校园卡自助终端、企业微信“校园卡服务”或卡"
+      },
+      {
+        "id": "qa-0028",
+        "query": "我想了解补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.11,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0029",
+        "query": "关于补办校园卡需要带什么证件，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.2,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第一条 为规范校园卡的发放、使用与管理，保障师生校园生活秩序，依据学校相关规定制定本办法。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准。 [1]\n- 第二条 校园卡是持"
+      },
+      {
+        "id": "qa-0030",
+        "query": "补办校园卡需要带什么证件有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 6.35,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要同时满足以下条件：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内"
+      },
+      {
+        "id": "qa-0031",
+        "query": "麻烦查一下补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.99,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0032",
+        "query": "根据校内制度，补办校园卡需要带什么证件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.93,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第二条 校园卡是持卡人在校内的身份凭证和电子钱包，具有门禁通行、图书借阅、食堂消费、费用缴纳等功能，实行一人一卡、实名使用。 [1]\n- 第三条 后勤管理处卡务中心负责校园卡的统一制作、发放、挂失与补办；各校区设立卡务服务窗口，具体办理时间以窗口公告为准"
+      },
+      {
+        "id": "qa-0033",
+        "query": "补办校园卡需要带什么证件的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 6.06,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要同时满足以下条件：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内"
+      },
+      {
+        "id": "qa-0034",
+        "query": "学生手册里补办校园卡需要带什么证件怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.32,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0035",
+        "query": "如果我想知道补办校园卡需要带什么证件，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.94,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0036",
+        "query": "帮我确认一下：补办校园卡需要带什么证件",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-card"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.74,
+        "answer_preview": "根据《学生校园卡管理办法》等校内制度，需要准备的材料如下：\n\n- 第七条 补办校园卡收取工本费 20 元，支持校园卡电子钱包余额、微信或支付宝缴纳。 [1]\n- 第六条 校园卡遗失、损坏或无法正常读取的，持卡人应当先办理挂失，再申请补办。 [1]\n- 第九条 补办申请提交后 3 个工作日内完成制卡。 [1]\n\n以上内容"
+      },
+      {
+        "id": "qa-0040",
+        "query": "我想了解校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.09,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0041",
+        "query": "关于校门晚上几点关闭，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.9,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0042",
+        "query": "校门晚上几点关闭有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.66,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0043",
+        "query": "麻烦查一下校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 1.98,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0044",
+        "query": "根据校内制度，校门晚上几点关闭？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.02,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0045",
+        "query": "校门晚上几点关闭的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.03,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0046",
+        "query": "学生手册里校门晚上几点关闭怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.94,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0047",
+        "query": "如果我想知道校门晚上几点关闭，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.74,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0048",
+        "query": "帮我确认一下：校门晚上几点关闭",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.3,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，时间安排如下：\n\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [1]\n- 第五条 学生宿舍门禁关闭时间为 23:30。 [1]\n- 第六条 图书馆门禁与开馆时间同步，闭馆前 15 分钟停止入馆；考试周视情况延长开放时间，以图书馆公告为准。 [1]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0052",
+        "query": "我想了解晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 6.63,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0053",
+        "query": "关于晚归会怎么处理，学校是怎么规定的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 8.02,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第十五条 因违反门禁规定引发安全事故的，依法依规追究责任。 [1]\n\n以上内容依据校内制度文件整理，如与最新通知不一致，以主管部门解释为准。"
+      },
+      {
+        "id": "qa-0054",
+        "query": "晚归会怎么处理有哪些要求？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-discipline"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.03,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，需要同时满足以下条件：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第五条 携带规定以外的物品进入考场且未按要求存放的，给予警告处分；经提醒仍不改正的，给予严重警告处分。 [2]\n- 第八条 考试作弊行为同时违反法"
+      },
+      {
+        "id": "qa-0055",
+        "query": "麻烦查一下晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.99,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0056",
+        "query": "根据校内制度，晚归会怎么处理？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.81,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0057",
+        "query": "晚归会怎么处理的具体标准是什么？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "affairs-scholarship"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.68,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，需要同时满足以下条件：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 第二条 国家奖学金奖励标准为每人每年 8000 元；国家励志奖学金为每人每年 5000 元；校级优秀学生奖学金一等 3000 元、二等 2000 "
+      },
+      {
+        "id": "qa-0058",
+        "query": "学生手册里晚归会怎么处理怎么写的？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.8,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0059",
+        "query": "如果我想知道晚归会怎么处理，该看哪份文件？",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 2.04,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0060",
+        "query": "帮我确认一下：晚归会怎么处理",
+        "category": "规章",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 2,
+        "citation_docs": [
+          "reg-access",
+          "reg-access"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 4.63,
+        "answer_preview": "根据《校园门禁管理规定》等校内制度，办理流程如下：\n\n- 第十四条 一学期内晚归累计 3 次的，由学院约谈；累计 5 次的，给予警告以上处分并通知家长。 [1]\n- 晚归学生须刷卡登记，登记信息于次日推送至所在学院辅导员。 [2]\n- 第四条 各校区校门开放时间为每日 6:00 至 23:30。 [2]\n\n以上内容依据"
+      },
+      {
+        "id": "qa-0064",
+        "query": "我想了解转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 5.63,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0065",
+        "query": "关于转专业需要什么条件，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.91,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0066",
+        "query": "转专业需要什么条件有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 3.17,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0067",
+        "query": "麻烦查一下转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.86,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0068",
+        "query": "根据校内制度，转专业需要什么条件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.88,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0069",
+        "query": "转专业需要什么条件的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.34,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0070",
+        "query": "学生手册里转专业需要什么条件怎么写的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.07,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0071",
+        "query": "如果我想知道转专业需要什么条件，该看哪份文件？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.13,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0072",
+        "query": "帮我确认一下：转专业需要什么条件",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.08,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第八条 各专业接收转专业学生的名额，原则上控制在该专业当年招生人数的 10% 至 20%，具体计划由学院申报、教务处核定后公布"
+      },
+      {
+        "id": "qa-0076",
+        "query": "我想了解转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.44,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已转过一次专业的。 [1]\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专"
+      },
+      {
+        "id": "qa-0077",
+        "query": "关于转专业可以申请几个专业，学校是怎么规定的？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.03,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第十八条 转专业学生的修业年限按新专业培养方案执行，最长不超过学校规定的学习年限。 [1]\n- 第十五条 获准转专业的学生，自下一学年第一学期起进入新专业学习，原专业学籍同时注销。 [1]\n- 第十六条 已修课程与转入专业培养方案相同或相近的，可申请学分认定"
+      },
+      {
+        "id": "qa-0078",
+        "query": "转专业可以申请几个专业有哪些要求？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.01,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第十五条 获准转专业的学生，自下一学年第一学期起进入新专业学习，原专业学籍同时注销。 [1]\n- 第十六条 已修课程与转入专业培养方案相同或相近的，可申请学分认定，由转入学院审核、教务处备案。 [1]\n- 第十七条 未修读的转入专业必修课程，应当通过"
+      },
+      {
+        "id": "qa-0079",
+        "query": "麻烦查一下转专业可以申请几个专业",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.64,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已转过一次专业的。 [1]\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专"
+      },
+      {
+        "id": "qa-0080",
+        "query": "根据校内制度，转专业可以申请几个专业？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.3,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，办理流程如下：\n\n- 第九条 教务处每年 4 月底公布各专业接收计划、考核科目与咨询方式。 [1]\n- 第十三条 转入学院根据考核成绩择优确定拟接收名单，在学院网站公示 5 个工作日。 [1]\n- 第十条 学生在规定时间内通过教务系统提交申请，上传成绩单和个人陈述，并打印申请表交"
+      },
+      {
+        "id": "qa-0081",
+        "query": "转专业可以申请几个专业的具体标准是什么？",
+        "category": "教务",
+        "answerability": "answerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "acad-transfer"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": true,
+        "latency_ms": 2.24,
+        "answer_preview": "根据《本科生转专业管理办法》等校内制度，需要同时满足以下条件：\n\n- 第五条 申请时须同时满足：修读课程无不及格记录；已修课程平均学分绩点不低于 3.0；身体条件符合转入专业要求。 [1]\n- 第六条 有下列情形之一的，不得申请转专业：艺术类、体育类、中外合作办学、定向培养等特殊类型招生录取的；正在休学或保留学籍的；已"
+      },
+      {
+        "id": "qa-0241",
+        "query": "学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0242",
+        "query": "我想了解学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.06,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0243",
+        "query": "帮我查一下学校附近有什么好吃的火锅",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.06,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0244",
+        "query": "学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0245",
+        "query": "我想了解学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0246",
+        "query": "帮我查一下学校附近有什么好吃的烧烤",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0247",
+        "query": "学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.28,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0248",
+        "query": "我想了解学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.34,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0249",
+        "query": "帮我查一下学校附近哪家奶茶好喝",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.36,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **图书馆读者服务部**，电话 **0512-6716-5800**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0250",
+        "query": "最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0251",
+        "query": "我想了解最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0252",
+        "query": "帮我查一下最近有什么电影推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0253",
+        "query": "今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0254",
+        "query": "我想了解今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0255",
+        "query": "帮我查一下今天股票行情怎么样",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0256",
+        "query": "基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0257",
+        "query": "我想了解基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0258",
+        "query": "帮我查一下基金怎么买",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0259",
+        "query": "彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0260",
+        "query": "我想了解彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0261",
+        "query": "帮我查一下彩票中奖概率",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0262",
+        "query": "放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0263",
+        "query": "我想了解放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0264",
+        "query": "帮我查一下放假去哪里旅游",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0265",
+        "query": "学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": false,
+        "citation_count": 1,
+        "citation_docs": [
+          "affairs-scholarship"
+        ],
+        "citation_present": true,
+        "citation_gold_hit": false,
+        "latency_ms": 1.35,
+        "answer_preview": "根据校内制度文件，关键信息如下：\n\n- 第十六条 获奖学生应发挥示范作用，无故不参加学校组织的励志活动且情节严重的，下学年不予推荐评优。 [1]\n- 第十四条 奖学金由学校一次性发放至学生本人银行卡，不得以现金形式发放，不得截留、挪用。 [1]\n\n以上内容依据校内制度文件整理，如与最新通知不一致，以主管部门解释为准。"
+      },
+      {
+        "id": "qa-0266",
+        "query": "我想了解学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.33,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0267",
+        "query": "帮我查一下学校附近酒店推荐",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 1.38,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **学生工作部（处）**，电话 **0512-6716-0211**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0268",
+        "query": "机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0269",
+        "query": "我想了解机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0270",
+        "query": "帮我查一下机票怎么买便宜",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0271",
+        "query": "推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0272",
+        "query": "我想了解推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0273",
+        "query": "帮我查一下推荐一个好玩的游戏",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0274",
+        "query": "买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0275",
+        "query": "我想了解买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0276",
+        "query": "帮我查一下买什么手机好",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0277",
+        "query": "电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.64,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0278",
+        "query": "我想了解电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.66,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0279",
+        "query": "帮我查一下电脑配置怎么选",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.71,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0280",
+        "query": "学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.06,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0281",
+        "query": "我想了解学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0282",
+        "query": "帮我查一下学校附近租房多少钱",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0283",
+        "query": "快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.54,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0284",
+        "query": "我想了解快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.62,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0285",
+        "query": "帮我查一下快递怎么寄",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.63,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0286",
+        "query": "外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0287",
+        "query": "我想了解外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0288",
+        "query": "帮我查一下外卖哪家好吃",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0289",
+        "query": "健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0290",
+        "query": "我想了解健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.03,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0291",
+        "query": "帮我查一下健身房怎么办卡",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0292",
+        "query": "养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.56,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0293",
+        "query": "我想了解养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.63,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0294",
+        "query": "帮我查一下养宠物要注意什么",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.66,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0295",
+        "query": "驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.55,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0296",
+        "query": "我想了解驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.62,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0297",
+        "query": "帮我查一下驾照怎么考",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.63,
+        "answer_preview": "这个问题我暂时没有找到可靠的校内依据，为了不误导你，我帮你转人工咨询。\n\n你也可以直接联系 **教务处**，电话 **0512-6716-5001**。\n\n如果你问的是校园规章、教务、奖助或图书馆相关事项，可以换个说法再问我。"
+      },
+      {
+        "id": "qa-0298",
+        "query": "演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.05,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0299",
+        "query": "我想了解演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      },
+      {
+        "id": "qa-0300",
+        "query": "帮我查一下演唱会门票怎么抢",
+        "category": "越界",
+        "answerability": "unanswerable",
+        "refused": true,
+        "citation_count": 0,
+        "citation_docs": [],
+        "citation_present": false,
+        "citation_gold_hit": false,
+        "latency_ms": 0.04,
+        "answer_preview": "抱歉，这个问题超出了校园服务助手的职责范围，我不能提供这类内容。\n\n我可以帮你查询校内制度、办理校园卡补办等业务。如需其他帮助，建议联系 **学生服务大厅**（0512-6716-0000）转人工咨询。"
+      }
+    ],
+    "review_status": "silver",
+    "note": "MockLLM 下只评引用存在性/拒答/引用文档命中，不代表真实生成质量。"
+  },
+  "task": {
+    "suite": "task_20",
+    "created_at": "2026-11-06T17:00:58+00:00",
+    "run_id": "evtask-ee42dfd3",
+    "n": 20,
+    "passed": 20,
+    "success_rate": 1.0,
+    "success_rate_ci": [
+      0.8389,
+      1.0
+    ],
+    "avg_turns": 2.85,
+    "handoff_rate": 0.1,
+    "duplicate_new_orders": 0,
+    "details": [
+      {
+        "id": "success-01",
+        "kind": "success",
+        "student": "2025001011",
+        "campus": "天赐庄",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-02",
+        "kind": "success",
+        "student": "2025001002",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-03",
+        "kind": "success",
+        "student": "2025001008",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-04",
+        "kind": "success",
+        "student": "2025001014",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-05",
+        "kind": "success",
+        "student": "2025001016",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-06",
+        "kind": "success",
+        "student": "2025001019",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "auto-loss-01",
+        "kind": "success",
+        "student": "2025001004",
+        "campus": "天赐庄",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "auto-loss-02",
+        "kind": "success",
+        "student": "2025001006",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "auto-loss-03",
+        "kind": "success",
+        "student": "2025001012",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "arrears-01",
+        "kind": "arrears",
+        "student": "2025001003",
+        "campus": "阳澄湖",
+        "expected": "failed",
+        "actual": "failed",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "arrears-02",
+        "kind": "arrears",
+        "student": "2025001010",
+        "campus": "独墅湖",
+        "expected": "failed",
+        "actual": "failed",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "timeout-01",
+        "kind": "timeout",
+        "student": "2025000999",
+        "campus": "天赐庄",
+        "expected": "transferred_human",
+        "actual": "transferred_human",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "timeout-02",
+        "kind": "timeout",
+        "student": "2025000999",
+        "campus": "独墅湖",
+        "expected": "transferred_human",
+        "actual": "transferred_human",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "invalid-01",
+        "kind": "invalid",
+        "student": "2025009999",
+        "campus": "独墅湖",
+        "expected": "failed",
+        "actual": "failed",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "invalid-02",
+        "kind": "invalid",
+        "student": "2025009999",
+        "campus": "天赐庄",
+        "expected": "failed",
+        "actual": "failed",
+        "passed": true,
+        "turns": 2,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "cancel-01",
+        "kind": "cancel",
+        "student": "2025001001",
+        "campus": "天赐庄",
+        "expected": "cancelled",
+        "actual": "cancelled",
+        "passed": true,
+        "turns": 3,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "cancel-02",
+        "kind": "cancel",
+        "student": "2025001011",
+        "campus": "天赐庄",
+        "expected": "cancelled",
+        "actual": "cancelled",
+        "passed": true,
+        "turns": 3,
+        "receipt": "",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-07",
+        "kind": "success",
+        "student": "2025001009",
+        "campus": "天赐庄",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "success-08",
+        "kind": "success",
+        "student": "2025001013",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 3,
+        "receipt": "CARD20261107001",
+        "duplicate": false,
+        "new_orders_on_duplicate": 0
+      },
+      {
+        "id": "idempotency-01",
+        "kind": "idempotency",
+        "student": "2025001002",
+        "campus": "独墅湖",
+        "expected": "completed",
+        "actual": "completed",
+        "passed": true,
+        "turns": 6,
+        "receipt": "CARD20261107001",
+        "duplicate": true,
+        "new_orders_on_duplicate": 0
+      }
+    ],
+    "note": "20 条任务均为独立临时数据目录；使用模拟学号与 Mock 业务系统。"
+  }
+}

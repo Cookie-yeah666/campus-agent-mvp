@@ -1,0 +1,13 @@
+{
+  "name": "qa_300_silver",
+  "version": "1.0",
+  "total": 300,
+  "answerable": 240,
+  "unanswerable": 60,
+  "dev": 60,
+  "test": 240,
+  "hidden_holdout": 50,
+  "review_status": "silver",
+  "sha256": "fce4709f9b8b2fc641b06044fa19f03a921817e9f5eb5bce4b43fc4ec4b0a02a",
+  "path": "E:\\新昇腾\\campus-agent-mvp\\app\\evaluation\\datasets\\qa_300.jsonl"
+}
