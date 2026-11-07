@@ -18,6 +18,7 @@
 - 错题本按试卷规范排版：中文 Noto Serif SC / 宋体，西文 Times New Roman，
   公式 STIX Two Math → Times New Roman → Cambria Math；
 - TeX Gyre Termes Math / Latin Modern Math 继续作为可选字体文件保留。
+- 修复 \\dfrac15 / \\tfrac / \\cfrac 紧凑 LaTeX 分式被原样显示的问题。
 
 ## V26.1108.1 — 2026-11-08
 

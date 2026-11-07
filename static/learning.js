@@ -1100,7 +1100,7 @@ function mathParse(src) {
       const command = /^[A-Za-z]+/.exec(src.slice(index));
       let name = command ? command[0] : src[index++];
       if (command) index += command[0].length;
-      if (name === 'frac') {
+      if (name === 'frac' || name === 'dfrac' || name === 'tfrac' || name === 'cfrac') {
         const numerator = readGroup();
         const denominator = readGroup();
         output += `<span class="math-frac"><span class="math-num">${mathParse(numerator)}</span><span class="math-den">${mathParse(denominator)}</span></span>`;
