@@ -2403,3 +2403,9 @@
 .math-function {
   font-style: normal;
 }
+
+/* 用户选择：数学字母也使用正体，不斜体 */
+.math-var,
+.math-greek {
+  font-style: normal;
+}
