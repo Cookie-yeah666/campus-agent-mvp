@@ -2374,3 +2374,32 @@
 .math-function {
   font-style: normal;
 }
+
+/* 试卷排版原则：中文宋体 + 西文 Times + 公式 STIX/Times */
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "Times New Roman", "Noto Serif SC", "Source Han Serif SC",
+    "Songti SC", "SimSun", "宋体", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "STIX Two Math", "Times New Roman", "Cambria Math",
+    "Noto Serif SC", "SimSun", serif;
+  font-size: 1.15em;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.math-var,
+.math-greek {
+  font-style: italic;
+}
+
+.math-symbol,
+.math-function {
+  font-style: normal;
+}

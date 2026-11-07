@@ -1,21 +1,18 @@
 # 错题本排版字体
 
-错题本优先使用 **TeX Gyre Termes Math**，回退顺序为：
+按传统数学试卷规范：
 
-1. TeX Gyre Termes Math
-2. TeX Gyre Termes
-3. Times New Roman
-4. Latin Modern Math
-5. Cambria Math
+- 中文正文：Noto Serif SC → 宋体 / SimSun；
+- 西文正文：Times New Roman；
+- 公式：STIX Two Math → Times New Roman → Cambria Math。
 
-## TeX Gyre Termes Math
+## 可选字体文件
 
-已内置 `texgyretermes-math.otf`，页面通过 `@font-face` 直接加载。
-字体来源：CTAN `fonts/tex-gyre`。
+本目录也保留了：
 
-## Latin Modern Math
+- `texgyretermes-math.otf` / `texgyretermes-regular.otf`
+- `latinmodern-math.otf`
 
-`latinmodern-math.otf` 已内置，作为后备。
+它们不是当前首选，但已经在 CSS 的候选栈里，安装或保留文件不会破坏排版。
 
-如果系统已经安装同名字体，浏览器会优先使用本机字体，不需要复制文件。
 字体授权请以发行包内的 GUST Font License / 字体说明为准。

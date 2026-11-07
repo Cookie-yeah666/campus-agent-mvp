@@ -709,7 +709,7 @@ mock 会让人误以为识别已跑通。没有 Key/未测试就明确 400，避
 - 错题识别/批改依赖学生自己的 Key；DeepSeek 是推理型模型，图片识别默认 16384 tokens，可在上传区调高；
 - 识别 token 上限存浏览器 localStorage，换设备回到 16384；
 - 解析排版是本地轻量 Markdown/公式层，不是完整 KaTeX；矩阵/复杂对齐不支持；
-- 解析表首选 **TeX Gyre Termes Math**，已内置 `static/fonts/texgyretermes-math.otf`；Latin Modern Math 作为后备；
+- 解析排版按试卷规范：中文 **Noto Serif SC / 宋体**，西文 **Times New Roman**，公式 **STIX Two Math → Times → Cambria Math**；
 - DeepSeek 是否返回 bbox 取决于模型；不返回就保留预处理整图；
 - 图片 B 模式仍会把预处理图发给云模型，不是“图片不出校”；
 - 提醒只是页面轮询，没有企业微信/短信；
@@ -734,7 +734,7 @@ mock 会让人误以为识别已跑通。没有 Key/未测试就明确 400，避
 优先级从高到低：
 
 1. 真实校园系统只读联调（学生/一卡通/报修/审批），再开写操作沙箱；
-2. 将轻量公式层替换/补全为离线 KaTeX + TeX Gyre Termes Math 字体，支持矩阵/对齐环境；
+2. 将轻量公式层替换/补全为离线 KaTeX + STIX/Times 字体，支持矩阵/对齐环境；
 3. 识别 token 上限从浏览器 localStorage 迁到学生账号设置；
 4. 课程编辑/删除与整张课表图片识别；
 5. 任务提醒接企业微信/短信/邮件；

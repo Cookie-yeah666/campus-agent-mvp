@@ -303,7 +303,7 @@ CAMPUS_LEARNING_VISION_MODEL=deepseek-flash
 - `deepseek-flash` 是推理型模型，图片识别默认 16384 tokens；读取超时 120 秒；复杂图可在上传区调高，过高更慢更贵；
 - 识别 token 上限保存在浏览器 localStorage，换设备回到 16384；
 - 解析排版是本地轻量 Markdown/公式层，支持分式/根号/上下标/化学式，但不是完整 KaTeX，矩阵/复杂对齐不支持；
-- 解析字体首选 **TeX Gyre Termes Math**，已内置 `static/fonts/texgyretermes-math.otf`；Latin Modern Math 作为后备；
+- 解析排版按试卷规范：中文 **Noto Serif SC / 宋体**，西文 **Times New Roman**，公式 **STIX Two Math → Times → Cambria Math**；
 - 题目和错题本各有一个 7 天回收站，访问回收站时才清理过期项；
 - **提醒**目前是页面内轮询提示，不是企业微信/短信推送；
 - **课程表**支持周次/单双周过滤，但还没有课程编辑入口，也没有整张课表图片解析；
@@ -312,7 +312,7 @@ CAMPUS_LEARNING_VISION_MODEL=deepseek-flash
 
 ## 11. 下一步
 
-1. 离线内置 KaTeX/TeX Gyre Termes Math，支持矩阵、align、化学式完整排版；
+1. 离线内置 KaTeX + STIX/Times，支持矩阵、align、化学式完整排版；
 2. 识别 token 上限迁到学生账号，跨设备同步；
 3. 课程编辑/删除 + 整张课表图片解析；
 4. 任务提醒接企业微信/短信/邮件；
