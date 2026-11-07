@@ -2436,3 +2436,14 @@
   line-height: 1;
   vertical-align: super;
 }
+
+/* f′(x) 的撇号单独留白，避免斜体 f 的字形压到撇号 */
+.math-prime {
+  margin-left: 0.08em;
+  font-size: 0.68em;
+}
+
+.math-var + .math-prime,
+.math-greek + .math-prime {
+  margin-left: 0.16em;
+}
