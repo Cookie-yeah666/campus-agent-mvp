@@ -1917,7 +1917,13 @@
   vertical-align: super;
 }
 
-.math-symbol {
+.math-symbol,
+.math-function {
+  font-style: normal;
+}
+
+.math-var,
+.math-greek {
   font-style: italic;
 }
 
@@ -2247,7 +2253,7 @@
   font-family: "TeX Gyre Termes Math";
   src: local("TeX Gyre Termes Math"),
        local("TeXGyreTermesMath"),
-       url("/static/fonts/texgyretermes-math.otf") format("opentype");
+       url("/static/fonts/texgyretermes-math.otf?v=20261107-31") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -2257,7 +2263,7 @@
   font-family: "TeX Gyre Termes";
   src: local("TeX Gyre Termes"),
        local("TeXGyreTermes"),
-       url("/static/fonts/texgyretermes-regular.otf") format("opentype");
+       url("/static/fonts/texgyretermes-regular.otf?v=20261107-31") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;

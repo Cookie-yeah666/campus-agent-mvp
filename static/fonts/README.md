@@ -8,9 +8,9 @@
 4. Latin Modern Math
 5. Cambria Math
 
-## 启用 TeX Gyre Termes Math
+## TeX Gyre Termes Math
 
-把 `texgyretermes-math.otf` 放到本目录，刷新页面即可。
+已内置 `texgyretermes-math.otf`，页面通过 `@font-face` 直接加载。
 字体来源：CTAN `fonts/tex-gyre`。
 
 ## Latin Modern Math

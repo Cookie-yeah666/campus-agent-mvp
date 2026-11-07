@@ -15,7 +15,7 @@
 - 上传后显示识别阶段、已等待时间、超时上限和估算进度条；成功/失败都有明确状态。
 - `START_DEMO.bat` / `OPEN_DEMO.bat` 统一使用 8011，避免双击后落到旧的 8000 进程。
 - `seed_demo.py` 默认地址同步为 8011，START_DEMO 会显式设置该地址。
-- 错题本解析/题干首选 **TeX Gyre Termes Math**，缺失时回退 Times New Roman / Latin Modern Math；
+- 错题本解析/题干首选 **TeX Gyre Termes Math**，已内置 `static/fonts/texgyretermes-math.otf`；
   Latin Modern Math 已内置 `static/fonts/latinmodern-math.otf` 作为后备。
 
 ## V26.1108.1 — 2026-11-08

@@ -1023,8 +1023,10 @@ function calendarTasksHTML(calendar, view = 'month') {
 const MATH_SYMBOLS = {
   alpha: 'α', beta: 'β', gamma: 'γ', delta: 'δ', epsilon: 'ε', theta: 'θ',
   lambda: 'λ', mu: 'μ', pi: 'π', rho: 'ρ', sigma: 'σ', tau: 'τ', phi: 'φ',
+  zeta: 'ζ', eta: 'η', kappa: 'κ', nu: 'ν', xi: 'ξ', chi: 'χ', psi: 'ψ',
   omega: 'ω', Gamma: 'Γ', Delta: 'Δ', Theta: 'Θ', Lambda: 'Λ', Pi: 'Π',
-  Sigma: 'Σ', Phi: 'Φ', Omega: 'Ω', times: '×', cdot: '·', div: '÷',
+  Sigma: 'Σ', Phi: 'Φ', Omega: 'Ω', Xi: 'Ξ', Psi: 'Ψ',
+  times: '×', cdot: '·', div: '÷',
   pm: '±', mp: '∓', le: '≤', leq: '≤', ge: '≥', geq: '≥', neq: '≠',
   approx: '≈', equiv: '≡', propto: '∝', infty: '∞', sum: '∑', prod: '∏',
   iint: '∬', iiint: '∭', oint: '∮', coprod: '∐', bigcup: '⋃', bigcap: '⋂',
@@ -1038,6 +1040,28 @@ const MATH_SYMBOLS = {
 const MATH_LARGE_OPERATORS = new Set([
   'int', 'iint', 'iiint', 'oint', 'sum', 'prod', 'coprod', 'bigcup', 'bigcap',
 ]);
+
+const MATH_GREEK_VARIABLES = new Set([
+  'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta',
+  'kappa', 'lambda', 'mu', 'nu', 'xi', 'rho', 'sigma', 'tau', 'phi',
+  'chi', 'psi', 'omega',
+]);
+
+const MATH_FUNCTION_NAMES = [
+  'arcsin', 'arccos', 'arctan', 'sinh', 'cosh', 'tanh',
+  'cot', 'sec', 'csc', 'sin', 'cos', 'tan', 'log', 'ln', 'exp',
+  'lim', 'max', 'min', 'det', 'gcd', 'sup', 'inf', 'arg', 'deg',
+];
+
+function mathFunctionAt(source, position) {
+  for (const name of MATH_FUNCTION_NAMES) {
+    if (source.startsWith(name, position)) {
+      const after = source[position + name.length] || '';
+      if (!/[A-Za-z]/.test(after)) return name;
+    }
+  }
+  return '';
+}
 
 function renderChem(src) {
   let value = escapeHtml(src);
@@ -1095,6 +1119,8 @@ function mathParse(src) {
         output += escapeHtml(readGroup());
       } else if (name === 'mathbf') {
         output += `<strong>${mathParse(readGroup())}</strong>`;
+      } else if (name === 'operatorname') {
+        output += `<span class="math-function">${escapeHtml(readGroup())}</span>`;
       } else if (name === 'overline') {
         output += `<span class="math-overline">${mathParse(readGroup())}</span>`;
       } else if (name === 'vec') {
@@ -1107,11 +1133,14 @@ function mathParse(src) {
       } else if (MATH_LARGE_OPERATORS.has(name) && MATH_SYMBOLS[name]) {
         output += `<span class="math-operator">${MATH_SYMBOLS[name]}</span>`;
       } else if (MATH_SYMBOLS[name]) {
-        output += `<span class="math-symbol">${MATH_SYMBOLS[name]}</span>`;
+        const symbolClass = MATH_GREEK_VARIABLES.has(name) ? 'math-greek' : 'math-symbol';
+        output += `<span class="${symbolClass}">${MATH_SYMBOLS[name]}</span>`;
       } else if (name === ',' || name === ';' || name === 'quad') {
         output += ' ';
+      } else if (MATH_FUNCTION_NAMES.includes(name)) {
+        output += `<span class="math-function">${escapeHtml(name)}</span>`;
       } else {
-        output += escapeHtml(name);
+        output += `<span class="math-var">${escapeHtml(name)}</span>`;
       }
       continue;
     }
@@ -1123,6 +1152,17 @@ function mathParse(src) {
     if (char === '{' || char === '}') continue;
     if (char === '&') {
       output += '&amp;';
+      continue;
+    }
+    if (/[A-Za-z]/.test(char)) {
+      const position = index - 1;
+      const functionName = mathFunctionAt(src, position);
+      if (functionName) {
+        output += `<span class="math-function">${escapeHtml(functionName)}</span>`;
+        index = position + functionName.length;
+      } else {
+        output += `<span class="math-var">${escapeHtml(char)}</span>`;
+      }
       continue;
     }
     output += escapeHtml(char);
