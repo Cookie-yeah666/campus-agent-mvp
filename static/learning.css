@@ -2345,3 +2345,32 @@
     "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
     "STIX Two Math", serif;
 }
+
+/* 正文用 Termes 文本字体，公式才用 Termes Math；避免整段中文被 Math 字体排坏 */
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "TeX Gyre Termes", "Times New Roman", "Latin Modern Roman",
+    "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Latin Modern Math",
+    "Latin Modern Roman", "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  font-size: 1.16em;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.math-var,
+.math-greek {
+  font-style: italic;
+}
+
+.math-symbol,
+.math-function {
+  font-style: normal;
+}
