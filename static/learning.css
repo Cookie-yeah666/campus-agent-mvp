@@ -2213,3 +2213,31 @@
 .recognition-preset[data-timeout] strong {
   font-size: 12px;
 }
+
+/* Latin Modern Math：优先使用本机已安装字体；也支持把字体文件放到 static/fonts/ */
+@font-face {
+  font-family: "Latin Modern Math";
+  src: local("Latin Modern Math"),
+       local("LatinModernMath"),
+       url("/static/fonts/latinmodern-math.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Text", "Noto Serif CJK SC", "Source Han Serif SC",
+    "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Math", "Times New Roman", serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
