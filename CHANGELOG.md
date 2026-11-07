@@ -1,6 +1,6 @@
 # 版本记录
 
-## 未发布修复（版本号等用户指定）
+## V26.1108.2 — 2026-11-08
 
 ### 修复
 
@@ -18,7 +18,8 @@
 - 错题本按试卷规范排版：中文 Noto Serif SC / 宋体，西文 Times New Roman，
   公式 STIX Two Math → Times New Roman → Cambria Math；
 - TeX Gyre Termes Math / Latin Modern Math 继续作为可选字体文件保留。
-- 修复 \\dfrac15 / \\tfrac / \\cfrac 紧凑 LaTeX 分式被原样显示的问题。
+- 修复 `\dfrac15` / `\tfrac` / `\cfrac` 紧凑 LaTeX 分式被原样显示的问题。
+- 数学变量恢复斜体，关系符/函数名直立；`f′(x)` 撇号间距、分式上下间距已收紧。
 
 ## V26.1108.1 — 2026-11-08
 
