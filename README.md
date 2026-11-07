@@ -709,7 +709,7 @@ mock 会让人误以为识别已跑通。没有 Key/未测试就明确 400，避
 - 错题识别/批改依赖学生自己的 Key；DeepSeek 是推理型模型，图片识别默认 16384 tokens，可在上传区调高；
 - 识别 token 上限存浏览器 localStorage，换设备回到 16384；
 - 解析排版是本地轻量 Markdown/公式层，不是完整 KaTeX；矩阵/复杂对齐不支持；
-- 解析表首选 `TeX Gyre Termes Math`，回退 Latin Modern Math / Cambria/Times；字体文件未随仓库提交，可把 `texgyretermes-math.otf` 放到 `static/fonts/`；
+- 解析表首选 **Latin Modern Math**，字体已内置 `static/fonts/latinmodern-math.otf`；TeX Gyre Termes Math 作为可选后备；
 - DeepSeek 是否返回 bbox 取决于模型；不返回就保留预处理整图；
 - 图片 B 模式仍会把预处理图发给云模型，不是“图片不出校”；
 - 提醒只是页面轮询，没有企业微信/短信；

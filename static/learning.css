@@ -2219,7 +2219,7 @@
   font-family: "Latin Modern Math";
   src: local("Latin Modern Math"),
        local("LatinModernMath"),
-       url("/static/fonts/latinmodern-math.otf") format("opentype");
+       url("/static/fonts/latinmodern-math.otf?v=20261107-28") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -2300,4 +2300,23 @@
   font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Times New Roman",
     "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
     "STIX Two Math", serif;
+}
+
+/* 已内置 Latin Modern Math：错题本实际首选，TeX Gyre 作为备选 */
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "Latin Modern Math", "TeX Gyre Termes Math", "TeX Gyre Termes",
+    "Latin Modern Roman", "Times New Roman", "Cambria Math",
+    "STIX Two Text", "Noto Serif CJK SC", "Source Han Serif SC",
+    "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "Latin Modern Math", "TeX Gyre Termes Math", "TeX Gyre Termes",
+    "Latin Modern Roman", "Times New Roman", "Cambria Math", "STIX Two Math",
+    serif;
 }
