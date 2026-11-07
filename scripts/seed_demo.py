@@ -7,7 +7,7 @@ import os
 
 import httpx
 
-BASE = os.environ.get("CAMPUS_BASE_URL", "http://127.0.0.1:8000/api/v1")
+BASE = os.environ.get("CAMPUS_BASE_URL", "http://127.0.0.1:8011/api/v1")
 
 
 def send(client: httpx.Client, session_id: str, text: str) -> dict:

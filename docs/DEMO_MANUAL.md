@@ -116,7 +116,7 @@
 
 ## 1.3 演示前 10 分钟检查清单
 
-- [ ] 服务已启动：访问 http://127.0.0.1:8000/api/v1/health 返回 status=ok。
+- [ ] 服务已启动：访问 http://127.0.0.1:8011/api/v1/health 返回 status=ok。
 - [ ] 演示数据已重置并 seed：5 个会话、4 张工单（1 完成、1 待确认、1 失败、1 转人工）。
 - [ ] 浏览器已打开两个标签：工作台与 /docs；页面缩放 100%，使用浅色主题。
 - [ ] 终端已 cd 到项目目录，准备好在需要时运行 python cli.py。
@@ -152,19 +152,19 @@
 ```text
 cd E:\新昇腾\campus-agent-mvp
 python -m pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --port 8000
+python -m uvicorn app.main:app --reload --port 8011
 ```
 
 | 用途 | 地址 | 说明 |
 | --- | --- | --- |
-| 工作台 | http://127.0.0.1:8000 | 演示主入口，九个视图 |
-| API 文档 | http://127.0.0.1:8000/docs | 技术评审时展示接口 |
-| 健康检查 | http://127.0.0.1:8000/api/v1/health | 确认服务与知识库状态 |
+| 工作台 | http://127.0.0.1:8011 | 演示主入口，九个视图 |
+| API 文档 | http://127.0.0.1:8011/docs | 技术评审时展示接口 |
+| 健康检查 | http://127.0.0.1:8011/api/v1/health | 确认服务与知识库状态 |
 | 命令行 | python cli.py | 同一套业务逻辑的终端入口 |
 
 > **注意｜端口被占用**
 >
-> 若 8000 已被占用，改用 --port 8001 启动，并把演示脚本里的地址同步为 8001；不要同时在两个端口跑两份服务，数据目录会互相干扰。
+> 当前统一使用 8011。若 8011 已被占用，先关闭旧黑窗口或结束旧进程，再双击 `START_DEMO.bat`；不要同时跑 8000 和 8011 两份服务，数据目录会互相干扰。
 
 
 ## 2.2 一键恢复演示基线
@@ -179,7 +179,7 @@ python -m uvicorn app.main:app --reload --port 8000
 Remove-Item .\data -Recurse -Force
 
 # 3) 重新启动服务
-python -m uvicorn app.main:app --port 8000
+python -m uvicorn app.main:app --port 8011
 
 # 4) 另开一个终端，生成演示数据
 python scripts\seed_demo.py
@@ -193,7 +193,7 @@ python scripts\seed_demo.py
 
 ```text
 $env:CAMPUS_DATA_DIR = "data_demo_01"
-python -m uvicorn app.main:app --port 8000
+python -m uvicorn app.main:app --port 8011
 # 另开终端
 python scripts\seed_demo.py
 ```
@@ -630,10 +630,10 @@ python cli.py
 
 ## 10.2 API
 
-打开 http://127.0.0.1:8000/docs，展示 POST /api/v1/chat/send 与 GET /api/v1/workorders。
+打开 http://127.0.0.1:8011/docs，展示 POST /api/v1/chat/send 与 GET /api/v1/workorders。
 
 ```text
-curl -X POST http://127.0.0.1:8000/api/v1/chat/send ^
+curl -X POST http://127.0.0.1:8011/api/v1/chat/send ^
   -H "Content-Type: application/json" ^
   -d "{\"message\":\"校园卡补办要多少钱\"}"
 ```
@@ -645,7 +645,7 @@ curl -X POST http://127.0.0.1:8000/api/v1/chat/send ^
 
 如果临时被压缩到 5 分钟，只做下面 8 步，每步一句话，不要展开技术细节。
 
-1. 打开 http://127.0.0.1:8000，指一下左侧九个视图：“一个工作台，办事、学习、知识、审计、评测都在里面。”
+1. 打开 http://127.0.0.1:8011，指一下左侧九个视图：“一个工作台，办事、学习、知识、审计、评测都在里面。”
 2. 输入“奖学金申请需要什么材料？”，等回答出来，指引用卡片：“每个结论都有出处。”
 3. 点一下 [1]，打开文档抽屉：“可以回到制度原文。”
 4. 新建对话，输入“我要补办校园卡”，再输入“2025001011，天赐庄”。
@@ -675,13 +675,13 @@ curl -X POST http://127.0.0.1:8000/api/v1/chat/send ^
 
 | 现象 | 可能原因 | 处理方式 |
 | --- | --- | --- |
-| 打开 8000 是空白页 | 服务未启动或端口不对 | 看终端是否报错；访问 /api/v1/health；必要时按第二章重启 |
+| 打开 8011 是空白页 | 服务未启动或端口不对 | 看终端是否报错；访问 /api/v1/health；必要时按第二章重启 |
 | 页面样式错乱/旧样式 | 浏览器缓存 | Ctrl+F5 强制刷新；或换无痕窗口 |
 | 重复提交直接返回旧回执 | 今天已提交过该学号 | 这是幂等，不是 bug；换 2025001011 之外的学号，或重置数据 |
 | 确认按钮点了没反应 | 当前会话没有待确认工单 | 看右侧“当前工单”状态；重新走一遍到确认节点 |
 | 欠费金额与手册不同 | 使用了不同学号 | 2025001003 是 35.50，2025001010 是 8.50；以界面为准 |
 | 工具超时没有触发 | 学号不是 2025000999 | 故障注入只对该学号生效 |
-| 服务启动报端口占用 | 旧进程未退出 | 改 --port 8001，或结束占用 8000 的进程 |
+| 服务启动报端口占用 | 旧进程未退出 | 关闭旧黑窗口或结束占用 8011 的进程，再双击 `START_DEMO.bat` |
 | 全部失败、来不及排查 | 现场环境异常 | 打开 docs/screenshots，按截图讲设计与流程，不要现场 debug |
 
 > **注意｜兜底原则**

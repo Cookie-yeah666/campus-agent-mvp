@@ -375,18 +375,17 @@ python -m pip install -r requirements.txt
 ### 7.3 启动
 
 ```bash
-# 默认文档端口
-python -m uvicorn app.main:app --reload --port 8000
-
-# 如果 8000 被占用，可用 8011
+# 当前统一使用 8011
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8011
 ```
 
 打开：
 
-- 工作台：`http://127.0.0.1:8000`
-- API 文档：`http://127.0.0.1:8000/docs`
-- 健康检查：`http://127.0.0.1:8000/api/v1/health`
+- 工作台：`http://127.0.0.1:8011`
+- API 文档：`http://127.0.0.1:8011/docs`
+- 健康检查：`http://127.0.0.1:8011/api/v1/health`
+
+> `START_DEMO.bat` / `OPEN_DEMO.bat` 固定使用 **8011**；8000 可能仍有旧进程，不要用 8000 判断当前代码。
 
 ### 7.4 恢复演示基线
 
@@ -401,7 +400,7 @@ START_DEMO.bat
 python scripts/seed_demo.py
 ```
 
-> `seed_demo.py` 默认连 `http://127.0.0.1:8000/api/v1`；可用 `CAMPUS_BASE_URL` 覆盖。
+> `START_DEMO.bat` 会设置 `CAMPUS_BASE_URL=http://127.0.0.1:8011/api/v1`；`seed_demo.py` 默认也连 8011，可用环境变量覆盖。
 
 ### 7.5 演示顺序
 

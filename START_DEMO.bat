@@ -19,7 +19,7 @@ if errorlevel 1 (
 
 echo [1/4] Closing old demo server...
 taskkill /F /T /FI "WINDOWTITLE eq Campus Agent Server*" >nul 2>&1
-powershell -NoProfile -Command "$pids = netstat -ano | Select-String ':8000' | Where-Object { $_ -match 'LISTENING' } | ForEach-Object { ($_ -split '\s+')[-1] } | Sort-Object -Unique; foreach ($p in $pids) { if ($p -match '^\d+$' -and $p -ne '0') { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue } }"
+powershell -NoProfile -Command "$pids = netstat -ano | Select-String ':8000|:8011' | Where-Object { $_ -match 'LISTENING' } | ForEach-Object { ($_ -split '\s+')[-1] } | Sort-Object -Unique; foreach ($p in $pids) { if ($p -match '^\d+$' -and $p -ne '0') { Stop-Process -Id $p -Force -ErrorAction SilentlyContinue } }"
 powershell -NoProfile -Command "Start-Sleep -Seconds 2"
 
 echo [2/4] Clearing old demo data...
@@ -34,9 +34,9 @@ if exist data (
 )
 
 echo [3/4] Starting server...
-start "Campus Agent Server" cmd /k "title Campus Agent Server & python -m uvicorn app.main:app --host 127.0.0.1 --port 8000"
+start "Campus Agent Server" cmd /k "title Campus Agent Server & python -m uvicorn app.main:app --host 127.0.0.1 --port 8011"
 echo Waiting for server to be ready...
-powershell -NoProfile -Command "$ok=$false; for($i=0;$i -lt 30;$i++){ try { $h=Invoke-RestMethod 'http://127.0.0.1:8000/api/v1/health' -TimeoutSec 1; if($h.status -eq 'ok'){ $ok=$true; break } } catch {}; Start-Sleep -Milliseconds 500 }; if(-not $ok){ exit 1 }"
+powershell -NoProfile -Command "$ok=$false; for($i=0;$i -lt 30;$i++){ try { $h=Invoke-RestMethod 'http://127.0.0.1:8011/api/v1/health' -TimeoutSec 1; if($h.status -eq 'ok'){ $ok=$true; break } } catch {}; Start-Sleep -Milliseconds 500 }; if(-not $ok){ exit 1 }"
 if errorlevel 1 (
     echo.
     echo [ERROR] Server did not start. Close old black windows and try again.
@@ -45,6 +45,7 @@ if errorlevel 1 (
 )
 
 echo [4/4] Creating demo data...
+set CAMPUS_BASE_URL=http://127.0.0.1:8011/api/v1
 python scripts\seed_demo.py
 if errorlevel 1 (
     echo.
@@ -53,7 +54,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-start "" http://127.0.0.1:8000
+start "" http://127.0.0.1:8011
 echo.
 echo Done. The browser should open automatically.
 echo Keep the black window titled "Campus Agent Server" open.

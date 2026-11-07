@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 
-powershell -NoProfile -Command "if (netstat -ano | Select-String ':8000' | Where-Object { $_ -match 'LISTENING' }) { exit 0 } else { exit 1 }"
+powershell -NoProfile -Command "if (netstat -ano | Select-String ':8011' | Where-Object { $_ -match 'LISTENING' }) { exit 0 } else { exit 1 }"
 if errorlevel 1 (
     echo.
     echo The demo server is NOT running.
@@ -12,5 +12,5 @@ if errorlevel 1 (
     exit /b 1
 )
 
-start "" http://127.0.0.1:8000
+start "" http://127.0.0.1:8011
 exit /b 0
