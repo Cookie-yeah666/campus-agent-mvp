@@ -2320,3 +2320,22 @@
     "Latin Modern Roman", "Times New Roman", "Cambria Math", "STIX Two Math",
     serif;
 }
+
+/* 用户指定：TeX Gyre Termes Math 第一优先；当前缺失时用 Times，再回退 LM */
+.solution-body,
+.solution-question,
+.practice-question,
+.question-rich,
+.rich-analysis {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Times New Roman",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Text", "Noto Serif CJK SC", "Source Han Serif SC",
+    "Songti SC", "SimSun", serif;
+}
+
+.math-formula,
+.math-operator {
+  font-family: "TeX Gyre Termes Math", "TeX Gyre Termes", "Times New Roman",
+    "Latin Modern Math", "Latin Modern Roman", "Cambria Math",
+    "STIX Two Math", serif;
+}
