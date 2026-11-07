@@ -2447,3 +2447,15 @@
 .math-greek + .math-prime {
   margin-left: 0.16em;
 }
+
+/* 再拉开 f 与撇号，解决斜体 f 顶部压住撇号的问题 */
+.math-prime {
+  margin-left: 0.12em;
+  padding-left: 0.02em;
+  font-size: 0.68em;
+}
+
+.math-var + .math-prime,
+.math-greek + .math-prime {
+  margin-left: 0.28em;
+}
