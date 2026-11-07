@@ -1165,6 +1165,14 @@ function mathParse(src) {
       }
       continue;
     }
+    if (char === "'" || char === '′') {
+      output += '<span class="math-prime">′</span>';
+      continue;
+    }
+    if (char === '(' || char === ')' || char === '[' || char === ']') {
+      output += `<span class="math-paren">${escapeHtml(char)}</span>`;
+      continue;
+    }
     output += escapeHtml(char);
   }
   return output;

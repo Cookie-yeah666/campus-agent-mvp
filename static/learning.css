@@ -2409,3 +2409,30 @@
 .math-greek {
   font-style: italic;
 }
+
+/* 斜体变量与括号/撇号之间的微小数学间距 */
+.math-var,
+.math-greek {
+  padding: 0 0.045em;
+}
+
+.math-function {
+  padding-right: 0.04em;
+}
+
+.math-paren {
+  padding: 0 0.035em;
+}
+
+.math-symbol {
+  margin: 0 0.04em;
+}
+
+.math-prime {
+  display: inline-block;
+  margin-left: 0.05em;
+  font-size: 0.72em;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: super;
+}
