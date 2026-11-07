@@ -2459,3 +2459,23 @@
 .math-greek + .math-prime {
   margin-left: 0.28em;
 }
+
+/* 收紧分式：分子/分母贴近分数线，整体更紧凑 */
+.math-frac {
+  line-height: 1.05;
+}
+
+.math-frac .math-num {
+  padding: 0 6px 1px;
+  line-height: 1.12;
+}
+
+.math-frac .math-den {
+  padding: 1px 6px 0;
+  line-height: 1.12;
+}
+
+.math-frac .math-num,
+.math-frac .math-den {
+  font-size: 0.93em;
+}
