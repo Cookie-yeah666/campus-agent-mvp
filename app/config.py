@@ -85,7 +85,7 @@ class Settings(BaseSettings):
     learning_vision_base_url: str = "https://api.deepseek.com"
     learning_vision_api_key: str = ""
     learning_vision_model: str = "deepseek-flash"
-    learning_vision_timeout_seconds: float = 30.0
+    learning_vision_timeout_seconds: float = 120.0
 
     # ---------- 工具与工作流 ----------
     tool_timeout_seconds: int = 5

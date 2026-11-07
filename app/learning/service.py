@@ -646,17 +646,30 @@ class LearningService:
         max_tokens: int = 1200,
     ) -> str:
         base = credentials["base_url"].rstrip("/")
-        with httpx.Client(timeout=self.settings.learning_vision_timeout_seconds) as client:
-            response = client.post(
-                f"{base}/chat/completions",
-                headers={"Authorization": f"Bearer {credentials['api_key']}"},
-                json={
-                    "model": credentials["model"],
-                    "messages": messages,
-                    "temperature": 0.1,
-                    "max_tokens": max_tokens,
-                },
-            )
+        read_timeout = float(self.settings.learning_vision_timeout_seconds)
+        request_timeout = httpx.Timeout(
+            connect=10.0,
+            read=read_timeout,
+            write=30.0,
+            pool=10.0,
+        )
+        with httpx.Client(timeout=request_timeout) as client:
+            try:
+                response = client.post(
+                    f"{base}/chat/completions",
+                    headers={"Authorization": f"Bearer {credentials['api_key']}"},
+                    json={
+                        "model": credentials["model"],
+                        "messages": messages,
+                        "temperature": 0.1,
+                        "max_tokens": max_tokens,
+                    },
+                )
+            except httpx.TimeoutException as exc:
+                raise ValueError(
+                    f"视觉模型响应超时（读取上限 {read_timeout:g} 秒）；"
+                    "复杂题请重试，或把识别上限调到 32768"
+                ) from exc
             response.raise_for_status()
             data = response.json()
             choice = data["choices"][0]
@@ -707,7 +720,7 @@ class LearningService:
             ],
             # DeepSeek 推理型模型会先消耗 reasoning token；1400 会被推理吃光，
             # 正文变空。默认给足额度，前端可按图片调整。
-            max_tokens=max(512, min(32768, int(max_tokens or 4096))),
+            max_tokens=max(512, min(32768, int(max_tokens or 16384))),
         )
         content = content.strip()
         if content.startswith("```"):

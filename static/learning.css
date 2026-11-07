@@ -2067,3 +2067,74 @@
 .recognition-preset.is-active strong {
   color: var(--indigo-deep);
 }
+
+/* 题干也走 Markdown/公式渲染，避免出现原文 $...$ */
+.question-rich {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.question-rich p {
+  margin: 0;
+}
+
+.question-rich p + p {
+  margin-top: 6px;
+}
+
+.question-rich h3,
+.question-rich h4,
+.question-rich h5 {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.question-rich ul,
+.question-rich ol {
+  margin: 4px 0 4px 18px;
+  padding: 0;
+}
+
+.question-rich li {
+  font-size: 12px;
+}
+
+.question-rich .math-formula.math-display {
+  margin: 6px 0;
+  padding: 5px;
+}
+
+.solution-question .rich-analysis,
+.solution-question .question-rich {
+  font-size: 14px;
+}
+
+.practice-question .rich-analysis,
+.practice-question .question-rich {
+  font-size: 14px;
+}
+
+.practice-options li p {
+  display: inline;
+  margin: 0;
+}
+
+/* 大型运算符直立：积分、重积分、求和、连乘等 */
+.math-operator {
+  display: inline-block;
+  font-family: "Cambria Math", "STIX Two Math", "Latin Modern Math",
+    "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 1;
+  vertical-align: -0.08em;
+  margin: 0 0.08em;
+  letter-spacing: 0;
+}
+
+.math-formula.math-display .math-operator {
+  font-size: 1.42em;
+}

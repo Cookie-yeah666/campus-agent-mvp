@@ -29,7 +29,7 @@ const learningState = {
   semesterStart: '',
   pomodoro: null,
   pomodoroDone: 0,
-  recognitionTokens: 4096,
+  recognitionTokens: 16384,
   courses: [],
   examRoom: null,
   reminded: new Set(),
@@ -139,9 +139,9 @@ learningState.pomodoro = loadPomodoro();
 learningState.pomodoroDone = learningState.pomodoro.done || 0;
 try {
   const savedTokens = Number(localStorage.getItem('zhixing-recognition-tokens') || 0);
-  learningState.recognitionTokens = savedTokens >= 512 ? Math.min(32768, savedTokens) : 4096;
+  learningState.recognitionTokens = savedTokens >= 512 ? Math.min(32768, savedTokens) : 16384;
 } catch (error) {
-  learningState.recognitionTokens = 4096;
+  learningState.recognitionTokens = 16384;
 }
 
 const PRIORITY_LABEL = {
@@ -616,7 +616,7 @@ function learningReviewHTML() {
             <article class="question-card">
               ${question.image_url ? `<img src="${question.image_url}" alt="题目图" />` : ''}
               <span class="eyebrow">DUE ${escapeHtml(question.review_due || '')} · 连对 ${question.review_streak || 0}</span>
-              <p>${escapeHtml(question.question_text)}</p>
+              <div class="question-rich">${renderRichText(question.question_text)}</div>
               <span class="question-meta">${escapeHtml(question.knowledge_points || '待标注知识点')}</span>
               <div class="question-actions">
                 <button type="button" class="ghost-btn" data-learning-action="review-practice" data-question-id="${escapeAttr(question.id)}">${icon('play')} 再练一次</button>
@@ -681,7 +681,7 @@ function learningMistakesHTML() {
           </div>
           <textarea id="question-text" class="learning-textarea" rows="3" placeholder="也可以直接粘贴题干（可选）"></textarea>
           <div class="recognition-limit">
-            <span>识别上限 <strong>${learningState.recognitionTokens || 4096}</strong> tokens · 每次上传独立</span>
+            <span>识别上限 <strong>${learningState.recognitionTokens || 16384}</strong> tokens · 每次上传独立</span>
             <button type="button" class="settings-toggle" data-learning-action="recognition-tokens">${icon('settings')} 调节</button>
           </div>
           <button type="button" class="primary-btn" data-learning-action="upload-question">${icon('spark')} ${learningState.overview?.vision_mode === 'http' ? '识别并保存' : '先配置模型再识别'}</button>
@@ -694,7 +694,7 @@ function learningMistakesHTML() {
               <article class="question-card">
                 ${question.image_url ? `<img src="${question.image_url}" alt="题目图" />` : ''}
                 <span class="eyebrow">QUESTION ${String(index + 1).padStart(2, '0')}</span>
-                <p>${escapeHtml(question.question_text)}</p>
+                <div class="question-rich">${renderRichText(question.question_text)}</div>
                 <span class="question-meta">${escapeHtml(question.knowledge_points || '待标注知识点')} · ${escapeHtml(question.difficulty || '中等')}</span>
                 <div class="question-actions">
                   <button type="button" class="ghost-btn" data-learning-action="practice" data-question-id="${escapeAttr(question.id)}">${icon('play')} 开始练习</button>
@@ -1008,12 +1008,17 @@ const MATH_SYMBOLS = {
   Sigma: 'Σ', Phi: 'Φ', Omega: 'Ω', times: '×', cdot: '·', div: '÷',
   pm: '±', mp: '∓', le: '≤', leq: '≤', ge: '≥', geq: '≥', neq: '≠',
   approx: '≈', equiv: '≡', propto: '∝', infty: '∞', sum: '∑', prod: '∏',
+  iint: '∬', iiint: '∭', oint: '∮', coprod: '∐', bigcup: '⋃', bigcap: '⋂',
   int: '∫', partial: '∂', nabla: '∇', to: '→', rightarrow: '→',
   leftarrow: '←', leftrightarrow: '↔', therefore: '∴', because: '∵',
   degree: '°', angle: '∠', perp: '⊥', parallel: '∥', in: '∈', notin: '∉',
   subset: '⊂', subseteq: '⊆', cup: '∪', cap: '∩', emptyset: '∅',
   forall: '∀', exists: '∃', sim: '∼', cong: '≅', triangle: '△',
 };
+
+const MATH_LARGE_OPERATORS = new Set([
+  'int', 'iint', 'iiint', 'oint', 'sum', 'prod', 'coprod', 'bigcup', 'bigcap',
+]);
 
 function renderChem(src) {
   let value = escapeHtml(src);
@@ -1080,6 +1085,8 @@ function mathParse(src) {
       } else if (name === 'left' || name === 'right') {
         if (src[index] && src[index] !== '.') output += escapeHtml(src[index]);
         index += src[index] ? 1 : 0;
+      } else if (MATH_LARGE_OPERATORS.has(name) && MATH_SYMBOLS[name]) {
+        output += `<span class="math-operator">${MATH_SYMBOLS[name]}</span>`;
       } else if (MATH_SYMBOLS[name]) {
         output += `<span class="math-symbol">${MATH_SYMBOLS[name]}</span>`;
       } else if (name === ',' || name === ';' || name === 'quad') {
@@ -1814,7 +1821,7 @@ function trashQuestionHTML(question) {
     <article class="trash-item">
       ${question.image_url ? `<img src="${question.image_url}" alt="题目图" />` : ''}
       <div class="trash-item-main">
-        <p>${escapeHtml(question.question_text)}</p>
+        <div class="question-rich">${renderRichText(question.question_text)}</div>
         <small>删除于 ${escapeHtml((question.deleted_at || '').slice(0, 16).replace('T', ' '))} · 还剩 ${remain} 天</small>
       </div>
       <div class="question-actions">
@@ -1969,12 +1976,12 @@ function readQuestionFile(input) {
 }
 
 function openRecognitionTokens() {
-  const current = Number(learningState.recognitionTokens) || 4096;
+  const current = Number(learningState.recognitionTokens) || 16384;
   const presets = [
     [2048, '节省', '较快，适合清晰小题'],
-    [4096, '常用', '大多数题目推荐'],
+    [4096, '较快', '简单题/节省额度'],
     [8192, '复杂', '多步解析/公式较多的题'],
-    [16384, '很大', '超长解析，慎重'],
+    [16384, '常用', '大多数题目推荐'],
     [32768, '极大', '最慢且消耗最高，慎重'],
   ];
   openDrawer(`
@@ -2046,7 +2053,7 @@ async function uploadQuestion() {
         library_id: learningState.activeLibraryId,
         text: text || null,
         image_base64: learningState.imageData || null,
-        max_tokens: learningState.recognitionTokens || 4096,
+        max_tokens: learningState.recognitionTokens || 16384,
       },
     });
     learningState.imageData = '';
@@ -2065,7 +2072,7 @@ async function viewQuestionSolution(questionId) {
       <div class="drawer-head"><div><span class="eyebrow">SOLUTION</span><h2>解答与解析</h2></div><button type="button" class="icon-btn" data-close-drawer>${icon('close')}</button></div>
       <div class="drawer-body solution-body">
         ${question.image_url ? `<img class="practice-image" src="${question.image_url}" alt="题目图" />` : ''}
-        <div class="solution-question">${escapeHtml(question.question_text)}</div>
+        <div class="solution-question">${renderRichText(question.question_text)}</div>
         <div class="solution-answer">
           <span class="eyebrow">ANSWER</span>
           <div class="rich-analysis">${renderRichText(question.reference_answer || '暂无参考答案')}</div>
@@ -2092,8 +2099,8 @@ function practiceQuestion(questionId) {
     <div class="drawer-head"><div><span class="eyebrow">PRACTICE</span><h2>错题练习</h2></div><button type="button" class="icon-btn" data-close-drawer>${icon('close')}</button></div>
     <div class="drawer-body practice-body">
       ${question.image_url ? `<img class="practice-image" src="${question.image_url}" alt="题目图" />` : ''}
-      <div class="practice-question">${escapeHtml(question.question_text)}</div>
-      ${question.options?.length ? `<ul class="practice-options">${question.options.map((option) => `<li>${escapeHtml(option)}</li>`).join('')}</ul>` : ''}
+      <div class="practice-question">${renderRichText(question.question_text)}</div>
+      ${question.options?.length ? `<ul class="practice-options">${question.options.map((option) => `<li>${renderRichText(option)}</li>`).join('')}</ul>` : ''}
       <p class="learning-hint">答案和解析在提交前不会显示。先写下你的思路或最终答案。</p>
       <textarea id="practice-answer" class="learning-textarea" rows="6" placeholder="写下你的解答/思路…"></textarea>
       <div class="learning-form-row">
