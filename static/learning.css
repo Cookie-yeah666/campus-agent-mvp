@@ -2404,8 +2404,8 @@
   font-style: normal;
 }
 
-/* 用户选择：数学字母也使用正体，不斜体 */
+/* 数学变量斜体；符号/函数名保持直立 */
 .math-var,
 .math-greek {
-  font-style: normal;
+  font-style: italic;
 }
