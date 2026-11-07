@@ -644,9 +644,10 @@ class LearningService:
         *,
         messages: list[dict[str, Any]],
         max_tokens: int = 1200,
+        timeout_seconds: float | None = None,
     ) -> str:
         base = credentials["base_url"].rstrip("/")
-        read_timeout = float(self.settings.learning_vision_timeout_seconds)
+        read_timeout = float(timeout_seconds or self.settings.learning_vision_timeout_seconds)
         request_timeout = httpx.Timeout(
             connect=10.0,
             read=read_timeout,
@@ -689,6 +690,7 @@ class LearningService:
         text: str | None,
         credentials: dict[str, str],
         max_tokens: int | None = None,
+        timeout_seconds: int | None = None,
     ) -> dict[str, Any]:
         encoded = base64.b64encode(image_data).decode("ascii")
         prompt = (
@@ -721,6 +723,7 @@ class LearningService:
             # DeepSeek 推理型模型会先消耗 reasoning token；1400 会被推理吃光，
             # 正文变空。默认给足额度，前端可按图片调整。
             max_tokens=max(512, min(32768, int(max_tokens or 16384))),
+            timeout_seconds=timeout_seconds,
         )
         content = content.strip()
         if content.startswith("```"):
@@ -810,6 +813,7 @@ class LearningService:
         text: str | None = None,
         image_base64: str | None = None,
         max_tokens: int | None = None,
+        timeout_seconds: int | None = None,
     ) -> dict[str, Any]:
         library = self.store.get_library(library_id, owner_id)
         if library is None:
@@ -824,7 +828,11 @@ class LearningService:
         try:
             if image_data:
                 extracted = self._http_extraction(
-                    image_data, text, credentials, max_tokens=max_tokens
+                    image_data,
+                    text,
+                    credentials,
+                    max_tokens=max_tokens,
+                    timeout_seconds=timeout_seconds,
                 )
             else:
                 extracted = self._http_text_extraction(text or "", credentials)

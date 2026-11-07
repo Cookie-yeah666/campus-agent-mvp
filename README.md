@@ -26,7 +26,7 @@
 | 人工坐席 | 待认领、认领、办结；审批队列；站内通知 |
 | 学习视觉 | **无 mock**；学生自己的 API Key，测试通过才能用 |
 | 当前模型 | `DeepSeek / deepseek-flash`；图片识别是推理型模型，默认上限 16384 tokens |
-| 识别 token | 上传区齿轮可调 2048/4096/8192/16384/32768 或自定义；每次上传独立，不是累计 |
+| 识别 token | 上传区齿轮可调 2048/4096/8192/16384/32768 或自定义；超时 15–600 秒可调；每次上传独立，不是累计 |
 | 学习 Key 存储 | Windows DPAPI 密文 + SHA-256 指纹，接口只返回掩码；不能覆盖，只能删除重录 |
 | 学习数据 | `learning_data/learning.db`：任务、错题、专注、课程、模型配置；另有图片目录 |
 | 错题回收站 | 题目/错题本**两个独立回收站**，保留 7 天，可恢复/彻底删除 |
@@ -42,7 +42,7 @@
 2. 学习识别/批改走真实模型，但没有 Key 会明确拒绝，不会返回假题；
 3. `deepseek-flash` 是推理型模型；图片识别 token 不够时会返回空正文，当前默认 16384，可调；
 4. 解析排版是本地轻量 Markdown/公式层，不是完整 KaTeX；矩阵/复杂对齐环境不支持；
-5. 识别上限保存在浏览器 localStorage，换设备/换浏览器回到 16384；
+5. 识别上限和超时保存在浏览器 localStorage，换设备/换浏览器回到 16384 tokens / 120 秒；
 6. 现实习/审批/报修仍是 Mock，真实学校系统未接。
 
 ---
@@ -156,7 +156,7 @@
 | 任务清单 | 本地规则/模型两种拆解；口水词清洗；逐条改；导入；删除；完成勾选；逾期自动高优先级 |
 | 任务与专注联动 | 点任务播放键开始计时；结束后累加实际投入；完成状态回写 |
 | 错题本 | 建库；图片/文字录题；整本删除进错题本回收站 |
-| 识别 token | 上传区齿轮调 2048/4096/8192/16384/32768 或自定义；每次上传独立 |
+| 识别 token | 上传区齿轮调 2048/4096/8192/16384/32768 或自定义；超时 15–600 秒可调；每次上传独立 |
 | 题目回收站 | 单题软删除 7 天，可恢复/彻底删除；与错题本回收站分开 |
 | 查看解析 | 独立抽屉；Markdown、分式、根号、上下标、常见希腊字母、`\ce{}` 化学式 |
 | 练习 | 题图 + 题干 + 作答；提交后 AI 批改、步骤反馈、参考解析、知识点 |
@@ -450,7 +450,7 @@ Base URL: https://api.deepseek.com
 
 > 旧的 `deepseek-v4-flash-vision-exp` 已下线，用 `deepseek-flash`；不要填 `deepseek-v4.1-flash`。
 
-`deepseek-flash` 是推理型模型：图片识别会先消耗 reasoning tokens。默认 `max_tokens=16384`，读取超时 120 秒；复杂图片仍返回空正文时，上传区齿轮可调到 32768。每次上传独立，不是累计额度。
+`deepseek-flash` 是推理型模型：图片识别会先消耗 reasoning tokens。默认 `max_tokens=16384`，读取超时 120 秒；复杂图片仍返回空正文时，上传区齿轮可调到 32768。超时可在 15–600 秒之间自行设置。每次上传独立，不是累计额度。上传后显示按等待时间估算的进度条、阶段和已等待时间。
 
 ### 8.4 Qwen 配置
 
@@ -534,7 +534,7 @@ Base URL: https://dashscope.aliyuncs.com/compatible-mode/v1
 | DELETE | `/api/v1/learning/questions/{id}` | 软删除到回收站 |
 | POST | `/api/v1/learning/questions/{id}/restore` | 恢复 |
 | DELETE | `/api/v1/learning/questions/{id}/permanent` | 彻底删除 |
-| POST | `/api/v1/learning/questions` | 录题（需已测试 Key）；可带 `max_tokens` 单次识别上限 |
+| POST | `/api/v1/learning/questions` | 录题（需已测试 Key）；可带 `max_tokens` 和 `timeout_seconds` |
 | GET | `/api/v1/learning/questions/{id}` | 练习题目（无答案） |
 | GET | `/api/v1/learning/questions/{id}/solution` | 参考答案与解析 |
 | POST | `/api/v1/learning/questions/{id}/attempts` | 提交批改 |

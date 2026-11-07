@@ -30,6 +30,9 @@ const learningState = {
   pomodoro: null,
   pomodoroDone: 0,
   recognitionTokens: 16384,
+  recognitionTimeout: 120,
+  recognitionBusy: false,
+  recognitionTimer: null,
   courses: [],
   examRoom: null,
   reminded: new Set(),
@@ -140,8 +143,11 @@ learningState.pomodoroDone = learningState.pomodoro.done || 0;
 try {
   const savedTokens = Number(localStorage.getItem('zhixing-recognition-tokens') || 0);
   learningState.recognitionTokens = savedTokens >= 512 ? Math.min(32768, savedTokens) : 16384;
+  const savedTimeout = Number(localStorage.getItem('zhixing-recognition-timeout') || 0);
+  learningState.recognitionTimeout = savedTimeout >= 15 ? Math.min(600, savedTimeout) : 120;
 } catch (error) {
   learningState.recognitionTokens = 16384;
+  learningState.recognitionTimeout = 120;
 }
 
 const PRIORITY_LABEL = {
@@ -188,6 +194,9 @@ const MODEL_PRESETS = {
 function resetLearningState() {
   stopLearningTimer();
   if (learningState.reminderHandle) clearInterval(learningState.reminderHandle);
+  if (learningState.recognitionTimer) clearInterval(learningState.recognitionTimer);
+  learningState.recognitionBusy = false;
+  learningState.recognitionTimer = null;
   learningState.tab = 'focus';
   learningState.overview = null;
   learningState.tasks = [];
@@ -681,10 +690,20 @@ function learningMistakesHTML() {
           </div>
           <textarea id="question-text" class="learning-textarea" rows="3" placeholder="也可以直接粘贴题干（可选）"></textarea>
           <div class="recognition-limit">
-            <span>识别上限 <strong>${learningState.recognitionTokens || 16384}</strong> tokens · 每次上传独立</span>
+            <span>识别上限 <strong>${learningState.recognitionTokens || 16384}</strong> tokens · 超时 <strong>${learningState.recognitionTimeout || 120}</strong> 秒 · 每次上传独立</span>
             <button type="button" class="settings-toggle" data-learning-action="recognition-tokens">${icon('settings')} 调节</button>
           </div>
-          <button type="button" class="primary-btn" data-learning-action="upload-question">${icon('spark')} ${learningState.overview?.vision_mode === 'http' ? '识别并保存' : '先配置模型再识别'}</button>
+          <button type="button" class="primary-btn" data-learning-action="upload-question" id="upload-question-btn">${icon('spark')} ${learningState.overview?.vision_mode === 'http' ? '识别并保存' : '先配置模型再识别'}</button>
+          <div id="recognition-progress" class="recognition-progress" hidden>
+            <div class="recognition-progress-head">
+              <strong id="recognition-progress-stage">准备识别</strong>
+              <span id="recognition-progress-time">0.0 秒</span>
+            </div>
+            <div class="recognition-progress-track">
+              <span id="recognition-progress-bar"></span>
+            </div>
+            <p id="recognition-progress-detail">模型正在读取题目，复杂题可能需要几十秒。</p>
+          </div>
         </div>
         <div class="question-grid">
           ${learningState.questions.length
@@ -1985,9 +2004,9 @@ function openRecognitionTokens() {
     [32768, '极大', '最慢且消耗最高，慎重'],
   ];
   openDrawer(`
-    <div class="drawer-head"><div><span class="eyebrow">RECOGNITION LIMIT</span><h2>识别 token 上限</h2></div><button type="button" class="icon-btn" data-close-drawer>${icon('close')}</button></div>
+    <div class="drawer-head"><div><span class="eyebrow">RECOGNITION SETTINGS</span><h2>识别设置</h2></div><button type="button" class="icon-btn" data-close-drawer>${icon('close')}</button></div>
     <div class="drawer-body">
-      <div class="notice-box">${icon('shield')} 这是<strong>每次上传</strong>的生成上限，不是累计余额；下一次上传会重新从所选值开始。数值越大，等待时间和模型费用通常越高。</div>
+      <div class="notice-box">${icon('shield')} 这是<strong>每次上传</strong>的生成上限，不是累计余额；下一次上传会重新从所选值开始。模型没有真实进度接口，上传后页面会按等待时间显示估算进度。</div>
       <div class="recognition-presets">
         ${presets.map(([value, label, desc]) => `
           <button type="button" class="recognition-preset ${current === value ? 'is-active' : ''}" data-learning-action="recognition-token" data-token="${value}">
@@ -2004,34 +2023,147 @@ function openRecognitionTokens() {
           ${presets.map(([value, label]) => `<option value="${value}" ${current === value ? 'selected' : ''}>${value} · ${label}</option>`).join('')}
         </select>
       </label>
+      <div class="recognition-divider"></div>
+      <h3 class="recognition-subtitle">超时秒数</h3>
+      <p class="learning-hint">超过这个时间就停止等待。复杂证明题建议 120–180 秒。</p>
+      <div class="recognition-presets">
+        ${[
+          [60, '快速', '简单小题'],
+          [120, '常用', '大多数题目'],
+          [180, '复杂', '证明题/长解析'],
+          [300, '很慢', '网络慢或极复杂，慎重'],
+        ].map(([value, label, desc]) => `
+          <button type="button" class="recognition-preset ${Number(learningState.recognitionTimeout) === value ? 'is-active' : ''}" data-learning-action="recognition-timeout" data-timeout="${value}">
+            <strong>${value} 秒</strong><span>${label}（${desc}）</span>
+          </button>`).join('')}
+      </div>
+      <label class="login-field">
+        <span>也可以自己填（15–600 秒）</span>
+        <input id="recognition-custom-timeout" class="text-input" type="number" min="15" max="600" step="5" value="${Number(learningState.recognitionTimeout) || 120}" />
+      </label>
+      <label class="login-field">
+        <span>快捷选择</span>
+        <select id="recognition-timeout-select" class="select-input">
+          ${[60, 120, 180, 300, 600].map((value) => `<option value="${value}" ${Number(learningState.recognitionTimeout) === value ? 'selected' : ''}>${value} 秒</option>`).join('')}
+        </select>
+      </label>
       <div class="learning-form-row">
-        <button type="button" class="primary-btn" data-learning-action="save-recognition-tokens">保存上限</button>
+        <button type="button" class="primary-btn" data-learning-action="save-recognition-tokens">保存设置</button>
       </div>
     </div>`);
+}
+
+function selectRecognitionTimeout(value) {
+  const input = $('#recognition-custom-timeout');
+  if (input) input.value = String(value);
+  document.querySelectorAll('.recognition-preset[data-timeout]').forEach((button) => {
+    button.classList.toggle('is-active', Number(button.dataset.timeout) === Number(value));
+  });
 }
 
 function selectRecognitionToken(value) {
   const input = $('#recognition-custom-tokens');
   if (input) input.value = String(value);
-  document.querySelectorAll('.recognition-preset').forEach((button) => {
+  document.querySelectorAll('.recognition-preset[data-token]').forEach((button) => {
     button.classList.toggle('is-active', Number(button.dataset.token) === Number(value));
   });
 }
 
 function saveRecognitionTokens() {
   const value = Number($('#recognition-custom-tokens')?.value || 0);
+  const timeout = Number($('#recognition-custom-timeout')?.value || 0);
   if (!value || value < 512 || value > 32768) {
-    toast('请填写 512 到 32768 之间的数字。');
+    toast('请填写 512 到 32768 之间的 token 数。');
+    return;
+  }
+  if (!timeout || timeout < 15 || timeout > 600) {
+    toast('请填写 15 到 600 秒之间的超时时间。');
     return;
   }
   learningState.recognitionTokens = Math.round(value);
+  learningState.recognitionTimeout = Math.round(timeout);
   localStorage.setItem('zhixing-recognition-tokens', String(learningState.recognitionTokens));
+  localStorage.setItem('zhixing-recognition-timeout', String(learningState.recognitionTimeout));
   closeDrawer();
-  toast(`识别上限已设为 ${learningState.recognitionTokens} tokens，下次上传生效。`);
+  toast(`识别上限 ${learningState.recognitionTokens} tokens，超时 ${learningState.recognitionTimeout} 秒，下次上传生效。`);
   renderLearningContent();
 }
 
+function setUploadBusy(busy) {
+  const button = $('#upload-question-btn');
+  if (!button) return;
+  button.disabled = busy;
+  button.innerHTML = busy
+    ? `${icon('spark')} 识别中…`
+    : `${icon('spark')} ${learningState.overview?.vision_mode === 'http' ? '识别并保存' : '先配置模型再识别'}`;
+}
+
+function startRecognitionProgress() {
+  const panel = $('#recognition-progress');
+  if (!panel) return;
+  panel.hidden = false;
+  panel.dataset.state = 'running';
+  const started = Date.now();
+  const timeout = Math.max(15, Number(learningState.recognitionTimeout) || 120);
+  const stage = $('#recognition-progress-stage');
+  const time = $('#recognition-progress-time');
+  const bar = $('#recognition-progress-bar');
+  const detail = $('#recognition-progress-detail');
+  const tick = () => {
+    const elapsed = (Date.now() - started) / 1000;
+    const ratio = Math.min(1, elapsed / timeout);
+    let percent = 8 + ratio * 77;
+    let label = '正在预处理图片';
+    let hint = '原图会先去元数据、缩放，再发送给模型。';
+    if (elapsed >= 1.2 && elapsed < 5) {
+      percent = 15 + ((elapsed - 1.2) / 3.8) * 15;
+      label = '正在发送给模型';
+      hint = '图片已处理好，正在等待模型开始阅读。';
+    } else if (elapsed >= 5) {
+      percent = Math.max(30, Math.min(88, 30 + ratio * 58));
+      label = '模型识别中';
+      hint = '模型正在阅读题目并生成解析；复杂证明题通常需要 30–60 秒。';
+      if (elapsed > timeout * 0.75) {
+        hint = '仍在识别，已接近本次超时时间；如果失败可以调高超时或减少 token。';
+      }
+    }
+    if (stage) stage.textContent = label;
+    if (time) time.textContent = `${elapsed.toFixed(1)} 秒 / ${timeout} 秒`;
+    if (bar) bar.style.width = `${percent.toFixed(1)}%`;
+    if (detail) detail.textContent = `${hint} 进度为按等待时间估算。`;
+  };
+  if (learningState.recognitionTimer) clearInterval(learningState.recognitionTimer);
+  tick();
+  learningState.recognitionTimer = setInterval(tick, 200);
+}
+
+function finishRecognitionProgress() {
+  if (learningState.recognitionTimer) clearInterval(learningState.recognitionTimer);
+  learningState.recognitionTimer = null;
+  const panel = $('#recognition-progress');
+  if (!panel) return;
+  panel.dataset.state = 'done';
+  $('#recognition-progress-stage').textContent = '识别完成';
+  $('#recognition-progress-time').textContent = '正在保存题目';
+  $('#recognition-progress-bar').style.width = '100%';
+  $('#recognition-progress-detail').textContent = '题目已返回，正在写入错题本。';
+}
+
+function failRecognitionProgress(message) {
+  if (learningState.recognitionTimer) clearInterval(learningState.recognitionTimer);
+  learningState.recognitionTimer = null;
+  const panel = $('#recognition-progress');
+  if (!panel) return;
+  panel.dataset.state = 'error';
+  panel.hidden = false;
+  $('#recognition-progress-stage').textContent = '识别失败';
+  $('#recognition-progress-time').textContent = '已停止等待';
+  $('#recognition-progress-bar').style.width = '100%';
+  $('#recognition-progress-detail').textContent = message;
+}
+
 async function uploadQuestion() {
+  if (learningState.recognitionBusy) return;
   if (!learningState.activeLibraryId) {
     toast('先选一个错题本。');
     return;
@@ -2046,6 +2178,9 @@ async function uploadQuestion() {
     toast('上传图片或输入题干。');
     return;
   }
+  learningState.recognitionBusy = true;
+  setUploadBusy(true);
+  startRecognitionProgress();
   try {
     const question = await api('/learning/questions', {
       method: 'POST',
@@ -2054,14 +2189,22 @@ async function uploadQuestion() {
         text: text || null,
         image_base64: learningState.imageData || null,
         max_tokens: learningState.recognitionTokens || 16384,
+        timeout_seconds: learningState.recognitionTimeout || 120,
       },
     });
+    finishRecognitionProgress();
     learningState.imageData = '';
     learningState.questions.unshift(question);
+    await new Promise((resolve) => setTimeout(resolve, 450));
     toast('识别完成，题目已保存。');
     renderLearningContent();
   } catch (error) {
+    failRecognitionProgress(error.message);
     toast(error.message, 'error');
+    setUploadBusy(false);
+  } finally {
+    learningState.recognitionBusy = false;
+    if ($('#upload-question-btn')) setUploadBusy(false);
   }
 }
 
@@ -2526,6 +2669,8 @@ async function handleLearningClick(event) {
     openRecognitionTokens();
   } else if (kind === 'recognition-token') {
     selectRecognitionToken(action.dataset.token);
+  } else if (kind === 'recognition-timeout') {
+    selectRecognitionTimeout(action.dataset.timeout);
   } else if (kind === 'save-recognition-tokens') {
     saveRecognitionTokens();
   } else if (kind === 'vision-settings') {
@@ -2710,6 +2855,10 @@ function handleLearningChange(event) {
   const target = event.target;
   if (target.id === 'recognition-token-select') {
     selectRecognitionToken(target.value);
+    return;
+  }
+  if (target.id === 'recognition-timeout-select') {
+    selectRecognitionTimeout(target.value);
     return;
   }
   if (target.matches('[data-pomodoro-setting]')) {

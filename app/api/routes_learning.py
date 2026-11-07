@@ -75,6 +75,7 @@ class QuestionCreate(BaseModel):
     text: str | None = None
     image_base64: str | None = None
     max_tokens: int | None = Field(default=None, ge=512, le=32768)
+    timeout_seconds: int | None = Field(default=None, ge=15, le=600)
 
 
 class AttemptCreate(BaseModel):
@@ -358,6 +359,7 @@ def create_question(
             text=payload.text,
             image_base64=payload.image_base64,
             max_tokens=payload.max_tokens,
+            timeout_seconds=payload.timeout_seconds,
         )
     except LookupError as exc:
         raise HTTPException(404, detail={"code": "library_not_found", "message": str(exc)}) from exc
