@@ -10,8 +10,9 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
 const ROUTES = {
+  campus: '校园事务',
   chat: '对话工作台',
-  learning: '学习空间',
+  learning: '个人学习',
   workorders: '工单中心',
   handoff: '人工坐席',
   audit: '审计回放',
@@ -22,7 +23,8 @@ const ROUTES = {
 };
 
 const ROUTE_TITLES = {
-  learning: '专注与错题本',
+  campus: '校园事务总览',
+  learning: '学习概览',
   workorders: '工单列表',
   handoff: '待认领队列',
   audit: '留痕回放',
@@ -30,6 +32,41 @@ const ROUTE_TITLES = {
   students: '学生名册',
   evaluation: '检索评测',
   system: '运行总览',
+};
+
+const CAMPUS_NAV = [
+  { section: 'home', route: 'campus', icon: 'home', label: '校园事务总览' },
+  { section: 'chat', route: 'chat', icon: 'chat', label: '对话工作台' },
+  { section: 'card-reissue', route: 'chat', icon: 'ticket', label: '校园卡补办' },
+  { section: 'network-repair', route: 'chat', icon: 'pulse', label: '网络报修' },
+  { section: 'leave', route: 'chat', icon: 'clock', label: '请假申请' },
+  { section: 'workorders', route: 'workorders', icon: 'ticket', label: '工单中心' },
+  { section: 'approvals', route: 'workorders', icon: 'shield', label: '审批中心', staffOnly: true },
+  { section: 'handoff', route: 'handoff', icon: 'users', label: '人工坐席', staffOnly: true },
+  { section: 'knowledge', route: 'knowledge', icon: 'book', label: '知识库' },
+  { section: 'evaluation', route: 'evaluation', icon: 'chart', label: '评测中心' },
+  { section: 'notifications', action: 'notifications', icon: 'bell', label: '通知中心' },
+  { section: 'audit', route: 'audit', icon: 'pulse', label: '审计回放', staffOnly: true },
+  { section: 'students', route: 'students', icon: 'users', label: '学生库', staffOnly: true },
+  { section: 'system', route: 'system', icon: 'cpu', label: '系统状态', staffOnly: true },
+];
+
+const LEARNING_NAV = [
+  { tab: 'focus', label: '学习概览 / 专注' },
+  { tab: 'exam', label: '考试周' },
+  { tab: 'tasks', label: '任务清单' },
+  { tab: 'review', label: '复习' },
+  { tab: 'mistakes', label: '错题本' },
+  { tab: 'calendar', label: '日历与课程' },
+  { tab: 'materials', label: '课程资料' },
+  { tab: 'report', label: '学习报告' },
+  { tab: 'models', label: '模型设置' },
+];
+
+const CAMPUS_PROMPTS = {
+  'card-reissue': '我要补办校园卡',
+  'network-repair': '我要报修网络',
+  leave: '我要请假',
 };
 
 const STATUS_MAP = {
@@ -66,6 +103,11 @@ const WORKFLOW_NAME = {
 
 const state = {
   route: 'chat',
+  mode: localStorage.getItem('zhixing-mode') || 'campus',
+  lastCampusSection: localStorage.getItem('zhixing-campus-section') || 'home',
+  lastLearningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
+  campusSection: localStorage.getItem('zhixing-campus-section') || 'home',
+  learningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
   user: null,
   token: localStorage.getItem('zhixing-token') || '',
   loginMode: 'student',
@@ -248,10 +290,10 @@ const ROLE_LABELS = {
 };
 
 const ROLE_ROUTES = {
-  student: ['chat', 'learning', 'workorders', 'knowledge', 'evaluation'],
-  counselor: ['chat', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
-  auditor: ['workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
-  admin: ['chat', 'learning', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'system'],
+  student: ['campus', 'chat', 'learning', 'workorders', 'knowledge', 'evaluation'],
+  counselor: ['campus', 'chat', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
+  auditor: ['campus', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
+  admin: ['campus', 'chat', 'learning', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'system'],
 };
 
 function allowedRoutes() {
@@ -259,7 +301,243 @@ function allowedRoutes() {
 }
 
 function defaultRoute() {
-  return allowedRoutes().includes('chat') ? 'chat' : 'workorders';
+  return allowedRoutes().includes('campus') ? 'campus' : 'workorders';
+}
+
+function canSeeCampusItem(item) {
+  if (item.staffOnly && !['counselor', 'auditor', 'admin'].includes(state.user?.role)) {
+    return false;
+  }
+  if (item.route && !allowedRoutes().includes(item.route)) return false;
+  return true;
+}
+
+function renderSidebarNav() {
+  const nav = $('#main-nav');
+  if (!nav) return;
+  const switchButton = $('#mode-toggle');
+  if (switchButton) {
+    switchButton.setAttribute('aria-pressed', state.mode === 'learning' ? 'true' : 'false');
+    $('#mode-label').textContent = state.mode === 'learning' ? '个人学习' : '校园事务';
+    $('#mode-switch').classList.toggle('is-learning', state.mode === 'learning');
+  }
+
+  if (state.mode === 'learning') {
+    if (!allowedRoutes().includes('learning')) {
+      nav.innerHTML = '';
+      return;
+    }
+    nav.innerHTML = `
+      <div class="nav-section-label">个人学习</div>
+      <a href="#/campus/chat" class="nav-item ${state.route === 'chat' ? 'is-active' : ''}" data-nav-chat="1" data-route="chat">
+        <svg class="icon"><use href="#i-chat"></use></svg><span>对话工作台</span>
+      </a>
+      ${LEARNING_NAV.map((item) => `
+        <a href="#/learning/${escapeAttr(item.tab)}" class="nav-item ${state.learningTab === item.tab && state.route !== 'chat' ? 'is-active' : ''}"
+           data-nav-learning="${escapeAttr(item.tab)}" data-route="learning">
+          <svg class="icon"><use href="#i-${item.tab === 'mistakes' ? 'book' : item.tab === 'calendar' ? 'clock' : item.tab === 'models' ? 'settings' : 'spark'}"></use></svg>
+          <span>${escapeHtml(item.label)}</span>
+        </a>`).join('')}`;
+    return;
+  }
+
+  nav.innerHTML = `
+    <div class="nav-section-label">校园事务</div>
+    ${CAMPUS_NAV.filter(canSeeCampusItem).map((item) => {
+      if (item.action === 'notifications') {
+        return `<button type="button" class="nav-item" data-campus-action="notifications">
+          <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
+        </button>`;
+      }
+      const active = state.campusSection === item.section;
+      return `<a href="#/campus/${escapeAttr(item.section)}" class="nav-item ${active ? 'is-active' : ''}"
+        data-campus-section="${escapeAttr(item.section)}" data-route="${escapeAttr(item.route)}">
+        <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
+        ${item.section === 'workorders' ? '<span class="nav-badge" id="nav-workorder-badge" hidden>0</span>' : ''}
+      </a>`;
+    }).join('')}`;
+}
+
+function setActiveNavigation() {
+  $$('#main-nav .nav-item').forEach((item) => {
+    const active = state.mode === 'learning'
+      ? (item.dataset.navChat ? state.route === 'chat' : item.dataset.navLearning === state.learningTab && state.route !== 'chat')
+      : item.dataset.campusSection === state.campusSection;
+    item.classList.toggle('is-active', active);
+    if (active) item.setAttribute('aria-current', 'page');
+    else item.removeAttribute('aria-current');
+  });
+}
+
+function setHash(hash) {
+  if (location.hash === hash) {
+    applyLocation();
+    return;
+  }
+  location.hash = hash;
+}
+
+function navigateCampusSection(section) {
+  state.mode = 'campus';
+  state.campusSection = section;
+  state.lastCampusSection = section;
+  localStorage.setItem('zhixing-mode', 'campus');
+  localStorage.setItem('zhixing-campus-section', section);
+  renderSidebarNav();
+  setHash(`#/campus/${section}`);
+}
+
+function applyLearningTab(tab) {
+  if (typeof learningState === 'undefined') return;
+  learningState.tab =
+    tab === 'models' || tab === 'home' ? 'focus' : tab === 'materials' ? 'calendar' : tab;
+}
+
+async function navigateLearningSection(tab) {
+  state.mode = 'learning';
+  state.learningTab = tab;
+  state.lastLearningTab = tab;
+  localStorage.setItem('zhixing-mode', 'learning');
+  localStorage.setItem('zhixing-learning-tab', tab);
+  applyLearningTab(tab);
+  await navigate('learning', { push: false });
+  state.learningTab = tab;
+  renderSidebarNav();
+  updateChrome('learning');
+  setActiveNavigation();
+  if (tab === 'models') openVisionSettings();
+  setHash(`#/learning/${tab}`);
+}
+
+function toggleAppMode() {
+  if (state.mode === 'campus') {
+    if (!allowedRoutes().includes('learning')) {
+      toast('当前角色没有个人学习板块权限。');
+      return;
+    }
+    navigateLearningSection(state.lastLearningTab || 'focus');
+  } else {
+    navigateCampusSection(state.lastCampusSection || 'home');
+  }
+}
+
+function parseLocation() {
+  const raw = (location.hash || '').replace(/^#\/?/, '').trim();
+  if (raw.startsWith('campus/')) {
+    const section = raw.slice('campus/'.length) || 'home';
+    return { mode: 'campus', section };
+  }
+  if (raw === 'campus') return { mode: 'campus', section: 'home' };
+  if (raw === 'learning/chat') {
+    return { mode: 'learning', tab: state.lastLearningTab || 'focus', chat: true };
+  }
+  if (raw.startsWith('learning/')) {
+    const tab = raw.slice('learning/'.length) || 'focus';
+    return { mode: 'learning', tab };
+  }
+  if (raw === 'learning') return { mode: 'learning', tab: state.lastLearningTab || 'focus' };
+  if (ROUTES[raw]) {
+    return { mode: raw === 'learning' ? 'learning' : 'campus', section: raw, route: raw };
+  }
+  return { mode: 'campus', section: 'home', route: 'campus' };
+}
+
+async function applyLocation() {
+  const target = parseLocation();
+  if (target.mode === 'learning' && target.chat) {
+    state.mode = 'learning';
+    await navigate('chat', { push: false });
+    renderSidebarNav();
+    setActiveNavigation();
+    return;
+  }
+  if (target.mode === 'learning') {
+    state.mode = 'learning';
+    const validLearningTabs = new Set(LEARNING_NAV.map((item) => item.tab));
+    state.learningTab = validLearningTabs.has(target.tab) ? target.tab : 'focus';
+    const requestedTab = state.learningTab;
+    state.lastLearningTab = requestedTab;
+    localStorage.setItem('zhixing-learning-tab', requestedTab);
+    applyLearningTab(requestedTab);
+    await navigate('learning', { push: false });
+    state.learningTab = requestedTab;
+    renderSidebarNav();
+    updateChrome('learning');
+    setActiveNavigation();
+    if (state.learningTab === 'models') openVisionSettings();
+    return;
+  }
+
+  state.mode = 'campus';
+  state.campusSection = target.section || 'home';
+  state.lastCampusSection = state.campusSection;
+  localStorage.setItem('zhixing-campus-section', state.campusSection);
+  if (CAMPUS_PROMPTS[state.campusSection]) {
+    await navigate('chat', { push: false });
+    const prompt = CAMPUS_PROMPTS[state.campusSection];
+    const input = $('#composer-input');
+    if (input) {
+      input.value = prompt;
+      input.focus();
+      autoResizeComposer();
+    }
+    toast(`已打开对话工作台：${prompt}`);
+  } else if (state.campusSection === 'approvals') {
+    state.workorderFilter = 'awaiting_approval';
+    await navigate('workorders', { push: false });
+    state.campusSection = 'approvals';
+    renderSidebarNav();
+    setActiveNavigation();
+  } else if (state.campusSection === 'notifications') {
+    await navigate('campus', { push: false });
+    state.campusSection = 'notifications';
+    renderSidebarNav();
+    setActiveNavigation();
+    $('#notifications-btn')?.click();
+  } else {
+    const route = state.campusSection === 'home' ? 'campus' : state.campusSection;
+    await navigate(ROUTES[route] ? route : 'campus', { push: false });
+  }
+  renderSidebarNav();
+  setActiveNavigation();
+}
+
+function renderCampusHomePage() {
+  const page = $('#campus-page');
+  if (!page) return;
+  const user = state.user || {};
+  const chatAllowed = allowedRoutes().includes('chat');
+  const cards = [
+    ['card-reissue', 'ticket', '校园卡补办', '挂失、余额校验、预约与回执', 'tone-teal'],
+    ['network-repair', 'pulse', '网络报修', '断网、网线、端口报修与派单', 'tone-amber'],
+    ['leave', 'clock', '请假申请', '辅导员审批，超过 3 天学院审批', 'tone-indigo'],
+    ['workorders', 'ticket', '工单中心', '查看办理状态、回执与审批', 'tone-slate'],
+    ['knowledge', 'book', '知识库', '制度原文、条款引用与检索', 'tone-indigo'],
+    ['evaluation', 'chart', '评测中心', '检索、引用、拒答与任务指标', 'tone-teal'],
+  ];
+  page.innerHTML = `
+    <div class="page-inner campus-home">
+      <div class="page-head campus-home-head">
+        <div>
+          <span class="eyebrow">CAMPUS SERVICES</span>
+          <h1>校园事务</h1>
+          <p>${escapeHtml(user.name || '同学')}，从补卡、报修、请假到工单和制度查询，都可以在这里直接进入。</p>
+        </div>
+        ${chatAllowed ? `<button type="button" class="primary-btn" data-campus-section="chat">${icon('chat')} 打开对话工作台</button>` : ''}
+      </div>
+      <div class="campus-service-grid">
+        ${cards.map(([section, iconName, title, desc, tone]) => `
+          <button type="button" class="campus-service-card" data-campus-section="${section}">
+            <span class="cap-icon ${tone}">${icon(iconName)}</span>
+            <strong>${title}</strong>
+            <span>${desc}</span>
+            <em>进入 ${icon('arrow')}</em>
+          </button>`).join('')}
+      </div>
+      <div class="campus-home-note">
+        ${icon('shield')} 所有办理都会保留确认、回执和审计记录；没有依据的问题不会编造答案。
+      </div>
+    </div>`;
 }
 
 async function loadNotifications() {
@@ -360,7 +638,9 @@ async function restoreAuth() {
 async function startApp() {
   if (state.started) return;
   state.started = true;
+  const initialHash = location.hash;
   hideLogin();
+  document.body.classList.add('dual-shell');
   applyRoleUI();
   updateChrome('chat');
 
@@ -393,18 +673,27 @@ async function startApp() {
     renderWelcome();
   }
 
-  let route = parseRoute();
-  if (!allowedRoutes().includes(route)) route = defaultRoute();
-  if (route !== 'chat') {
-    await navigate(route, { push: false });
+  if (initialHash) {
+    history.replaceState(null, '', initialHash);
+    await applyLocation();
+  } else if (state.mode === 'learning' && allowedRoutes().includes('learning')) {
+    state.mode = 'learning';
+    const requestedTab = state.learningTab || 'focus';
+    applyLearningTab(requestedTab);
+    await navigate('learning', { push: false });
+    state.learningTab = requestedTab;
+    history.replaceState(null, '', `#/learning/${requestedTab}`);
+  } else {
+    state.mode = 'campus';
+    state.campusSection = 'home';
+    await navigate('campus', { push: false });
+    history.replaceState(null, '', '#/campus/home');
   }
 }
 
 function applyRoleUI() {
   const allowed = allowedRoutes();
-  $$('.nav-item').forEach((item) => {
-    item.hidden = !allowed.includes(item.dataset.route);
-  });
+  renderSidebarNav();
   const chatAllowed = allowed.includes('chat');
   const newChat = $('#new-chat-btn');
   if (newChat) newChat.hidden = !chatAllowed;
@@ -602,23 +891,52 @@ function openProfileDrawer() {
 }
 
 function parseRoute() {
-  const raw = (location.hash || '').replace(/^#\/?/, '').trim();
-  return ROUTES[raw] ? raw : 'chat';
+  const target = parseLocation();
+  return target.mode === 'learning' ? 'learning' : target.route || 'campus';
 }
 
 async function navigate(route, { push = true } = {}) {
-  if (!ROUTES[route]) route = 'chat';
+  if (!ROUTES[route]) route = 'campus';
   if (state.user && !allowedRoutes().includes(route)) route = defaultRoute();
+  if (route === 'learning') {
+    state.mode = 'learning';
+    if (typeof learningState !== 'undefined' && learningState.tab) {
+      state.learningTab = learningState.tab;
+    }
+  } else if (route === 'campus') {
+    state.mode = 'campus';
+    state.campusSection = 'home';
+  } else if (route === 'chat') {
+    if (state.mode === 'campus' && !CAMPUS_PROMPTS[state.campusSection]) {
+      state.campusSection = 'chat';
+    }
+  } else {
+    state.mode = 'campus';
+    const sectionMap = {
+      workorders: 'workorders',
+      handoff: 'handoff',
+      audit: 'audit',
+      knowledge: 'knowledge',
+      students: 'students',
+      evaluation: 'evaluation',
+      system: 'system',
+    };
+    if (sectionMap[route]) state.campusSection = sectionMap[route];
+  }
   state.route = route;
-  $$('.nav-item').forEach((item) => item.classList.toggle('is-active', item.dataset.route === route));
+  document.body.classList.toggle('mode-learning', state.mode === 'learning');
+  document.body.classList.toggle('mode-campus', state.mode === 'campus');
+  renderSidebarNav();
   $$('.view').forEach((view) => view.classList.toggle('is-active', view.id === `view-${route}`));
   document.body.classList.toggle('pages-mode', route !== 'chat');
   updateChrome(route);
+  setActiveNavigation();
   closeMobile();
   if (push && location.hash !== `#/${route}`) {
     location.hash = `#/${route}`;
   }
 
+  if (route === 'campus') renderCampusHomePage();
   if (route === 'learning') await renderLearningPage();
   if (route === 'workorders') await renderWorkordersPage();
   if (route === 'handoff') await renderHandoffPage();
@@ -631,12 +949,17 @@ async function navigate(route, { push = true } = {}) {
     toggleWelcome();
     scrollToBottom(false);
   }
+  setActiveNavigation();
 }
 
 function updateChrome(route) {
   const section = ROUTES[route] || ROUTES.chat;
   $('#crumb-section').textContent = section;
   let title = ROUTE_TITLES[route] || state.session?.title || '新的对话';
+  if (route === 'learning') {
+    const activeLearning = LEARNING_NAV.find((item) => item.tab === state.learningTab);
+    title = activeLearning?.label || ROUTE_TITLES.learning;
+  }
   if (route === 'chat' && state.session?.title) title = state.session.title;
   $('#crumb-title').textContent = title;
   document.title = `知行 · ${section}`;
@@ -660,6 +983,7 @@ function bindEvents() {
     markAllNotificationsRead();
   });
 
+  $('#mode-toggle')?.addEventListener('click', toggleAppMode);
   $('#new-chat-btn').addEventListener('click', () => createSession());
   $('#theme-toggle').addEventListener('click', () => {
     state.theme = state.theme === 'dark' ? 'light' : 'dark';
@@ -686,7 +1010,7 @@ function bindEvents() {
   $('#mobile-overlay').addEventListener('click', closeMobile);
 
   window.addEventListener('hashchange', () => {
-    navigate(parseRoute(), { push: false });
+    applyLocation();
   });
 
   document.addEventListener('keydown', (event) => {
@@ -948,6 +1272,7 @@ function buildMessageEl(message) {
         ${citationsHTML(message.citations)}
         ${toolCallsHTML(message.tool_calls)}
         ${actionsHTML(message)}
+        ${navigationActionsHTML(message)}
       </div>
     </div>`;
   return article;
@@ -1060,6 +1385,36 @@ function actionsHTML(message) {
   return `<div class="action-chips">${actions
     .map((action) => `<button type="button" class="action-chip" data-action="${escapeAttr(action)}">${escapeHtml(action)}</button>`)
     .join('')}</div>`;
+}
+
+function navigationActionsHTML(message) {
+  if (!message || message.role !== 'assistant') return '';
+  let content = String(message.content || '');
+  const messageIndex = state.messages.findIndex((item) => item.id && item.id === message.id);
+  if (messageIndex >= 0) {
+    const lastUser = [...state.messages.slice(0, messageIndex)]
+      .reverse()
+      .find((item) => item.role === 'user');
+    if (lastUser) content += ` ${lastUser.content || ''}`;
+  }
+  const intents = [
+    { pattern: /(补办|补卡|校园卡)/, mode: 'campus', section: 'card-reissue', label: '打开校园卡补办' },
+    { pattern: /(网络|报修|维修)/, mode: 'campus', section: 'network-repair', label: '打开网络报修' },
+    { pattern: /(请假|销假)/, mode: 'campus', section: 'leave', label: '打开请假申请' },
+    { pattern: /(工单|办理进度|回执)/, mode: 'campus', section: 'workorders', label: '打开工单中心' },
+    { pattern: /(知识库|制度|政策|条款)/, mode: 'campus', section: 'knowledge', label: '打开知识库' },
+    { pattern: /(评测|指标|召回)/, mode: 'campus', section: 'evaluation', label: '打开评测中心' },
+    { pattern: /(错题|错题本)/, mode: 'learning', section: 'mistakes', label: '打开错题本' },
+    { pattern: /(专注|番茄)/, mode: 'learning', section: 'focus', label: '打开专注' },
+    { pattern: /(任务|清单)/, mode: 'learning', section: 'tasks', label: '打开任务清单' },
+    { pattern: /(日历|课程表)/, mode: 'learning', section: 'calendar', label: '打开日历与课程' },
+  ];
+  const found = intents.filter((item) => item.pattern.test(content)).slice(0, 2);
+  if (!found.length) return '';
+  return `<div class="navigation-chips">${found.map((item) => `
+    <button type="button" class="navigation-chip" data-nav-mode="${item.mode}" data-nav-section="${item.section}">
+      ${escapeHtml(item.label)} ${icon('arrow')}
+    </button>`).join('')}</div>`;
 }
 
 async function hydrateLatestWorkorder() {
@@ -2677,6 +3032,54 @@ async function copyText(text) {
 
 async function handleDocumentClick(event) {
   const target = event.target;
+
+  const navChip = target.closest('[data-nav-mode][data-nav-section]');
+  if (navChip) {
+    event.preventDefault();
+    if (navChip.dataset.navMode === 'learning') {
+      navigateLearningSection(navChip.dataset.navSection);
+    } else {
+      navigateCampusSection(navChip.dataset.navSection);
+    }
+    return;
+  }
+
+  const campusAction = target.closest('[data-campus-action="notifications"]');
+  if (campusAction) {
+    event.preventDefault();
+    await navigate('campus', { push: false });
+    $('#notifications-btn')?.click();
+    return;
+  }
+
+  const campusSection = target.closest('[data-campus-section]');
+  if (campusSection) {
+    event.preventDefault();
+    navigateCampusSection(campusSection.dataset.campusSection);
+    return;
+  }
+
+  const learningNav = target.closest('[data-nav-learning]');
+  if (learningNav) {
+    event.preventDefault();
+    navigateLearningSection(learningNav.dataset.navLearning);
+    return;
+  }
+
+  const chatNav = target.closest('[data-nav-chat]');
+  if (chatNav) {
+    event.preventDefault();
+    await navigate('chat', { push: false });
+    setHash(state.mode === 'learning' ? '#/learning/chat' : '#/campus/chat');
+    return;
+  }
+
+  const navAction = target.closest('[data-nav-action]');
+  if (navAction) {
+    event.preventDefault();
+    navigateCampusSection(navAction.dataset.navSection);
+    return;
+  }
 
   if (!target.closest('#sidebar-user')) {
     closeProfileMenu();

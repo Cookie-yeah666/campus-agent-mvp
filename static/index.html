@@ -6,8 +6,8 @@
   <meta name="description" content="知行 · 有依据地回答，有回执地办事" />
   <meta name="theme-color" content="#101a2b" />
   <title>知行 · 校园智能服务助手</title>
-  <link rel="stylesheet" href="/static/style.css?v=20261107-40" />
-  <link rel="stylesheet" href="/static/learning.css?v=20261107-40" />
+  <link rel="stylesheet" href="/static/style.css?v=20261107-45" />
+  <link rel="stylesheet" href="/static/learning.css?v=20261107-45" />
 </head>
 <body class="login-locked">
   <div class="login-screen" id="login-screen">
@@ -94,36 +94,7 @@
         <kbd>Ctrl N</kbd>
       </button>
 
-      <nav class="main-nav" aria-label="主导航">
-        <a href="#/chat" class="nav-item is-active" data-route="chat">
-          <svg class="icon"><use href="#i-chat"></use></svg><span>对话工作台</span>
-        </a>
-        <a href="#/learning" class="nav-item" data-route="learning">
-          <svg class="icon"><use href="#i-clock"></use></svg><span>学习空间</span>
-        </a>
-        <a href="#/workorders" class="nav-item" data-route="workorders">
-          <svg class="icon"><use href="#i-ticket"></use></svg><span>工单中心</span>
-          <span class="nav-badge" id="nav-workorder-badge" hidden>0</span>
-        </a>
-        <a href="#/handoff" class="nav-item" data-route="handoff">
-          <svg class="icon"><use href="#i-users"></use></svg><span>人工坐席</span>
-        </a>
-        <a href="#/audit" class="nav-item" data-route="audit">
-          <svg class="icon"><use href="#i-pulse"></use></svg><span>审计回放</span>
-        </a>
-        <a href="#/knowledge" class="nav-item" data-route="knowledge">
-          <svg class="icon"><use href="#i-book"></use></svg><span>知识库</span>
-        </a>
-        <a href="#/students" class="nav-item" data-route="students">
-          <svg class="icon"><use href="#i-users"></use></svg><span>学生库</span>
-        </a>
-        <a href="#/evaluation" class="nav-item" data-route="evaluation">
-          <svg class="icon"><use href="#i-chart"></use></svg><span>评测中心</span>
-        </a>
-        <a href="#/system" class="nav-item" data-route="system">
-          <svg class="icon"><use href="#i-cpu"></use></svg><span>系统状态</span>
-        </a>
-      </nav>
+      <nav class="main-nav" id="main-nav" aria-label="主导航"></nav>
 
       <div class="session-block">
         <div class="session-head">
@@ -133,6 +104,17 @@
         <div class="session-list" id="session-list">
           <div class="session-empty">还没有对话记录</div>
         </div>
+      </div>
+
+      <div class="mode-switch" id="mode-switch">
+        <button class="mode-switch-btn" id="mode-toggle" type="button" aria-label="切换校园事务和个人学习板块">
+          <span class="mode-switch-icon"><svg class="icon"><use href="#i-refresh"></use></svg></span>
+          <span class="mode-switch-copy">
+            <small>当前板块</small>
+            <strong id="mode-label">校园事务</strong>
+          </span>
+          <span class="mode-switch-action">切换</span>
+        </button>
       </div>
 
       <div class="sidebar-user" id="sidebar-user">
@@ -281,6 +263,11 @@
         </div>
       </section>
 
+      <!-- 校园事务总览 -->
+      <section class="view" id="view-campus">
+        <div class="page" id="campus-page"></div>
+      </section>
+
       <!-- 学习空间 -->
       <section class="view" id="view-learning">
         <div class="page" id="learning-page"></div>
@@ -343,6 +330,7 @@
   <!-- ==================== SVG 图标 ==================== -->
   <svg class="svg-sprite" aria-hidden="true">
     <defs>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10Z"/></symbol>
       <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.8L3 21l1.9-4.6A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z"/></symbol>
       <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h13A2.5 2.5 0 0 1 21 8.5v1a2.5 2.5 0 0 0 0 5v1a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 15.5v-1a2.5 2.5 0 0 0 0-5v-1Z"/><path d="M9 6v12" stroke-dasharray="2 3"/></symbol>
       <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></symbol>
@@ -379,8 +367,8 @@
     </defs>
   </svg>
 
-  <script src="/static/app.js?v=20261107-40"></script>
-  <script src="/static/learning.js?v=20261107-40"></script>
-  <script src="/static/handoff.js?v=20261107-40"></script>
+  <script src="/static/app.js?v=20261107-45"></script>
+  <script src="/static/learning.js?v=20261107-45"></script>
+  <script src="/static/handoff.js?v=20261107-45"></script>
 </body>
 </html>

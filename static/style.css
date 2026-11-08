@@ -4275,3 +4275,257 @@ body.pages-mode .inspector-toggle {
   font-family: var(--font-mono);
   font-size: 8px;
 }
+
+/* ============================================================
+   双板块 shell：校园事务 / 个人学习
+   ============================================================ */
+.main-nav {
+  max-height: 46vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.nav-section-label {
+  padding: 7px 11px 4px;
+  color: #71859c;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mode-switch {
+  position: relative;
+  z-index: 1;
+  margin: 8px 0 4px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mode-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid rgba(139, 181, 232, 0.28);
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(122, 166, 221, 0.16), rgba(95, 185, 154, 0.1));
+  color: #eaf2fb;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.mode-switch-btn:hover {
+  border-color: rgba(139, 181, 232, 0.65);
+  background: linear-gradient(135deg, rgba(122, 166, 221, 0.26), rgba(95, 185, 154, 0.16));
+}
+
+.mode-switch-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  background: rgba(139, 181, 232, 0.16);
+  color: #a9c8ed;
+}
+
+.mode-switch-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.mode-switch-copy small {
+  color: #8297ad;
+  font-size: 8px;
+}
+
+.mode-switch-copy strong {
+  margin-top: 1px;
+  color: #f2f7fd;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mode-switch-action {
+  color: #92b8dc;
+  font-size: 9px;
+}
+
+.mode-switch.is-learning .mode-switch-icon {
+  color: #8bd5b7;
+  background: rgba(95, 185, 154, 0.14);
+}
+
+/* 校园事务总览 */
+.campus-home {
+  max-width: 1120px;
+}
+
+.campus-home-head {
+  align-items: flex-end;
+}
+
+.campus-service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.campus-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  min-height: 148px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.campus-service-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--indigo);
+  box-shadow: var(--shadow-sm);
+}
+
+.campus-service-card strong {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.campus-service-card > span:not(.cap-icon) {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.campus-service-card em {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  color: var(--indigo-deep);
+  font-size: 9px;
+  font-style: normal;
+}
+
+.campus-service-card em .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.campus-home-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.campus-home-note .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--teal-deep);
+}
+
+/* 对话跳转按钮 */
+.navigation-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.navigation-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  border: 1px solid var(--indigo);
+  border-radius: 8px;
+  background: var(--indigo-soft);
+  color: var(--indigo-deep);
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.navigation-chip:hover {
+  background: var(--indigo);
+  color: #fff;
+}
+
+.navigation-chip .icon {
+  width: 12px;
+  height: 12px;
+}
+
+body.dual-shell .learning-tabs {
+  display: none;
+}
+
+/* button.nav-item 清理浏览器默认按钮样式 */
+button.nav-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.nav-item:hover {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+button.nav-item.is-active {
+  background: linear-gradient(90deg, rgba(122, 166, 221, 0.18), rgba(122, 166, 221, 0.03));
+}
+
+.campus-service-card,
+.campus-home-note {
+  font-family: inherit;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    max-height: none;
+  }
+
+  .campus-home-head {
+    align-items: flex-start;
+  }
+
+  .campus-service-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .campus-home {
+    padding-bottom: 30px;
+  }
+
+  .campus-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-switch {
+    margin-top: 10px;
+  }
+}
