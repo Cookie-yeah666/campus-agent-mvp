@@ -21,6 +21,7 @@ from app.api import (
     routes_approval,
     routes_auth,
     routes_chat,
+    routes_community,
     routes_evaluation,
     routes_evaluation_ext,
     routes_handoff,
@@ -89,6 +90,7 @@ def create_app() -> FastAPI:
         routes_evaluation.router,
         routes_evaluation_ext.router,
         routes_learning.router,
+        routes_community.router,
         routes_notifications.router,
         routes_students.router,
     ):

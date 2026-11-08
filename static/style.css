@@ -4622,3 +4622,271 @@ button.nav-item.is-active {
     min-height: 150px;
   }
 }
+
+/* 失物招领 */
+.lostfound-page {
+  max-width: 1160px;
+}
+
+.lostfound-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+
+.lostfound-toolbar .select-input {
+  width: 150px;
+}
+
+.lostfound-toolbar .text-input {
+  flex: 1;
+  min-width: 190px;
+}
+
+.lostfound-tabs {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.lostfound-tab {
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.lostfound-tab.is-active {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.lostfound-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.lostfound-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.lostfound-card.is-lost {
+  border-top: 3px solid #8b6fc8;
+}
+
+.lostfound-card.is-found {
+  border-top: 3px solid #4f8fc4;
+}
+
+.lostfound-card img,
+.lostfound-placeholder {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.lostfound-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.lostfound-placeholder .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.lostfound-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 11px;
+}
+
+.lostfound-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.lostfound-kind {
+  padding: 2px 6px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 8px;
+}
+
+.is-lost .lostfound-kind {
+  background: #8b6fc8;
+}
+
+.is-found .lostfound-kind {
+  background: #4f8fc4;
+}
+
+.lostfound-card h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.lostfound-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.lostfound-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.lostfound-tags span {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.lostfound-matches {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+}
+
+.lostfound-match {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+}
+
+.lostfound-match-score {
+  color: var(--teal-deep);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.lostfound-match b {
+  margin-right: 4px;
+  color: var(--ink);
+}
+
+.lostfound-match small,
+.lostfound-match p {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.lostfound-match p {
+  grid-column: 2 / -1;
+  margin: 0;
+}
+
+/* 意见反馈 */
+.feedback-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: 16px;
+}
+
+.feedback-form-card {
+  align-self: start;
+}
+
+.feedback-anonymous {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feedback-item {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+}
+
+.feedback-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+  color: var(--indigo-deep);
+  font-size: 9px;
+}
+
+.feedback-meta small {
+  color: var(--muted);
+}
+
+.feedback-meta em {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--surface-3);
+  color: var(--muted);
+  font-size: 8px;
+  font-style: normal;
+}
+
+.feedback-item p {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.feedback-item > small {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+@media (max-width: 760px) {
+  .feedback-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lostfound-match {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .lostfound-match > div:nth-child(3) {
+    grid-column: 2;
+  }
+}

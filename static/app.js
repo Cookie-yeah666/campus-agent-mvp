@@ -17,6 +17,8 @@ const ROUTES = {
   handoff: '人工坐席',
   audit: '审计回放',
   knowledge: '知识库',
+  lostfound: '失物招领',
+  feedback: '意见反馈',
   students: '学生库',
   evaluation: '评测中心',
   system: '系统状态',
@@ -29,6 +31,8 @@ const ROUTE_TITLES = {
   handoff: '待认领队列',
   audit: '留痕回放',
   knowledge: '制度文档',
+  lostfound: '失物招领',
+  feedback: '意见反馈',
   students: '学生名册',
   evaluation: '检索评测',
   system: '运行总览',
@@ -40,12 +44,11 @@ const CAMPUS_NAV = [
   { section: 'card-reissue', route: 'chat', icon: 'ticket', label: '校园卡补办' },
   { section: 'network-repair', route: 'chat', icon: 'pulse', label: '网络报修' },
   { section: 'leave', route: 'chat', icon: 'clock', label: '请假申请' },
+  { section: 'workorders', route: 'workorders', icon: 'ticket', label: '工单中心' },
   { section: 'approvals', route: 'workorders', icon: 'shield', label: '审批中心', staffOnly: true },
   { section: 'handoff', route: 'handoff', icon: 'users', label: '人工坐席', staffOnly: true },
-];
-
-const OTHER_NAV = [
-  { section: 'workorders', route: 'workorders', icon: 'ticket', label: '工单中心' },
+  { section: 'lost-found', route: 'lostfound', icon: 'search', label: '失物招领' },
+  { section: 'feedback', route: 'feedback', icon: 'chat', label: '意见反馈' },
   { section: 'knowledge', route: 'knowledge', icon: 'book', label: '知识库' },
   { section: 'evaluation', route: 'evaluation', icon: 'chart', label: '评测中心' },
   { section: 'notifications', action: 'notifications', icon: 'bell', label: '通知中心' },
@@ -110,7 +113,6 @@ const state = {
   lastCampusSection: localStorage.getItem('zhixing-campus-section') || 'home',
   lastLearningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
   campusSection: localStorage.getItem('zhixing-campus-section') || 'home',
-  otherExpanded: localStorage.getItem('zhixing-other-expanded') === '1',
   learningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
   user: null,
   token: localStorage.getItem('zhixing-token') || '',
@@ -133,6 +135,11 @@ const state = {
   knowledgeCategory: '全部',
   knowledgeSearch: '',
   knowledgeResults: null,
+  lostFoundCampus: '',
+  lostFoundKind: 'lost',
+  lostFoundQuery: '',
+  lostFoundData: null,
+  feedbackData: null,
   students: [],
   studentStats: null,
   studentFilters: { college: '', cohort: '', major: '', query: '', status: '' },
@@ -294,10 +301,10 @@ const ROLE_LABELS = {
 };
 
 const ROLE_ROUTES = {
-  student: ['campus', 'chat', 'learning', 'workorders', 'knowledge', 'evaluation'],
-  counselor: ['campus', 'chat', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
-  auditor: ['campus', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation'],
-  admin: ['campus', 'chat', 'learning', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'system'],
+  student: ['campus', 'chat', 'learning', 'workorders', 'knowledge', 'evaluation', 'lostfound', 'feedback'],
+  counselor: ['campus', 'chat', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'lostfound', 'feedback'],
+  auditor: ['campus', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'lostfound', 'feedback'],
+  admin: ['campus', 'chat', 'learning', 'workorders', 'handoff', 'audit', 'knowledge', 'students', 'evaluation', 'system', 'lostfound', 'feedback'],
 };
 
 function allowedRoutes() {
@@ -306,10 +313,6 @@ function allowedRoutes() {
 
 function defaultRoute() {
   return allowedRoutes().includes('campus') ? 'campus' : 'workorders';
-}
-
-function isOtherCampusSection(section) {
-  return OTHER_NAV.some((item) => item.section === section);
 }
 
 function canSeeCampusItem(item) {
@@ -361,17 +364,9 @@ function renderSidebarNav() {
       <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
     </a>`;
   };
-  const otherItems = OTHER_NAV.filter(canSeeCampusItem);
   nav.innerHTML = `
     <div class="nav-section-label">校园事务</div>
-    ${CAMPUS_NAV.filter(canSeeCampusItem).map(renderItem).join('')}
-    <button type="button" class="nav-item nav-group-toggle" data-campus-group="other"
-      aria-expanded="${state.otherExpanded ? 'true' : 'false'}">
-      <svg class="icon"><use href="#i-menu"></use></svg><span>其他</span>
-      <span class="nav-badge" id="nav-workorder-badge" hidden>0</span>
-      <svg class="icon nav-group-chevron"><use href="#i-chevron"></use></svg>
-    </button>
-    ${state.otherExpanded ? otherItems.map(renderItem).join('') : ''}`;
+    ${CAMPUS_NAV.filter(canSeeCampusItem).map(renderItem).join('')}`;
 }
 
 function setActiveNavigation() {
@@ -383,12 +378,6 @@ function setActiveNavigation() {
     if (active) item.setAttribute('aria-current', 'page');
     else item.removeAttribute('aria-current');
   });
-  const otherToggle = $('#main-nav .nav-group-toggle[data-campus-group="other"]');
-  if (otherToggle) {
-    const otherActive = OTHER_NAV.some((item) => item.section === state.campusSection);
-    otherToggle.classList.toggle('is-active', otherActive);
-    otherToggle.setAttribute('aria-expanded', state.otherExpanded ? 'true' : 'false');
-  }
 }
 
 function setHash(hash) {
@@ -431,10 +420,6 @@ function navigateCampusSection(section) {
   state.mode = 'campus';
   state.campusSection = section;
   state.lastCampusSection = section;
-  if (isOtherCampusSection(section)) {
-    state.otherExpanded = true;
-    localStorage.setItem('zhixing-other-expanded', '1');
-  }
   localStorage.setItem('zhixing-mode', 'campus');
   localStorage.setItem('zhixing-campus-section', section);
   renderSidebarNav();
@@ -552,7 +537,12 @@ async function applyLocation() {
     setActiveNavigation();
     $('#notifications-btn')?.click();
   } else {
-    const route = state.campusSection === 'home' ? 'campus' : state.campusSection;
+    const sectionRoutes = {
+      home: 'campus',
+      'lost-found': 'lostfound',
+      feedback: 'feedback',
+    };
+    const route = sectionRoutes[state.campusSection] || state.campusSection;
     await navigate(ROUTES[route] ? route : 'campus', { push: false });
   }
   renderSidebarNav();
@@ -568,6 +558,8 @@ function renderCampusHomePage() {
     ['card-reissue', 'ticket', '校园卡补办', '挂失、余额校验、预约与回执', 'tone-teal'],
     ['network-repair', 'pulse', '网络报修', '断网、网线、端口报修与派单', 'tone-amber'],
     ['leave', 'clock', '请假申请', '辅导员审批，超过 3 天学院审批', 'tone-indigo'],
+    ['lost-found', 'search', '失物招领', '按校区发布寻物/招领，关键词快速匹配', 'tone-indigo'],
+    ['feedback', 'chat', '意见反馈', '教学、后勤、设施建议，可匿名提交', 'tone-amber'],
     ['workorders', 'ticket', '工单中心', '查看办理状态、回执与审批', 'tone-slate'],
     ['knowledge', 'book', '知识库', '制度原文、条款引用与检索', 'tone-indigo'],
     ['evaluation', 'chart', '评测中心', '检索、引用、拒答与任务指标', 'tone-teal'],
@@ -595,6 +587,230 @@ function renderCampusHomePage() {
         ${icon('shield')} 所有办理都会保留确认、回执和审计记录；没有依据的问题不会编造答案。
       </div>
     </div>`;
+}
+
+
+const LOST_FOUND_CAMPUSES = ['天赐庄校区', '独墅湖校区', '阳澄湖校区', '未来校区'];
+
+function lostFoundCardHTML(item) {
+  const kindLabel = item.kind === 'found' ? '招领' : '寻物';
+  return `
+    <article class="lostfound-card is-${escapeAttr(item.kind)}">
+      ${item.image_url ? `<img src="${item.image_url}" alt="${kindLabel}物品图" />` : `<div class="lostfound-placeholder">${icon(item.kind === 'found' ? 'search' : 'book')}</div>`}
+      <div class="lostfound-card-main">
+        <div class="lostfound-meta">
+          <span class="lostfound-kind">${kindLabel}</span>
+          <span>${escapeHtml(item.campus)}</span>
+          <span>${escapeHtml(item.category || '其他')}</span>
+        </div>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.description || '没有补充描述')}</p>
+        <div class="lostfound-tags">
+          ${item.keywords ? `<span>${escapeHtml(item.keywords)}</span>` : ''}
+          ${item.place ? `<span>${escapeHtml(item.place)}</span>` : ''}
+          ${item.contact ? `<span>联系：${escapeHtml(item.contact)}</span>` : ''}
+        </div>
+        ${item.is_mine ? `<button type="button" class="text-btn" data-lostfound-close="${escapeAttr(item.id)}">标记已解决</button>` : ''}
+      </div>
+    </article>`;
+}
+
+async function renderLostFoundPage() {
+  const page = $('#lostfound-page');
+  if (!page) return;
+  page.innerHTML = '<div class="page-inner"><p class="muted-text">正在加载失物招领…</p></div>';
+  try {
+    const params = new URLSearchParams();
+    if (state.lostFoundCampus) params.set('campus', state.lostFoundCampus);
+    if (state.lostFoundKind) params.set('kind', state.lostFoundKind);
+    if (state.lostFoundQuery) params.set('q', state.lostFoundQuery);
+    const data = await api(`/community/lost-found?${params.toString()}`);
+    state.lostFoundData = data;
+    const campuses = data.campuses || LOST_FOUND_CAMPUSES;
+    const items = data.items || [];
+    const matches = data.matches || [];
+    page.innerHTML = `
+      <div class="page-inner lostfound-page">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">LOST &amp; FOUND</span>
+            <h1>失物招领</h1>
+            <p>选择校区，发布寻物或招领；系统会用标题、描述和关键词自动匹配。</p>
+          </div>
+          <div class="section-head-actions">
+            <button type="button" class="ghost-btn" data-lostfound-open="lost">${icon('search')} 我丢了东西</button>
+            <button type="button" class="primary-btn" data-lostfound-open="found">${icon('plus')} 我捡到了东西</button>
+          </div>
+        </div>
+        <div class="lostfound-toolbar">
+          <div class="lostfound-tabs">
+            <button type="button" class="lostfound-tab ${state.lostFoundKind === 'lost' ? 'is-active' : ''}" data-lostfound-kind="lost">寻物</button>
+            <button type="button" class="lostfound-tab ${state.lostFoundKind === 'found' ? 'is-active' : ''}" data-lostfound-kind="found">招领</button>
+          </div>
+          <select id="lostfound-campus" class="select-input">
+            <option value="">全部校区</option>
+            ${campuses.map((campus) => `<option value="${escapeAttr(campus)}" ${state.lostFoundCampus === campus ? 'selected' : ''}>${escapeHtml(campus)}</option>`).join('')}
+          </select>
+          <input id="lostfound-search" class="text-input" value="${escapeAttr(state.lostFoundQuery)}" placeholder="搜耳机、校园卡、水杯…" />
+          <button type="button" class="ghost-btn" data-lostfound-search>${icon('search')} 搜索匹配</button>
+        </div>
+        ${matches.length ? `
+          <section class="lostfound-matches">
+            <div class="section-head"><div><h3>可能匹配</h3><p class="section-sub">同校区、相反类型，按关键词和描述自动排序。</p></div></div>
+            ${matches.map((match) => `
+              <div class="lostfound-match">
+                <span class="lostfound-match-score">${match.score} 分</span>
+                <div><b>寻物</b>${escapeHtml(match.lost.title)} <small>${escapeHtml(match.lost.campus)}</small></div>
+                <div><b>招领</b>${escapeHtml(match.found.title)} <small>${escapeHtml(match.found.campus)}</small></div>
+                <p>${escapeHtml((match.reasons || []).join('、') || '关键词相近')}</p>
+              </div>`).join('')}
+          </section>` : ''}
+        <div class="lostfound-grid">
+          ${items.length ? items.map(lostFoundCardHTML).join('') : '<div class="learning-empty"><strong>这个筛选下还没有记录</strong><span>发布一条寻物或招领，系统会帮你匹配。</span></div>'}
+        </div>
+      </div>`;
+  } catch (error) {
+    page.innerHTML = errorPage(error.message, 'lostfound');
+  }
+}
+
+function openLostFoundForm(kind) {
+  const campuses = state.lostFoundData?.campuses || LOST_FOUND_CAMPUSES;
+  const isFound = kind === 'found';
+  openDrawer(`
+    <div class="drawer-head"><div><span class="eyebrow">${isFound ? 'FOUND ITEM' : 'LOST ITEM'}</span><h2>${isFound ? '发布招领' : '发布寻物'}</h2></div><button type="button" class="icon-btn" data-close-drawer>${icon('close')}</button></div>
+    <div class="drawer-body lostfound-form">
+      <label class="login-field"><span>校区</span><select id="lostfound-form-campus" class="select-input">${campuses.map((campus) => `<option value="${escapeAttr(campus)}" ${state.lostFoundCampus === campus ? 'selected' : ''}>${escapeHtml(campus)}</option>`).join('')}</select></label>
+      <label class="login-field"><span>物品标题</span><input id="lostfound-form-title" class="text-input" maxlength="80" placeholder="${isFound ? '例如：白色耳机充电盒' : '例如：寻找黑色水杯'}" /></label>
+      <label class="login-field"><span>关键词（空格或逗号分隔）</span><input id="lostfound-form-keywords" class="text-input" maxlength="120" placeholder="耳机 白色 充电盒" /></label>
+      <label class="login-field"><span>类别</span><input id="lostfound-form-category" class="text-input" maxlength="30" placeholder="电子产品 / 证件 / 生活用品" /></label>
+      <label class="login-field"><span>地点</span><input id="lostfound-form-place" class="text-input" maxlength="80" placeholder="例如：图书馆三楼" /></label>
+      <label class="login-field"><span>补充描述</span><textarea id="lostfound-form-description" class="learning-textarea" rows="3" placeholder="颜色、时间、外观特征"></textarea></label>
+      <label class="login-field"><span>联系方式（可选）</span><input id="lostfound-form-contact" class="text-input" maxlength="80" placeholder="微信 / 手机号 / 仅站内联系" /></label>
+      <label class="file-drop"><input type="file" id="lostfound-form-image" accept="image/png,image/jpeg,image/webp" /><span>${icon('upload')} 添加物品照片（可选）</span><small>不超过 2MB。</small></label>
+      <div class="learning-form-row"><button type="button" class="primary-btn" data-lostfound-submit="${escapeAttr(kind)}">${isFound ? '发布招领' : '发布寻物'}</button></div>
+    </div>`);
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = () => reject(new Error('图片读取失败'));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function submitLostFound(kind) {
+  const campus = $('#lostfound-form-campus')?.value || '';
+  const title = $('#lostfound-form-title')?.value.trim() || '';
+  if (!campus || !title) {
+    toast('请选择校区并填写物品标题。');
+    return;
+  }
+  const file = $('#lostfound-form-image')?.files?.[0];
+  if (file && file.size > 2 * 1024 * 1024) {
+    toast('图片不能超过 2MB。');
+    return;
+  }
+  try {
+    const imageData = file ? await readFileAsDataURL(file) : '';
+    await api('/community/lost-found', {
+      method: 'POST',
+      body: {
+        kind,
+        campus,
+        title,
+        description: $('#lostfound-form-description')?.value.trim() || '',
+        category: $('#lostfound-form-category')?.value.trim() || '',
+        keywords: $('#lostfound-form-keywords')?.value.trim() || '',
+        place: $('#lostfound-form-place')?.value.trim() || '',
+        contact: $('#lostfound-form-contact')?.value.trim() || '',
+        image_data: imageData,
+      },
+    });
+    state.lostFoundCampus = campus;
+    state.lostFoundKind = kind;
+    state.lostFoundQuery = title;
+    closeDrawer();
+    await renderLostFoundPage();
+    toast('已发布，正在显示可能匹配。');
+  } catch (error) {
+    toast(error.message, 'error');
+  }
+}
+
+async function closeLostFound(itemId) {
+  if (!window.confirm('标记这条记录为已解决？')) return;
+  try {
+    await api(`/community/lost-found/${itemId}/close`, { method: 'POST' });
+    await renderLostFoundPage();
+    toast('已标记为解决。');
+  } catch (error) {
+    toast(error.message, 'error');
+  }
+}
+
+async function renderFeedbackPage() {
+  const page = $('#feedback-page');
+  if (!page) return;
+  page.innerHTML = '<div class="page-inner"><p class="muted-text">正在加载意见反馈…</p></div>';
+  try {
+    const data = await api('/community/feedback');
+    state.feedbackData = data;
+    const items = data.items || [];
+    page.innerHTML = `
+      <div class="page-inner feedback-page">
+        <div class="page-head">
+          <div><span class="eyebrow">FEEDBACK</span><h1>意见反馈</h1><p>${data.staff_view ? '辅导员 / 管理人员视图：可看到非匿名反馈的提交人。' : '对教学、后勤、设施或学生服务提出建议；可以匿名。'}</p></div>
+        </div>
+        <div class="feedback-layout">
+          <section class="section-card feedback-form-card">
+            <div class="section-head"><div><h3>提交意见</h3><p class="section-sub">学校会按类别汇总；匿名反馈不展示姓名。</p></div></div>
+            <label class="login-field"><span>类别</span><select id="feedback-category" class="select-input">${['教学', '后勤', '校园设施', '学生服务', '其他'].map((value) => `<option>${value}</option>`).join('')}</select></label>
+            <label class="login-field"><span>内容</span><textarea id="feedback-content" class="learning-textarea" rows="5" maxlength="2000" placeholder="描述你遇到的问题或建议"></textarea></label>
+            <label class="feedback-anonymous"><input type="checkbox" id="feedback-anonymous" /> 匿名提交（辅导员端不显示姓名）</label>
+            <button type="button" class="primary-btn" data-feedback-submit>${icon('send')} 提交反馈</button>
+          </section>
+          <section class="section-card">
+            <div class="section-head"><div><h3>${data.staff_view ? '学生反馈' : '我的反馈'}</h3><span class="learning-count">${items.length} 条</span></div></div>
+            <div class="feedback-list">
+              ${items.length ? items.map((item) => `
+                <article class="feedback-item">
+                  <div class="feedback-meta"><span>${escapeHtml(item.category)}</span><small>${escapeHtml((item.created_at || '').slice(0, 16).replace('T', ' '))}</small>${item.anonymous ? '<em>匿名</em>' : ''}</div>
+                  <p>${escapeHtml(item.content)}</p>
+                  ${data.staff_view ? `<small>${escapeHtml(item.anonymous ? '匿名学生' : `${item.owner_name} · ${item.owner_college || ''}`)}</small>` : ''}
+                </article>`).join('') : '<p class="muted-text">还没有反馈。</p>'}
+            </div>
+          </section>
+        </div>
+      </div>`;
+  } catch (error) {
+    page.innerHTML = errorPage(error.message, 'feedback');
+  }
+}
+
+async function submitFeedback() {
+  const content = $('#feedback-content')?.value.trim() || '';
+  if (content.length < 2) {
+    toast('请填写反馈内容。');
+    return;
+  }
+  try {
+    await api('/community/feedback', {
+      method: 'POST',
+      body: {
+        category: $('#feedback-category')?.value || '其他',
+        content,
+        anonymous: Boolean($('#feedback-anonymous')?.checked),
+      },
+    });
+    $('#feedback-content').value = '';
+    await renderFeedbackPage();
+    toast('反馈已提交。');
+  } catch (error) {
+    toast(error.message, 'error');
+  }
 }
 
 async function loadNotifications() {
@@ -974,16 +1190,14 @@ async function navigate(route, { push = true } = {}) {
       handoff: 'handoff',
       audit: 'audit',
       knowledge: 'knowledge',
+      'lost-found': 'lostfound',
+      feedback: 'feedback',
       students: 'students',
       evaluation: 'evaluation',
       system: 'system',
     };
     if (sectionMap[route]) {
       state.campusSection = sectionMap[route];
-      if (isOtherCampusSection(state.campusSection)) {
-        state.otherExpanded = true;
-        localStorage.setItem('zhixing-other-expanded', '1');
-      }
     }
   }
   state.route = route;
@@ -1005,6 +1219,8 @@ async function navigate(route, { push = true } = {}) {
   if (route === 'handoff') await renderHandoffPage();
   if (route === 'audit') await renderAuditPage();
   if (route === 'knowledge') await renderKnowledgePage();
+  if (route === 'lostfound') await renderLostFoundPage();
+  if (route === 'feedback') await renderFeedbackPage();
   if (route === 'students') await renderStudentsPage();
   if (route === 'evaluation') await renderEvaluationPage();
   if (route === 'system') await renderSystemPage();
@@ -1099,6 +1315,11 @@ function bindEvents() {
       event.preventDefault();
       readStudentFilters();
       renderStudentsPage();
+    }
+    if (event.key === 'Enter' && event.target.id === 'lostfound-search') {
+      event.preventDefault();
+      state.lostFoundQuery = event.target.value.trim();
+      renderLostFoundPage();
     }
   });
 
@@ -3096,6 +3317,45 @@ async function copyText(text) {
 async function handleDocumentClick(event) {
   const target = event.target;
 
+  const lostFoundOpen = target.closest('[data-lostfound-open]');
+  if (lostFoundOpen) {
+    event.preventDefault();
+    openLostFoundForm(lostFoundOpen.dataset.lostfoundOpen);
+    return;
+  }
+  const lostFoundKind = target.closest('[data-lostfound-kind]');
+  if (lostFoundKind) {
+    event.preventDefault();
+    state.lostFoundKind = lostFoundKind.dataset.lostfoundKind;
+    await renderLostFoundPage();
+    return;
+  }
+  const lostFoundSearch = target.closest('[data-lostfound-search]');
+  if (lostFoundSearch) {
+    event.preventDefault();
+    state.lostFoundQuery = $('#lostfound-search')?.value.trim() || '';
+    await renderLostFoundPage();
+    return;
+  }
+  const lostFoundClose = target.closest('[data-lostfound-close]');
+  if (lostFoundClose) {
+    event.preventDefault();
+    await closeLostFound(lostFoundClose.dataset.lostfoundClose);
+    return;
+  }
+  const lostFoundSubmit = target.closest('[data-lostfound-submit]');
+  if (lostFoundSubmit) {
+    event.preventDefault();
+    await submitLostFound(lostFoundSubmit.dataset.lostfoundSubmit);
+    return;
+  }
+  const feedbackSubmit = target.closest('[data-feedback-submit]');
+  if (feedbackSubmit) {
+    event.preventDefault();
+    await submitFeedback();
+    return;
+  }
+
   const navChip = target.closest('[data-nav-mode][data-nav-section]');
   if (navChip) {
     event.preventDefault();
@@ -3104,16 +3364,6 @@ async function handleDocumentClick(event) {
     } else {
       navigateCampusSection(navChip.dataset.navSection);
     }
-    return;
-  }
-
-  const campusGroup = target.closest('[data-campus-group="other"]');
-  if (campusGroup) {
-    event.preventDefault();
-    state.otherExpanded = !state.otherExpanded;
-    localStorage.setItem('zhixing-other-expanded', state.otherExpanded ? '1' : '0');
-    renderSidebarNav();
-    setActiveNavigation();
     return;
   }
 
@@ -3381,6 +3631,11 @@ async function handleDocumentClick(event) {
 }
 
 async function handleDocumentChange(event) {
+  if (event.target.id === 'lostfound-campus') {
+    state.lostFoundCampus = event.target.value;
+    await renderLostFoundPage();
+    return;
+  }
   if (
     ['student-college-filter', 'student-cohort-filter', 'student-major-filter', 'student-status-filter'].includes(
       event.target.id

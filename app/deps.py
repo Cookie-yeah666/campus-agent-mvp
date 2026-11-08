@@ -15,6 +15,7 @@ from app.auth.service import AuthService
 from app.agents.workflow_agent import WorkflowAgent
 from app.audit.idempotency import IdempotencyStore
 from app.audit.logger import AuditLogger
+from app.community import CommunityStore
 from app.config import Settings, get_settings
 from app.core.logging import configure_logging, get_logger
 from app.evaluation.runner import EvaluationRunner
@@ -59,6 +60,7 @@ class AppContainer:
         self.tool_registry = ToolRegistry(self.campus_service, settings)
         self.audit = AuditLogger(settings)
         self.notifications = NotificationStore(settings.data_dir / "notifications.json")
+        self.community = CommunityStore(settings.data_dir / "community.db")
         self.idempotency = IdempotencyStore(settings)
         self.workorder_store = WorkOrderStore(settings)
         self.session_store = SessionStore(settings)
