@@ -40,9 +40,12 @@ const CAMPUS_NAV = [
   { section: 'card-reissue', route: 'chat', icon: 'ticket', label: '校园卡补办' },
   { section: 'network-repair', route: 'chat', icon: 'pulse', label: '网络报修' },
   { section: 'leave', route: 'chat', icon: 'clock', label: '请假申请' },
-  { section: 'workorders', route: 'workorders', icon: 'ticket', label: '工单中心' },
   { section: 'approvals', route: 'workorders', icon: 'shield', label: '审批中心', staffOnly: true },
   { section: 'handoff', route: 'handoff', icon: 'users', label: '人工坐席', staffOnly: true },
+];
+
+const OTHER_NAV = [
+  { section: 'workorders', route: 'workorders', icon: 'ticket', label: '工单中心' },
   { section: 'knowledge', route: 'knowledge', icon: 'book', label: '知识库' },
   { section: 'evaluation', route: 'evaluation', icon: 'chart', label: '评测中心' },
   { section: 'notifications', action: 'notifications', icon: 'bell', label: '通知中心' },
@@ -107,6 +110,7 @@ const state = {
   lastCampusSection: localStorage.getItem('zhixing-campus-section') || 'home',
   lastLearningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
   campusSection: localStorage.getItem('zhixing-campus-section') || 'home',
+  otherExpanded: localStorage.getItem('zhixing-other-expanded') === '1',
   learningTab: localStorage.getItem('zhixing-learning-tab') || 'focus',
   user: null,
   token: localStorage.getItem('zhixing-token') || '',
@@ -304,6 +308,10 @@ function defaultRoute() {
   return allowedRoutes().includes('campus') ? 'campus' : 'workorders';
 }
 
+function isOtherCampusSection(section) {
+  return OTHER_NAV.some((item) => item.section === section);
+}
+
 function canSeeCampusItem(item) {
   if (item.staffOnly && !['counselor', 'auditor', 'admin'].includes(state.user?.role)) {
     return false;
@@ -341,21 +349,29 @@ function renderSidebarNav() {
     return;
   }
 
+  const renderItem = (item) => {
+    if (item.action === 'notifications') {
+      return `<button type="button" class="nav-item" data-campus-action="notifications">
+        <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
+      </button>`;
+    }
+    const active = state.campusSection === item.section;
+    return `<a href="#/campus/${escapeAttr(item.section)}" class="nav-item ${active ? 'is-active' : ''}"
+      data-campus-section="${escapeAttr(item.section)}" data-route="${escapeAttr(item.route)}">
+      <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
+    </a>`;
+  };
+  const otherItems = OTHER_NAV.filter(canSeeCampusItem);
   nav.innerHTML = `
     <div class="nav-section-label">校园事务</div>
-    ${CAMPUS_NAV.filter(canSeeCampusItem).map((item) => {
-      if (item.action === 'notifications') {
-        return `<button type="button" class="nav-item" data-campus-action="notifications">
-          <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
-        </button>`;
-      }
-      const active = state.campusSection === item.section;
-      return `<a href="#/campus/${escapeAttr(item.section)}" class="nav-item ${active ? 'is-active' : ''}"
-        data-campus-section="${escapeAttr(item.section)}" data-route="${escapeAttr(item.route)}">
-        <svg class="icon"><use href="#i-${item.icon}"></use></svg><span>${escapeHtml(item.label)}</span>
-        ${item.section === 'workorders' ? '<span class="nav-badge" id="nav-workorder-badge" hidden>0</span>' : ''}
-      </a>`;
-    }).join('')}`;
+    ${CAMPUS_NAV.filter(canSeeCampusItem).map(renderItem).join('')}
+    <button type="button" class="nav-item nav-group-toggle" data-campus-group="other"
+      aria-expanded="${state.otherExpanded ? 'true' : 'false'}">
+      <svg class="icon"><use href="#i-menu"></use></svg><span>其他</span>
+      <span class="nav-badge" id="nav-workorder-badge" hidden>0</span>
+      <svg class="icon nav-group-chevron"><use href="#i-chevron"></use></svg>
+    </button>
+    ${state.otherExpanded ? otherItems.map(renderItem).join('') : ''}`;
 }
 
 function setActiveNavigation() {
@@ -367,6 +383,12 @@ function setActiveNavigation() {
     if (active) item.setAttribute('aria-current', 'page');
     else item.removeAttribute('aria-current');
   });
+  const otherToggle = $('#main-nav .nav-group-toggle[data-campus-group="other"]');
+  if (otherToggle) {
+    const otherActive = OTHER_NAV.some((item) => item.section === state.campusSection);
+    otherToggle.classList.toggle('is-active', otherActive);
+    otherToggle.setAttribute('aria-expanded', state.otherExpanded ? 'true' : 'false');
+  }
 }
 
 function setHash(hash) {
@@ -377,10 +399,42 @@ function setHash(hash) {
   location.hash = hash;
 }
 
-function navigateCampusSection(section) {
+async function startCampusService(section) {
+  const prompt = CAMPUS_PROMPTS[section];
+  if (!prompt || state.sending) return;
   state.mode = 'campus';
   state.campusSection = section;
   state.lastCampusSection = section;
+  localStorage.setItem('zhixing-mode', 'campus');
+  localStorage.setItem('zhixing-campus-section', section);
+  renderSidebarNav();
+  setActiveNavigation();
+
+  // 服务入口不预先塞一句“我要补办…”，而是像在对话里输入后发送一样，
+  // 直接启动对应工作流。当前没有进行中的工单时沿用当前会话；有旧工单时
+  // 开一个干净会话，避免把新业务塞进旧工作流。
+  if (!state.sessionId || state.workorder) {
+    const session = await createSession({ silent: true });
+    if (!session) return;
+  } else {
+    await navigate('chat', { push: false });
+  }
+  history.pushState(null, '', `#/campus/${section}`);
+  await sendMessage(prompt);
+}
+
+function navigateCampusSection(section) {
+  if (CAMPUS_PROMPTS[section]) {
+    startCampusService(section).catch((error) => toast(error.message || '启动办理失败', 'error'));
+    return;
+  }
+  state.mode = 'campus';
+  state.campusSection = section;
+  state.lastCampusSection = section;
+  if (isOtherCampusSection(section)) {
+    state.otherExpanded = true;
+    localStorage.setItem('zhixing-other-expanded', '1');
+  }
   localStorage.setItem('zhixing-mode', 'campus');
   localStorage.setItem('zhixing-campus-section', section);
   renderSidebarNav();
@@ -417,7 +471,10 @@ function toggleAppMode() {
     }
     navigateLearningSection(state.lastLearningTab || 'focus');
   } else {
-    navigateCampusSection(state.lastCampusSection || 'home');
+    const target = CAMPUS_PROMPTS[state.lastCampusSection]
+      ? 'home'
+      : state.lastCampusSection || 'home';
+    navigateCampusSection(target);
   }
 }
 
@@ -921,7 +978,13 @@ async function navigate(route, { push = true } = {}) {
       evaluation: 'evaluation',
       system: 'system',
     };
-    if (sectionMap[route]) state.campusSection = sectionMap[route];
+    if (sectionMap[route]) {
+      state.campusSection = sectionMap[route];
+      if (isOtherCampusSection(state.campusSection)) {
+        state.otherExpanded = true;
+        localStorage.setItem('zhixing-other-expanded', '1');
+      }
+    }
   }
   state.route = route;
   document.body.classList.toggle('mode-learning', state.mode === 'learning');
@@ -3041,6 +3104,16 @@ async function handleDocumentClick(event) {
     } else {
       navigateCampusSection(navChip.dataset.navSection);
     }
+    return;
+  }
+
+  const campusGroup = target.closest('[data-campus-group="other"]');
+  if (campusGroup) {
+    event.preventDefault();
+    state.otherExpanded = !state.otherExpanded;
+    localStorage.setItem('zhixing-other-expanded', state.otherExpanded ? '1' : '0');
+    renderSidebarNav();
+    setActiveNavigation();
     return;
   }
 

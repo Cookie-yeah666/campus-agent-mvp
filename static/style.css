@@ -4587,3 +4587,38 @@ button.nav-item.is-active {
     min-height: 150px;
   }
 }
+
+/* “其他”折叠分组 */
+.nav-group-toggle {
+  justify-content: flex-start;
+}
+
+.nav-group-chevron {
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 6px;
+  transition: transform 0.16s ease;
+}
+
+.nav-group-toggle[aria-expanded="true"] .nav-group-chevron {
+  transform: rotate(90deg);
+}
+
+.nav-group-toggle .nav-badge {
+  margin-left: auto;
+}
+
+/* 折叠“其他”后，主导航不再需要滚动；给最近会话保留稳定高度 */
+.main-nav {
+  max-height: 42vh;
+}
+
+@media (max-height: 760px) {
+  .main-nav {
+    max-height: 42vh;
+  }
+
+  .session-block {
+    min-height: 150px;
+  }
+}
