@@ -400,9 +400,9 @@ async function startCampusService(section) {
   setActiveNavigation();
 
   // 服务入口不预先塞一句“我要补办…”，而是像在对话里输入后发送一样，
-  // 直接启动对应工作流。当前没有进行中的工单时沿用当前会话；有旧工单时
-  // 开一个干净会话，避免把新业务塞进旧工作流。
-  if (!state.sessionId || state.workorder) {
+  // 直接启动对应工作流。服务入口始终使用干净会话，避免把上一段聊天或
+  // 上一个工单显示在新业务里；只有当前会话本来就是空白时才复用。
+  if (!state.sessionId || state.messages.length > 0 || state.workorder) {
     const session = await createSession({ silent: true });
     if (!session) return;
   } else {
