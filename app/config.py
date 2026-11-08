@@ -28,7 +28,7 @@ class Settings(BaseSettings):
 
     # ---------- 基础信息 ----------
     app_name: str = "知行 · 校园智能服务助手"
-    app_version: str = "V26.1108.2"
+    app_version: str = "V26.1108.3"
     app_description: str = "有依据地回答，有回执地办事：双 Agent 校园服务助手"
     debug: bool = False
     host: str = "127.0.0.1"
