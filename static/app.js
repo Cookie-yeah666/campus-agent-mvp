@@ -514,7 +514,7 @@ function renderCampusHomePage() {
     ['workorders', 'ticket', '工单中心', '查看办理状态、回执与审批', 'tone-slate'],
     ['knowledge', 'book', '知识库', '制度原文、条款引用与检索', 'tone-indigo'],
     ['evaluation', 'chart', '评测中心', '检索、引用、拒答与任务指标', 'tone-teal'],
-  ];
+  ].filter(([section]) => chatAllowed || !['card-reissue', 'network-repair', 'leave'].includes(section));
   page.innerHTML = `
     <div class="page-inner campus-home">
       <div class="page-head campus-home-head">
