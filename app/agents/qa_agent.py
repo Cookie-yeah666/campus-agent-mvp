@@ -117,6 +117,12 @@ class QAAgent(BaseAgent):
                 # 换话题但仍是短追问：补上“条件/要求”，让检索落到具体条款，
                 # 而不是停在“总则/适用范围”。
                 retrieval_query = f"{normalized} 条件 要求"
+        elif is_follow_up and current_topics and any(
+            message.role == MessageRole.USER for message in (session.messages[:-1] or [])
+        ):
+            # 上下文已因换话题被清空时，仍只补当前话题的限定词，
+            # 不把上一话题拼进来；首轮问题不补，避免把“材料”问成“条件”。
+            retrieval_query = f"{normalized} 条件 要求"
         bundle, rewrites = self._retriever.search_for_qa(
             retrieval_query, context=context_questions
         )

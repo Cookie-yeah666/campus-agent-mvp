@@ -31,6 +31,23 @@ from app.workflow.engine import TERMINAL_STATUSES, WorkflowEngine
 HANDOFF_WORDS = ("转人工", "人工客服", "找人工", "人工咨询", "联系人工")
 WORKORDER_LOOKUP_WORDS = {"查看工单", "查看工单详情", "查询工单"}
 
+# 同一会话内按话题隔离 QA 上下文。新话题不继承上一话题，短追问才继承。
+WORKFLOW_TOPICS = {
+    "card_reissue": "校园卡",
+    "network_repair": "网络",
+    "leave_request": "请假",
+}
+
+TOPIC_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("奖学金", ("奖学金", "助学金", "助学贷款", "勤工助学", "资助")),
+    ("转专业", ("转专业", "转系")),
+    ("校园卡", ("校园卡", "补卡", "补办", "挂失", "工本费")),
+    ("图书", ("借阅", "续借", "逾期", "自习室", "座位", "电子资源", "数据库")),
+    ("请假", ("请假", "销假", "旷课", "门禁", "晚归")),
+    ("教务", ("选课", "学分", "成绩", "补考", "重修", "缓考", "作弊", "处分")),
+    ("网络", ("网络", "报修", "断网", "网线", "维修")),
+)
+
 
 def _now() -> datetime:
     """当前 UTC 时间。"""
@@ -72,7 +89,27 @@ class ChatService:
             if request.session_id
             else self._sessions.create(owner=owner)
         )
-        history = list(session.messages)
+        active = self._active_workorder(session)
+        active_topic = WORKFLOW_TOPICS.get(getattr(active, "workflow_type", ""))
+        message_topic = self._detect_topic(request.message)
+        topic_conflict = bool(
+            active
+            and active_topic
+            and message_topic
+            and message_topic != active_topic
+        )
+        # 用户中途问了另一个话题后，原工单先暂停；后续短追问继续 QA，
+        # 只有明确回到原话题或说“确认/取消”时才恢复工单。
+        if active and session.variables.get("workflow_suspended"):
+            explicit_resume = request.message.strip() in {"确认", "确认提交", "取消", "提交"}
+            if explicit_resume or (message_topic and message_topic == active_topic):
+                session.variables["workflow_suspended"] = False
+                topic_conflict = False
+            else:
+                topic_conflict = True
+        elif active and topic_conflict:
+            session.variables["workflow_suspended"] = True
+        history = self._context_history(session, request.message, active, topic_conflict)
         started = time.perf_counter()
 
         user_message = self._build_message(MessageRole.USER, request.message)
@@ -84,7 +121,6 @@ class ChatService:
             {"role": "user", "content": request.message},
         )
 
-        active = self._active_workorder(session)
         intent = IntentType.QA.value
         intent_confidence = 0.0
         router_result: RouterResult | None = None
@@ -97,7 +133,7 @@ class ChatService:
             reply = self._workorder_lookup_reply(session)
             intent = IntentType.WORKFLOW.value
             intent_confidence = 0.9
-        elif active is not None:
+        elif active is not None and not topic_conflict:
             reply = await self._workflow.handle(
                 session,
                 request.message,
@@ -304,6 +340,56 @@ class ChatService:
         if workorder.status in TERMINAL_STATUSES:
             return None
         return workorder
+
+    @staticmethod
+    def _detect_topic(text: str) -> str | None:
+        """识别当前问题所属的校园话题。"""
+        for topic, hints in TOPIC_GROUPS:
+            if any(hint in text for hint in hints):
+                return topic
+        return None
+
+    @staticmethod
+    def _is_context_follow_up(text: str) -> bool:
+        """判断是否是依赖上一轮的短追问，而不是独立新问题。"""
+        cleaned = text.strip()
+        if not cleaned:
+            return False
+        if len(cleaned) <= 12:
+            return True
+        return cleaned.endswith(("呢", "吗", "么")) or cleaned.startswith(
+            ("那", "这", "它", "他们", "还有", "如果")
+        )
+
+    def _context_history(
+        self,
+        session: ChatSession,
+        text: str,
+        active: Any | None,
+        topic_conflict: bool = False,
+    ) -> list[ChatMessage]:
+        """按话题裁剪上下文：新话题重置，短追问保留最近几轮。
+
+        会话历史仍完整落库；这里只控制送给 Router/QA 的上下文窗口，
+        避免“补办卡后问奖学金”被上一话题带偏。
+        """
+        history = list(session.messages)
+        if active is not None and not topic_conflict:
+            return history
+
+        current_topic = self._detect_topic(text)
+        previous_topic = session.variables.get("last_topic")
+        if current_topic:
+            session.variables["last_topic"] = current_topic
+            if previous_topic and previous_topic != current_topic:
+                return []
+            return history[-8:]
+        if previous_topic and self._is_context_follow_up(text):
+            return history[-8:]
+        if previous_topic:
+            # 没有明确话题、也不是短追问：当作独立问题，不继承旧话题。
+            return []
+        return history[-8:]
 
     def _last_intent(self, session: ChatSession) -> IntentType | None:
         """读取上一轮意图。"""

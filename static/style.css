@@ -4529,3 +4529,61 @@ button.nav-item.is-active {
     margin-top: 10px;
   }
 }
+
+/* 给“最近会话”更多竖直空间，压缩导航与底部控件 */
+.main-nav {
+  max-height: 34vh;
+}
+
+.session-block {
+  min-height: 178px;
+  padding-top: 12px;
+}
+
+.session-list {
+  gap: 6px;
+}
+
+.session-item {
+  padding: 10px 11px;
+}
+
+.mode-switch {
+  margin: 6px 0 2px;
+  padding-top: 6px;
+}
+
+.mode-switch-btn {
+  gap: 8px;
+  padding: 7px 9px;
+}
+
+.mode-switch-icon {
+  flex-basis: 23px;
+  width: 23px;
+  height: 23px;
+}
+
+.mode-switch-copy small {
+  font-size: 7px;
+}
+
+.sidebar-user {
+  margin: 5px 0 7px;
+  padding: 8px 9px;
+}
+
+.sidebar-footer {
+  margin-top: 6px;
+  padding-top: 8px;
+}
+
+@media (max-height: 760px) {
+  .main-nav {
+    max-height: 28vh;
+  }
+
+  .session-block {
+    min-height: 150px;
+  }
+}
